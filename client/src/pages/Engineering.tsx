@@ -1,5 +1,6 @@
 import type { CSSProperties, UIEvent, WheelEvent } from "react";
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { ArrowUpRight, Github, Sigma, Box, Code, Lightbulb, Trophy } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 import HandGestureControl from "@/components/HandGestureControl";
@@ -29,7 +30,8 @@ export default function Engineering() {
       period: "2025",
       description:
         "Solo Founder. Automated maintenance requests and rent reminders for NYC landlords. Acquired by early beta user.",
-      image: "/images/unitbot-zoomed.png",
+      image: "/images/unitbot.png",
+      imagePosition: "0% center",
       link: null
     },
     {
@@ -133,6 +135,7 @@ export default function Engineering() {
   ];
 
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
+  const [activeJob, setActiveJob] = useState<(typeof corporate)[number] | null>(null);
 
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
@@ -240,61 +243,89 @@ export default function Engineering() {
         {/* Experience Section */}
         <section className="space-y-6 mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {corporate.map((job) => {
-              const card = (
-                <>
-                  <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
-                    <img
-                      src={job.image}
-                      alt={job.company}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {job.link && (
-                      <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
-                        <ArrowUpRight className="h-3 w-3 text-black" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="flex justify-between items-baseline mb-1">
-                    <h3 className="text-base font-sans font-semibold text-black group-hover:underline decoration-1 underline-offset-4 transition-all">
-                      {job.company}
-                    </h3>
-                    <span className="font-sans text-sm text-gray-400">
-                      {job.period}
-                    </span>
-                  </div>
-                  <div className="text-gray-500 font-sans text-sm leading-relaxed">
-                    {job.description}
-                  </div>
-                </>
-              );
-
-              if (job.link) {
-                return (
-                  <a
-                    key={`${job.company}-${job.period}`}
-                    href={job.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex flex-col cursor-pointer"
-                  >
-                    {card}
-                  </a>
-                );
-              }
-
-              return (
-                <div
-                  key={`${job.company}-${job.period}`}
-                  className="group flex flex-col"
-                >
-                  {card}
+            {corporate.map((job) => (
+              <button
+                key={`${job.company}-${job.period}`}
+                type="button"
+                className="group flex flex-col text-left cursor-pointer"
+                onClick={() => setActiveJob(job)}
+              >
+                <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
+                  <img
+                    src={job.image}
+                    alt={job.company}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={job.imagePosition ? { objectPosition: job.imagePosition } : undefined}
+                  />
                 </div>
-              );
-            })}
+                <div className="flex justify-between items-baseline mb-1">
+                  <h3 className="text-base font-sans font-semibold text-black group-hover:underline decoration-1 underline-offset-4 transition-all">
+                    {job.company}
+                  </h3>
+                  <span className="font-sans text-sm text-gray-400">
+                    {job.period}
+                  </span>
+                </div>
+                <div className="text-gray-500 font-sans text-sm leading-relaxed">
+                  {job.description}
+                </div>
+              </button>
+            ))}
           </div>
         </section>
       </section>
+
+      {activeJob &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
+            onClick={() => setActiveJob(null)}
+            onMouseDown={() => setActiveJob(null)}
+          >
+            <div
+              className="relative w-full max-w-3xl bg-white border border-gray-200 shadow-lg"
+              onClick={(event) => event.stopPropagation()}
+              onMouseDown={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveJob(null)}
+                className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+              >
+                close
+              </button>
+              <div className="p-6 space-y-5">
+                <div className="aspect-[16/9] overflow-hidden rounded-xl bg-gray-100 border border-gray-100">
+                  <img
+                    src={activeJob.image}
+                    alt={activeJob.company}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <div className="text-xl font-sans font-semibold text-black">{activeJob.company}</div>
+                  <div className="text-sm font-sans text-gray-400">{activeJob.period}</div>
+                </div>
+                <div className="text-sm font-sans text-gray-600">{activeJob.role}</div>
+                <div className="text-sm font-sans text-gray-500 leading-relaxed">
+                  {activeJob.description}
+                </div>
+                {activeJob.link && (
+                  <a
+                    href={activeJob.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                  >
+                    Visit site
+                    <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
 
       {/* Engineering Teams */}
       <section className="space-y-6 pb-20">
@@ -373,37 +404,39 @@ export default function Engineering() {
         </div>
       </section>
 
-      {activeLightboxUrl && (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
-          onClick={() => setActiveLightboxUrl(null)}
-        >
+      {activeLightboxUrl &&
+        createPortal(
           <div
-            className="relative w-full max-w-4xl bg-black"
-            onClick={(event) => event.stopPropagation()}
+            className="fixed inset-0 z-50 bg-black/70 grid place-items-center px-4 py-8"
+            onClick={() => setActiveLightboxUrl(null)}
           >
-            <button
-              type="button"
-              onClick={() => setActiveLightboxUrl(null)}
-              className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+            <div
+              className="relative w-full max-w-4xl bg-black mx-auto"
+              onClick={(event) => event.stopPropagation()}
             >
-              close
-            </button>
-            <div className="aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src={`${activeLightboxUrl}${activeLightboxUrl.includes("?") ? "&" : "?"}autoplay=1`}
-                title="Rice Eclipse Video"
-                frameBorder="0"
-                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
+              <button
+                type="button"
+                onClick={() => setActiveLightboxUrl(null)}
+                className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+              >
+                close
+              </button>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`${activeLightboxUrl}${activeLightboxUrl.includes("?") ? "&" : "?"}autoplay=1`}
+                  title="Rice Eclipse Video"
+                  frameBorder="0"
+                  allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
 
       {/* Robotics Media */}
       <section className="space-y-8 pb-20 -mt-8">
