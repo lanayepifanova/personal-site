@@ -9,7 +9,10 @@ export default function MediaKit() {
   });
 
   useEffect(() => {
-    window.location.replace("/media-kit/");
+    const { pathname } = window.location;
+    if (pathname !== "/media-kit/" && pathname !== "/media-kit/index.html") {
+      window.location.replace("/media-kit/");
+    }
   }, []);
 
   return (
