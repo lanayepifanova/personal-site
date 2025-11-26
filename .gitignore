@@ -61,6 +61,9 @@ jspm_packages/
 # Optional npm cache directory
 .npm
 
+# Python virtual environments
+.venv/
+
 # Optional eslint cache
 .eslintcache
 
