@@ -137,7 +137,7 @@ export default function Engineering() {
           twitter
         </a>
         <a 
-          href="https://substack.com/@lanayepifanova" 
+          href="https://substack.com/@lanayepifanova/posts" 
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
