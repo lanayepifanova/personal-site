@@ -56,7 +56,10 @@ export default function Media() {
   const pianoVideos = [
     "https://www.youtube.com/embed/jxJ8cFxw4qI", // Chopin Fantasie
     "https://www.youtube.com/embed/_DiAbZRqQZg", // Nino Rota
-    "https://www.youtube.com/embed/9fDRZKqb4Uo" // Sarasate
+    "https://www.youtube.com/embed/9fDRZKqb4Uo", // Sarasate
+    "https://www.youtube.com/embed/a_EnF8O21MM",
+    "https://www.youtube.com/embed/0j8_bvgiJjA",
+    "https://www.youtube.com/embed/IvDVrmW9zbM"
   ];
 
   return (
