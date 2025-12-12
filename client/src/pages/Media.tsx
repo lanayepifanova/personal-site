@@ -170,51 +170,6 @@ export default function Media() {
         </div>
       </section>
 
-      {/* Featured In */}
-      <section className="space-y-12">
-        <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2 max-w-2xl mx-auto">
-          Featured In
-        </h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="space-y-3 group">
-            <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/_a4pVwbSWVM?start=8" 
-                title="Internship Experience"
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                className="w-full h-full transition-all duration-500"
-              ></iframe>
-            </div>
-            <h3 className="text-sm font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
-              My Internship Experience
-            </h3>
-          </div>
-
-          <div className="space-y-3 group">
-            <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src="https://www.youtube.com/embed/Q_vUCSFl2bc" 
-                title="Featured Video 2"
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                className="w-full h-full transition-all duration-500"
-              ></iframe>
-            </div>
-            <h3 className="text-sm font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
-              My Hacker House Experience
-            </h3>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 }
