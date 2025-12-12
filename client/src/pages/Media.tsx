@@ -59,7 +59,10 @@ export default function Media() {
     "https://www.youtube.com/embed/9fDRZKqb4Uo", // Sarasate
     "https://www.youtube.com/embed/a_EnF8O21MM",
     "https://www.youtube.com/embed/0j8_bvgiJjA",
-    "https://www.youtube.com/embed/IvDVrmW9zbM"
+    "https://www.youtube.com/embed/IvDVrmW9zbM",
+    "https://www.youtube.com/embed/PGjPOv8XLU8",
+    "https://www.youtube.com/embed/DBjDQb_Dxt4",
+    "https://www.youtube.com/embed/u9M29JFT3eo"
   ];
 
   return (
