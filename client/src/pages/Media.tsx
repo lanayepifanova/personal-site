@@ -29,51 +29,34 @@ export default function Media() {
   const partnerships = [
     {
       title: "kalshi x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM"
+      videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "kimi.ai x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/hFdhKgM0giM"
+      videoUrl: "https://www.youtube.com/embed/hFdhKgM0giM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "lilys.ai x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/Hy2PwiCcorg"
+      videoUrl: "https://www.youtube.com/embed/Hy2PwiCcorg?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "manus.ai x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/yDI3W79e3sQ"
+      videoUrl: "https://www.youtube.com/embed/yDI3W79e3sQ?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "runable.ai x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/2EGOU1YG4gk"
+      videoUrl: "https://www.youtube.com/embed/2EGOU1YG4gk?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "VTSP x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/HDjuasybi_c"
+      videoUrl: "https://www.youtube.com/embed/HDjuasybi_c?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
   const pianoVideos = [
-    "https://www.youtube.com/embed/jxJ8cFxw4qI",
-    "https://www.youtube.com/embed/_DiAbZRqQZg",
-    "https://www.youtube.com/embed/9fDRZKqb4Uo",
-    "https://www.youtube.com/embed/ghJWdeuf3YE",
-    "https://www.youtube.com/embed/evRwTdbUobI",
-    "https://www.youtube.com/embed/0j8_bvgiJjA",
-    "https://www.youtube.com/embed/zAqA5kXQoWk",
-    "https://www.youtube.com/embed/DBjDQb_Dxt4",
-    "https://www.youtube.com/embed/dN9tfNfY1nI",
-    "https://www.youtube.com/embed/NkjYG9Ynxb4",
-    "https://www.youtube.com/embed/fa5MnbYxudo",
-    "https://www.youtube.com/embed/u9M29JFT3eo",
-    "https://www.youtube.com/embed/j640cu_XAOM",
-    "https://www.youtube.com/embed/d24gHZXd1xk",
-    "https://www.youtube.com/embed/oINIiGuD-bc",
-    "https://www.youtube.com/embed/IvDVrmW9zbM",
-    "https://www.youtube.com/embed/PGjPOv8XLU8",
-    "https://www.youtube.com/embed/HckykdFiDoc",
-    "https://www.youtube.com/embed/WS9GGS7x4KU",
-    "https://www.youtube.com/embed/a_EnF8O21MM"
+    "https://www.youtube.com/embed/jxJ8cFxw4qI", // Chopin Fantasie
+    "https://www.youtube.com/embed/_DiAbZRqQZg", // Nino Rota
+    "https://www.youtube.com/embed/9fDRZKqb4Uo" // Sarasate
   ];
 
   return (
