@@ -91,7 +91,7 @@ export default function Media() {
 
       {/* Brand Partnerships */}
       <section className="space-y-12 border-b border-gray-100 pb-20">
-        <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2 max-w-2xl mx-auto">
+        <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2">
           Selected Partnerships
         </h2>
         
@@ -120,7 +120,7 @@ export default function Media() {
 
       {/* Piano Channel */}
       <section className="space-y-12 border-b border-gray-100 pb-20">
-        <div className="border-b border-gray-100 pb-2 max-w-2xl mx-auto flex justify-between items-end">
+        <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
           <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest">
             Piano
           </h2>
