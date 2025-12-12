@@ -89,35 +89,6 @@ export default function Media() {
         ))}
       </section>
 
-      {/* Brand Partnerships */}
-      <section className="space-y-12 border-b border-gray-100 pb-20">
-        <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2">
-          Selected Partnerships
-        </h2>
-        
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-6 md:gap-x-6 md:gap-y-8">
-          {partnerships.map((partner, index) => (
-            <div key={index} className="space-y-3 group">
-              <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src={partner.videoUrl} 
-                  title={partner.title}
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                  className="w-full h-full transition-all duration-500"
-                ></iframe>
-              </div>
-              <h3 className="text-sm font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
-                {partner.title}
-              </h3>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Piano Channel */}
       <section className="space-y-12 border-b border-gray-100 pb-20">
         <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
@@ -148,6 +119,35 @@ export default function Media() {
                 allowFullScreen
                 className="w-full h-full"
               ></iframe>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Brand Partnerships */}
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2">
+          Selected Partnerships
+        </h2>
+        
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-6 md:gap-x-6 md:gap-y-8">
+          {partnerships.map((partner, index) => (
+            <div key={index} className="space-y-3 group">
+              <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+                <iframe 
+                  width="100%" 
+                  height="100%" 
+                  src={partner.videoUrl} 
+                  title={partner.title}
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowFullScreen
+                  className="w-full h-full transition-all duration-500"
+                ></iframe>
+              </div>
+              <h3 className="text-sm font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
+                {partner.title}
+              </h3>
             </div>
           ))}
         </div>
