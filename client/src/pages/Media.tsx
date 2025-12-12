@@ -112,7 +112,7 @@ export default function Media() {
           Selected Partnerships
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-6 md:gap-x-6 md:gap-y-8">
           {partnerships.map((partner, index) => (
             <div key={index} className="space-y-3 group">
               <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
