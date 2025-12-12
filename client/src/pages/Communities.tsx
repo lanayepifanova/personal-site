@@ -7,7 +7,7 @@ export default function Communities() {
     <div className="space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
       <header className="border-b border-gray-200 pb-4 flex justify-between items-end">
-        <h1 className="text-2xl font-serif italic text-black">Communities</h1>
+        <h1 className="text-3xl font-sans font-medium text-black tracking-tight">Communities</h1>
         <Heart className="h-4 w-4 text-gray-300 animate-pulse" />
       </header>
 
