@@ -98,14 +98,14 @@ export default function Media() {
       {/* Piano Channel */}
       <section className="space-y-12 border-b border-gray-100 pb-20">
         <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
-          <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest">
+          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
             Piano
           </h2>
           <a 
             href="https://www.youtube.com/@LanaYepifanova"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] font-mono text-gray-400 hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1"
+            className="text-xs font-mono text-gray-400 hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1"
           >
             <Youtube className="h-3 w-3" />
             @LanaYepifanova
@@ -132,7 +132,7 @@ export default function Media() {
 
       {/* Brand Partnerships */}
       <section className="space-y-12 border-b border-gray-100 pb-20">
-        <h2 className="text-xs font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2">
+        <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest border-b border-gray-100 pb-2">
           Selected Partnerships
         </h2>
         
