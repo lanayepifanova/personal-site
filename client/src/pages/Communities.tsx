@@ -3,7 +3,7 @@ import { Heart, ExternalLink, Newspaper, Instagram } from "lucide-react";
 export default function Communities() {
   const campusHighlights = [
     { title: "Co-Ed Varsity Wrestling", image: "/images/wrestling.jpg" },
-    { title: "Rice Club Sailing Team", image: "/images/sailing.jpg" },
+    { title: "Rice Club Sailing Team", image: "/images/sailing.png" },
     { title: "Basyk Dance Team", image: "/images/basyk.JPG" },
     { title: "Chamber Music at Lincoln Center", image: "/images/lincolncenter.JPG" },
     { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
