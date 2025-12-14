@@ -1,7 +1,14 @@
 import { Heart, ExternalLink, Newspaper, Instagram } from "lucide-react";
 
 export default function Communities() {
-
+  const campusHighlights = [
+    { title: "Co-Ed Varsity Wrestling", image: "/images/wrestling.jpg" },
+    { title: "Rice Club Sailing Team", image: "/images/sailing.jpg" },
+    { title: "Basyk Dance Team", image: "/images/basyk.JPG" },
+    { title: "Chamber Music at Lincoln Center", image: "/images/lincolncenter.JPG" },
+    { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
+    { title: "Festival of Nations", image: "/images/festivalofnations.JPG" },
+  ];
 
   return (
     <div className="space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
@@ -195,6 +202,58 @@ export default function Communities() {
 
       </section>
 
+      {/* Campus Life Section */}
+      <section className="space-y-8 border-t border-gray-100 pt-12">
+        <div className="space-y-2">
+          <div className="flex justify-between items-baseline">
+            <h2 className="text-lg font-serif text-black">Rice Campus Life</h2>
+            <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
+          </div>
+          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
+            Favorite ways I&apos;ve plugged into the Rice community—from athletics and performing arts to service trips and residential life.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {campusHighlights.map((item) => (
+            <figure key={item.title} className="space-y-2">
+              <div className="w-full overflow-hidden rounded-sm border border-gray-200 bg-gray-50">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-52 object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption className="text-sm font-serif text-black">{item.title}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="space-y-3">
+          <h3 className="text-sm font-sans font-semibold text-black uppercase tracking-[0.08em]">Will Rice College</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <img
+              src="/images/willricecollege1.JPG"
+              alt="Will Rice College photo 1"
+              className="w-full h-40 object-cover rounded-sm border border-gray-200"
+              loading="lazy"
+            />
+            <img
+              src="/images/willricecollege2.JPG"
+              alt="Will Rice College photo 2"
+              className="w-full h-40 object-cover rounded-sm border border-gray-200"
+              loading="lazy"
+            />
+            <img
+              src="/images/willricecollege3.HEIC"
+              alt="Will Rice College photo 3"
+              className="w-full h-40 object-cover rounded-sm border border-gray-200"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
 
 
     </div>
