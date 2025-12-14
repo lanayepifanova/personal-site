@@ -243,13 +243,13 @@ export default function Communities() {
             <img
               src="/images/willricecollege1.JPG"
               alt="Will Rice College photo 1"
-              className="w-full h-40 object-cover rounded-sm border border-gray-200"
+              className="w-full h-64 object-contain rounded-sm border border-gray-200 bg-gray-50"
               loading="lazy"
             />
             <img
               src="/images/willricecollege2.JPG"
               alt="Will Rice College photo 2"
-              className="w-full h-40 object-cover rounded-sm border border-gray-200"
+              className="w-full h-64 object-contain rounded-sm border border-gray-200 bg-gray-50"
               loading="lazy"
             />
           </div>
