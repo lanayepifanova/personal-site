@@ -232,7 +232,7 @@ export default function Communities() {
 
         <div className="space-y-3">
           <h3 className="text-sm font-sans font-semibold text-black uppercase tracking-[0.08em]">Will Rice College</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <img
               src="/images/willricecollege1.JPG"
               alt="Will Rice College photo 1"
@@ -242,12 +242,6 @@ export default function Communities() {
             <img
               src="/images/willricecollege2.JPG"
               alt="Will Rice College photo 2"
-              className="w-full h-40 object-cover rounded-sm border border-gray-200"
-              loading="lazy"
-            />
-            <img
-              src="/images/willricecollege3.HEIC"
-              alt="Will Rice College photo 3"
               className="w-full h-40 object-cover rounded-sm border border-gray-200"
               loading="lazy"
             />
