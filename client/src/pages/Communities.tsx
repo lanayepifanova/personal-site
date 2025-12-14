@@ -209,9 +209,6 @@ export default function Communities() {
             <h2 className="text-lg font-serif text-black">Rice Campus Life</h2>
             <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
           </div>
-          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-            Favorite ways I&apos;ve plugged into the Rice community—from athletics and performing arts to service trips and residential life.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
