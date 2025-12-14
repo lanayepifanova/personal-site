@@ -82,7 +82,7 @@ export default function Communities() {
             <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
           </div>
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-            I took a gap semester from Rice University to live at the hacker house for Harvard and MIT. This experiencce changed my life. I consider this place my second home.
+            I took a gap semester from Rice University to live at the hacker house for Harvard and MIT. This experience changed my life. I consider this place my second home.
           </p>
           
           <div className="flex gap-4 text-xs font-sans">
