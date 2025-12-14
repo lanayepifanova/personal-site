@@ -130,10 +130,7 @@ export default function Communities() {
                 <h2 className="text-lg font-serif text-black">The Residency</h2>
                 <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
               </div>
-              <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-                A hacker house and community for young builders, fostering deep work and meaningful connections.
-              </p>
-              
+
               <div className="flex gap-4 text-xs font-sans">
                 <a 
                   href="https://www.livetheresidency.com" 
@@ -160,7 +157,7 @@ export default function Communities() {
               <img 
                 src="/images/the-residency.jpeg" 
                 alt="The Residency Community"
-                className="w-full h-auto object-cover"
+                className="w-full h-64 object-cover"
                 loading="lazy"
               />
             </div>
@@ -172,10 +169,7 @@ export default function Communities() {
                 <h2 className="text-lg font-serif text-black">The Collective</h2>
                 <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
               </div>
-              <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-                A tight-knit group of friends and creators, sharing ideas, meals, and late-night board game sessions.
-              </p>
-              
+
               <div className="flex gap-4 text-xs font-sans">
                 <a 
                   href="https://www.thecollectiveny.com" 
@@ -202,7 +196,7 @@ export default function Communities() {
               <img 
                 src="/images/the-collective.jpeg" 
                 alt="The Collective Community"
-                className="w-full h-auto object-cover"
+                className="w-full h-64 object-cover"
                 loading="lazy"
               />
             </div>
