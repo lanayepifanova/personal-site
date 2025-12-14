@@ -1,6 +1,14 @@
 import { Instagram, Youtube, Linkedin } from "lucide-react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Media() {
+  usePageMeta({
+    title: "Lana Yepifanova | Media, Partnerships, and Piano",
+    description:
+      "Media portfolio for Lana Yepifanova — brand partnerships, YouTube and Instagram highlights, and piano performance videos.",
+    canonicalPath: "/media",
+  });
+
   const socials = [
     {
       platform: "Instagram",

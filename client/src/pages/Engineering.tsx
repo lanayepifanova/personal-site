@@ -1,7 +1,15 @@
 import type { KeyboardEvent } from "react";
 import { ArrowUpRight, Youtube, Github, Database, Gamepad2, Twitter, Newspaper } from "lucide-react";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Engineering() {
+  usePageMeta({
+    title: "Lana Yepifanova | Engineering Portfolio",
+    description:
+      "Engineering portfolio of Lana Yepifanova — applied math student at Rice University. Software, data, and product internships across Macquarie, JLL, OEDK, Rudin, SL Green, and more.",
+    canonicalPath: "/",
+  });
+
   const corporate = [
     {
       company: "Macquarie Group",
