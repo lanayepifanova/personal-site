@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  /* Swiss Tech Palette */
+  --background: #FFFFFF;
+  --foreground: #050505;
+  
+  /* Electric Blue Accent */
+  --primary: #2952FF;
+  --primary-foreground: #FFFFFF;
+  
+  /* Light Grays for Structure */
+  --muted: #F5F5F5;
+  --muted-foreground: #666666;
+  
+  --accent: #F0F4FF; /* Very light blue for hover states */
+  --accent-foreground: #2952FF;
+  
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --ring: #2952FF;
+  
+  --radius: 0px; /* Sharp corners for Swiss style */
+}
+
+.dark {
+  /* Inverted for potential dark mode, though user requested white main */
+  --background: #050505;
+  --foreground: #FFFFFF;
+  
+  --primary: #2952FF;
+  --primary-foreground: #FFFFFF;
+  
+  --muted: #1A1A1A;
+  --muted-foreground: #A3A3A3;
+  
+  --accent: #1A1A1A;
+  --accent-foreground: #FFFFFF;
+  
+  --border: #333333;
+  --input: #333333;
+  --ring: #2952FF;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  /* Monospace for data/numbers */
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    max-width: 1200px;
+  }
+  
+  /* Custom Scrollbar for "Tech" feel */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E5E5E5;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2952FF;
+  }
+}
