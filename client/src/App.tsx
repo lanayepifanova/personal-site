@@ -5,6 +5,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Engineering from "./pages/Engineering";
 import Communities from "./pages/Communities";
 import Media from "./pages/Media";
+import MediaKit from "./pages/MediaKit";
 import Layout from "./components/Layout";
 
 function Router() {
@@ -13,6 +14,7 @@ function Router() {
       <Switch>
         <Route path="/" component={Engineering} />
         <Route path="/media" component={Media} />
+        <Route path="/media-kit" component={MediaKit} />
         <Route path="/communities" component={Communities} />
         <Route component={NotFound} />
       </Switch>
