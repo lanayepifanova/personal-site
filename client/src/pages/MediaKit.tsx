@@ -1,9 +1,7 @@
-import { Download, FileText, Image as ImageIcon } from "lucide-react";
+import { Download, FileText } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 import mediaKitPdfUrl from "../../../media-kit/client/public/media-kit.pdf?url";
-import cleanHeadshotUrl from "../../../media-kit/client/public/images/cleanheadshot.jpg?url";
-import profileImageUrl from "../../../media-kit/client/public/images/profile.png?url";
 
 export default function MediaKit() {
   usePageMeta({
@@ -51,75 +49,14 @@ export default function MediaKit() {
           </span>
         </div>
 
-        <div className="w-full border border-gray-200 bg-gray-50 overflow-hidden rounded-sm">
+        <div className="w-full border border-gray-200 bg-gray-50 rounded-sm overflow-hidden">
           <iframe
             title="Media kit PDF preview"
             src={mediaKitPdfUrl}
-            className="w-full h-[75vh]"
+            className="w-full h-[85vh]"
           />
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
-          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
-            Brand Assets
-          </h2>
-          <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider flex items-center gap-1">
-            <ImageIcon className="h-3 w-3" />
-            images
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <a
-            href={profileImageUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group border border-gray-200 bg-white overflow-hidden rounded-sm"
-          >
-            <div className="aspect-square bg-gray-50">
-              <img
-                src={profileImageUrl}
-                alt="Profile image asset"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-4 flex items-center justify-between">
-              <span className="text-xs font-mono text-gray-400 uppercase tracking-wider group-hover:text-black transition-colors">
-                profile.png
-              </span>
-              <span className="text-xs font-mono text-gray-400 group-hover:text-black transition-colors">
-                Open
-              </span>
-            </div>
-          </a>
-
-          <a
-            href={cleanHeadshotUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group border border-gray-200 bg-white overflow-hidden rounded-sm"
-          >
-            <div className="aspect-square bg-gray-50">
-              <img
-                src={cleanHeadshotUrl}
-                alt="Clean headshot asset"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-4 flex items-center justify-between">
-              <span className="text-xs font-mono text-gray-400 uppercase tracking-wider group-hover:text-black transition-colors">
-                cleanheadshot.jpg
-              </span>
-              <span className="text-xs font-mono text-gray-400 group-hover:text-black transition-colors">
-                Open
-              </span>
-            </div>
-          </a>
         </div>
       </section>
     </div>
   );
 }
-
