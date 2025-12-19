@@ -98,7 +98,7 @@ export default function Engineering() {
   ];
 
   return (
-    <div className="space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
+    <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
       {/* Header */}
       <header className="mb-12">

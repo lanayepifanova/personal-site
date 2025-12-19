@@ -182,21 +182,90 @@
 }
 
 /* Page Transitions */
-.page-transition-enter {
-  opacity: 0;
-  transform: translateY(10px);
+.page-stack {
+  position: relative;
 }
-.page-transition-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 300ms, transform 300ms;
+
+.page-layer {
+  position: relative;
+  width: 100%;
+  z-index: 0;
 }
-.page-transition-exit {
-  opacity: 1;
-  transform: translateY(0);
+
+.page-layer-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
-.page-transition-exit-active {
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: opacity 300ms, transform 300ms;
+
+.page-layer-enter {
+  animation: page-enter 320ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.page-layer-exit {
+  animation: page-exit 240ms cubic-bezier(0.4, 0, 0.6, 1) both;
+}
+
+.page-stagger > * {
+  animation: content-reveal 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.page-stagger > *:nth-child(1) {
+  animation-delay: 40ms;
+}
+.page-stagger > *:nth-child(2) {
+  animation-delay: 80ms;
+}
+.page-stagger > *:nth-child(3) {
+  animation-delay: 120ms;
+}
+.page-stagger > *:nth-child(4) {
+  animation-delay: 160ms;
+}
+.page-stagger > *:nth-child(5) {
+  animation-delay: 200ms;
+}
+.page-stagger > *:nth-child(6) {
+  animation-delay: 240ms;
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-layer-enter,
+  .page-layer-exit,
+  .page-stagger > * {
+    animation: none;
+  }
 }
