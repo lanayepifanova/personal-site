@@ -1,8 +1,5 @@
 import { useEffect } from "react";
 
-const SITE_URL = "https://lanayepifanova.com";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
-
 type PageMetaOptions = {
   title: string;
   description: string;
@@ -10,6 +7,9 @@ type PageMetaOptions = {
   image?: string;
   ogType?: "website" | "article" | "profile";
 };
+
+const SITE_URL = "https://lanayepifanova.com";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 function setMetaTag(attribute: "name" | "property", value: string, content: string) {
   let tag = document.querySelector<HTMLMetaElement>(`meta[${attribute}="${value}"]`);
