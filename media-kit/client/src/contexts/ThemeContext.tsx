@@ -16,12 +16,15 @@ interface ThemeProviderProps {
   switchable?: boolean;
 }
 
+const canUseDOM = typeof window !== "undefined";
+
 export function ThemeProvider({
   children,
   defaultTheme = "light",
   switchable = false,
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
+    if (!canUseDOM) return defaultTheme;
     if (switchable) {
       const stored = localStorage.getItem("theme");
       return (stored as Theme) || defaultTheme;
@@ -30,6 +33,7 @@ export function ThemeProvider({
   });
 
   useEffect(() => {
+    if (!canUseDOM) return;
     const root = document.documentElement;
     if (theme === "dark") {
       root.classList.add("dark");
