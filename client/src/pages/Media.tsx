@@ -1,6 +1,5 @@
 import { Instagram, Youtube, Linkedin, FileText } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import { Link } from "wouter";
 
 export default function Media() {
   usePageMeta({
@@ -145,13 +144,13 @@ export default function Media() {
           <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
             Selected Partnerships
           </h2>
-          <Link
-            href="/media-kit"
+          <a
+            href="/media-kit/"
             className="text-xs font-mono text-gray-400 hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1"
           >
             <FileText className="h-3 w-3" />
             Media kit
-          </Link>
+          </a>
         </div>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-5 md:gap-y-8">
