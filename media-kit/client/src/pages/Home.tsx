@@ -53,8 +53,8 @@ export default function Home() {
               <br/><span className="text-foreground font-bold mt-2 block">Your shortcut to technical early adopters.</span>
             </p>
 
-            <a 
-              href="/media-kit.pdf" 
+            <a
+              href={`${import.meta.env.BASE_URL}media-kit.pdf`}
               download="Lana_Yepifanova_Media_Kit.pdf"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-colors ml-6"
             >
