@@ -72,8 +72,8 @@ export default function Home() {
             <div className="aspect-square max-w-md mx-auto relative z-10">
               <div className="absolute inset-0 border border-primary translate-x-4 translate-y-4 z-0"></div>
               <img 
-                src="/images/profile.png" 
-                alt="Lana Profile" 
+                src={`${import.meta.env.BASE_URL}images/headshot.jpg`} 
+                alt="Lana Yepifanova headshot" 
                 className="w-full h-full object-cover transition-all duration-700 z-10 relative block"
               />
             </div>
