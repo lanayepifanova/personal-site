@@ -18,7 +18,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="z-40 border-b sticky top-0 transition-colors duration-300 border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container flex h-16 items-center justify-between max-w-4xl mx-auto px-4">
           <div className="flex flex-col">
-            <span className="font-serif italic text-lg text-black font-medium">Lana Yepifanova</span>
+            <h1 className="font-serif italic text-lg text-black font-medium">Lana Yepifanova</h1>
             <span className="font-sans text-[10px] text-gray-400 uppercase tracking-widest">Rice University • Applied Math</span>
           </div>
           

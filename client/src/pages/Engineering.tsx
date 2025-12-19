@@ -102,7 +102,7 @@ export default function Engineering() {
       
       {/* Header */}
       <header className="mb-12">
-        <h1 className="text-3xl font-sans font-medium text-black tracking-tight">Engineering</h1>
+        <h2 className="text-3xl font-sans font-medium text-black tracking-tight">Engineering</h2>
       </header>
 
       {/* Links */}
