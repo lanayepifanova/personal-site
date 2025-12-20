@@ -13,7 +13,7 @@ export default function MediaKit() {
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto pt-16 pb-24 px-4 text-center text-sm text-gray-500">
+    <div className="page-stagger max-w-4xl mx-auto pt-16 pb-24 px-4 text-center text-sm text-gray-500">
       Redirecting to the media kit…
     </div>
   );

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --host",
     "build:media-kit": "pnpm --dir media-kit install --frozen-lockfile --prefer-offline && pnpm --dir media-kit run build && rm -rf client/public/media-kit && cp -R media-kit/dist/public client/public/media-kit",
-    "build": "pnpm run build:media-kit && vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
+    "build:ssr": "vite build --ssr src/entry-server.tsx --outDir ../dist/server",
+    "prerender": "tsx scripts/prerender.ts",
+    "build": "pnpm run build:media-kit && vite build && pnpm run build:ssr && pnpm run prerender && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
     "check": "tsc --noEmit",
