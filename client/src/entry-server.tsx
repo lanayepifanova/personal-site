@@ -1,10 +1,18 @@
 import { renderToString } from "react-dom/server";
 import { Router } from "wouter";
-import { memoryLocation } from "wouter/memory-location";
 import App from "./App";
 
+function createStaticLocation(url: string) {
+  const [path, search = ""] = url.split("?");
+
+  return {
+    hook: () => [path || "/", () => null] as const,
+    searchHook: () => search,
+  };
+}
+
 export function render(url: string) {
-  const location = memoryLocation({ path: url, static: true });
+  const location = createStaticLocation(url);
 
   return renderToString(
     <Router hook={location.hook} searchHook={location.searchHook}>
