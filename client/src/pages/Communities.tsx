@@ -1,4 +1,4 @@
-import type { CSSProperties, WheelEvent } from "react";
+import type { CSSProperties, WheelEvent, UIEvent } from "react";
 import { Heart, ExternalLink, Newspaper, Instagram } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -74,6 +74,16 @@ export default function Communities() {
     },
   ];
 
+  const enableManualGallery = (target: HTMLDivElement) => {
+    if (!target.classList.contains("is-manual")) {
+      target.classList.add("is-manual");
+    }
+  };
+
+  const handleGalleryScroll = (event: UIEvent<HTMLDivElement>) => {
+    enableManualGallery(event.currentTarget);
+  };
+
   const handleGalleryWheel = (event: WheelEvent<HTMLDivElement>) => {
     const { deltaX, deltaY } = event;
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
@@ -81,6 +91,7 @@ export default function Communities() {
     }
 
     const target = event.currentTarget;
+    enableManualGallery(target);
     const maxScrollLeft = target.scrollWidth - target.clientWidth;
     if (maxScrollLeft <= 0) {
       return;
@@ -330,7 +341,7 @@ export default function Communities() {
             return (
               <div key={gallery.title} className="space-y-4">
                 <h3 className="text-sm font-mono text-gray-500 uppercase tracking-wider">{gallery.title}</h3>
-                <div className="gallery-track" onWheel={handleGalleryWheel}>
+                <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
                   <div className={marqueeClass} style={marqueeStyle}>
                     {[0, 1].map((duplicate) => (
                       <div

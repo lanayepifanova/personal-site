@@ -1,4 +1,4 @@
-import type { CSSProperties, WheelEvent } from "react";
+import type { CSSProperties, WheelEvent, UIEvent } from "react";
 import { Instagram, Youtube, Linkedin, FileText } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -100,6 +100,16 @@ export default function Media() {
     "https://www.youtube.com/embed/W6Dn8IOq9uU"
   ];
 
+  const enableManualGallery = (target: HTMLDivElement) => {
+    if (!target.classList.contains("is-manual")) {
+      target.classList.add("is-manual");
+    }
+  };
+
+  const handleGalleryScroll = (event: UIEvent<HTMLDivElement>) => {
+    enableManualGallery(event.currentTarget);
+  };
+
   const handleGalleryWheel = (event: WheelEvent<HTMLDivElement>) => {
     const { deltaX, deltaY } = event;
     if (Math.abs(deltaX) > Math.abs(deltaY)) {
@@ -107,6 +117,7 @@ export default function Media() {
     }
 
     const target = event.currentTarget;
+    enableManualGallery(target);
     const maxScrollLeft = target.scrollWidth - target.clientWidth;
     if (maxScrollLeft <= 0) {
       return;
@@ -168,7 +179,7 @@ export default function Media() {
           </a>
         </div>
         
-        <div className="gallery-track" onWheel={handleGalleryWheel}>
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
           <div
             className="gallery-marquee"
             style={
@@ -269,7 +280,7 @@ export default function Media() {
           </div>
         </div>
 
-        <div className="gallery-track" onWheel={handleGalleryWheel}>
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
           <div
             className="gallery-marquee"
             style={
@@ -332,7 +343,7 @@ export default function Media() {
           </div>
         </div>
 
-        <div className="gallery-track" onWheel={handleGalleryWheel}>
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
           <div
             className="gallery-marquee reverse"
             style={

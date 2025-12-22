@@ -287,6 +287,15 @@
   animation-play-state: paused;
 }
 
+.gallery-track.is-manual .gallery-marquee {
+  animation: none;
+  transform: translateX(0);
+}
+
+.gallery-track.is-manual [aria-hidden="true"] {
+  display: none;
+}
+
 .gallery-marquee.reverse {
   animation-direction: reverse;
 }
