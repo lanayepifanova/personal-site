@@ -8,13 +8,33 @@ export default function Communities() {
       "Clubs and communities Lana Yepifanova is part of at Rice University: Rice Residency founder, Harvard St Commons, The Residency, The Collective, plus campus life highlights across athletics, arts, and service.",
     canonicalPath: "/communities",
   });
-  const campusHighlights = [
-    { title: "Co-Ed Varsity Wrestling", image: "/images/wrestling.jpg" },
-    { title: "Rice Club Sailing Team", image: "/images/sailing.png" },
-    { title: "Basyk Dance Team", image: "/images/basyk.JPG" },
-    { title: "Chamber Music at Lincoln Center", image: "/images/lincolncenter.JPG" },
-    { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
-    { title: "Festival of Nations", image: "/images/festivalofnations.JPG" },
+  const campusGalleries = [
+    {
+      title: "Sports",
+      items: [
+        { title: "Co-Ed Varsity Wrestling", image: "/images/wrestling.jpg" },
+        { title: "Rice Club Sailing Team", image: "/images/sailing.png" },
+      ],
+    },
+    {
+      title: "Music",
+      items: [
+        { title: "Chamber Music at Lincoln Center", image: "/images/lincolncenter.JPG" },
+      ],
+    },
+    {
+      title: "Dance",
+      items: [
+        { title: "Basyk Dance Team", image: "/images/basyk.JPG" },
+        { title: "Festival of Nations", image: "/images/festivalofnations.JPG" },
+      ],
+    },
+    {
+      title: "Volunteer",
+      items: [
+        { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
+      ],
+    },
   ];
 
   return (
@@ -126,7 +146,7 @@ export default function Communities() {
             <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
           </div>
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-            Selected group of founders from 65+ schools building in AI, SaaS, Deeptech, and beyond, partnered with a16z and Anthropic.
+            Selected group of founders, builders, and creators from 65+ schools, partnered with a16z and Anthropic.
           </p>
 
           <div className="flex gap-4 text-xs font-sans">
@@ -245,19 +265,26 @@ export default function Communities() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {campusHighlights.map((item) => (
-            <figure key={item.title} className="space-y-2">
-              <div className="w-full overflow-hidden rounded-sm border border-gray-200 bg-gray-50">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-52 object-cover"
-                  loading="lazy"
-                />
+        <div className="space-y-10">
+          {campusGalleries.map((gallery) => (
+            <div key={gallery.title} className="space-y-4">
+              <h3 className="text-sm font-mono text-gray-500 uppercase tracking-wider">{gallery.title}</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {gallery.items.map((item) => (
+                  <figure key={item.title} className="space-y-2">
+                    <div className="w-full overflow-hidden rounded-sm border border-gray-200 bg-gray-50">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-52 object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <figcaption className="text-sm font-serif text-black">{item.title}</figcaption>
+                  </figure>
+                ))}
               </div>
-              <figcaption className="text-sm font-serif text-black">{item.title}</figcaption>
-            </figure>
+            </div>
           ))}
         </div>
 
