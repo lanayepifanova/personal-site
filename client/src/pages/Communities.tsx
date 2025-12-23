@@ -118,6 +118,33 @@ export default function Communities() {
 
       </section>
 
+      {/* The 21st Section */}
+      <section className="space-y-8 border-t border-gray-100 pt-12">
+        <div className="space-y-2">
+          <div className="flex justify-between items-baseline">
+            <h2 className="text-lg font-serif text-black">The 21st</h2>
+            <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
+          </div>
+          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
+            Selected group of founders from 65+ schools building in AI, SaaS, Deeptech, and beyond, partnered with a16z and Anthropic.
+          </p>
+
+          <div className="flex gap-4 text-xs font-sans">
+            <a 
+              href="https://21st.social" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
+            >
+              <ExternalLink className="h-3 w-3" />
+              Visit 21st.social
+            </a>
+          </div>
+        </div>
+
+        <div className="w-full overflow-hidden rounded-sm border border-gray-200 bg-gray-100 h-64" />
+      </section>
+
       {/* The Residency + The Collective Section */}
       <section className="space-y-8 border-t border-gray-100 pt-12">
         <div className="grid gap-12 lg:gap-16 lg:grid-cols-2">
