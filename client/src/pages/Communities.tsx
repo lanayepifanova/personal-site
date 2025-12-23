@@ -12,7 +12,11 @@ export default function Communities() {
     {
       title: "Sports",
       items: [
-        { title: "Co-Ed Varsity Wrestling", image: "/images/wrestling.jpg" },
+        {
+          title: "Co-Ed Varsity Wrestling",
+          image: "/images/wrestling.jpg",
+          objectPosition: "50% 55%",
+        },
         { title: "Rice Club Sailing Team", image: "/images/sailing.png" },
       ],
     },
@@ -272,6 +276,7 @@ export default function Communities() {
                         src={item.image}
                         alt={item.title}
                         className="w-full h-52 object-cover"
+                        style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
                         loading="lazy"
                       />
                     </div>
