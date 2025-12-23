@@ -29,6 +29,7 @@ export function usePageMeta({
   ogType = "website",
 }: PageMetaOptions) {
   useEffect(() => {
+    const pageTitle = "Lana Yepifanova";
     const resolvedUrl = canonicalPath
       ? canonicalPath.startsWith("http")
         ? canonicalPath
@@ -36,11 +37,9 @@ export function usePageMeta({
       : SITE_URL;
     const resolvedImage = image?.startsWith("http") ? image : image ? `${SITE_URL}${image}` : DEFAULT_OG_IMAGE;
 
-    if (title) {
-      document.title = title;
-      setMetaTag("property", "og:title", title);
-      setMetaTag("name", "twitter:title", title);
-    }
+    document.title = pageTitle;
+    setMetaTag("property", "og:title", pageTitle);
+    setMetaTag("name", "twitter:title", pageTitle);
 
     if (description) {
       setMetaTag("name", "description", description);

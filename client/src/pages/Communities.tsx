@@ -258,12 +258,7 @@ export default function Communities() {
 
       {/* Campus Life Section */}
       <section className="space-y-8 border-t border-gray-100 pt-12">
-        <div className="space-y-2">
-          <div className="flex justify-between items-baseline">
-            <h2 className="text-lg font-serif text-black">Rice Campus Life</h2>
-            <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
-          </div>
-        </div>
+        <div className="space-y-2"></div>
 
         <div className="space-y-10">
           {campusGalleries.map((gallery) => (
