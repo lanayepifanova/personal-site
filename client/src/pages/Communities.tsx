@@ -142,7 +142,14 @@ export default function Communities() {
           </div>
         </div>
 
-        <div className="w-full overflow-hidden rounded-sm border border-gray-200 bg-gray-100 h-64" />
+        <div className="w-full overflow-hidden rounded-sm border border-gray-200">
+          <img
+            src="/images/sf.jpg"
+            alt="The 21st community"
+            className="w-full h-64 object-cover"
+            loading="lazy"
+          />
+        </div>
       </section>
 
       {/* The Residency + The Collective Section */}
