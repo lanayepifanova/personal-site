@@ -18,12 +18,16 @@ export default function Communities() {
           objectPosition: "50% 55%",
         },
         { title: "Rice Club Sailing Team", image: "/images/sailing.png" },
+        { title: "Basketball", image: "/images/basketball.JPG" },
+        { title: "Swimming", image: "/images/swimming.JPG" },
       ],
     },
     {
       title: "Music",
       items: [
         { title: "Chamber Music at Lincoln Center", image: "/images/lincolncenter.JPG" },
+        { title: "Music", image: "/images/music2.JPG" },
+        { title: "Music", image: "/images/music3.JPG" },
       ],
     },
     {
@@ -31,6 +35,8 @@ export default function Communities() {
       items: [
         { title: "Basyk Dance Team", image: "/images/basyk.JPG" },
         { title: "Festival of Nations", image: "/images/festivalofnations.JPG" },
+        { title: "Dance", image: "/images/harvard1.JPG" },
+        { title: "Dance", image: "/images/harvard2.JPG" },
       ],
     },
     {
