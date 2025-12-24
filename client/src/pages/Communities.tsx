@@ -37,7 +37,7 @@ export default function Communities() {
         {
           title: "Chamber Music at Lincoln Center",
           image: "/images/lincolncenter.JPG",
-          objectPosition: "50% 60%",
+          objectPosition: "50% 70%",
         },
         { title: "Music", image: "/images/music2.JPG" },
         { title: "Music", image: "/images/music3.JPG" },
@@ -60,6 +60,10 @@ export default function Communities() {
       title: "Volunteer",
       items: [
         { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
+        { title: "Volunteer", image: "/images/volunteer1.jpg" },
+        { title: "Volunteer", image: "/images/volunteer2.jpg" },
+        { title: "Volunteer", image: "/images/volunteer3.jpg" },
+        { title: "Volunteer", image: "/images/volunteer4.jpg" },
       ],
     },
   ];
