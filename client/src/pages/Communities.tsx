@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Heart, ExternalLink, Newspaper, Instagram } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -11,6 +12,7 @@ export default function Communities() {
   const campusGalleries = [
     {
       title: "Sports",
+      duration: "26s",
       items: [
         {
           title: "Co-Ed Varsity Wrestling",
@@ -24,6 +26,7 @@ export default function Communities() {
     },
     {
       title: "Robotics",
+      duration: "30s",
       items: [
         { title: "Robotics", image: "/images/robotics1.JPG" },
         { title: "Robotics", image: "/images/plane.JPG" },
@@ -33,6 +36,7 @@ export default function Communities() {
     },
     {
       title: "Music",
+      duration: "34s",
       items: [
         {
           title: "Chamber Music at Lincoln Center",
@@ -49,6 +53,7 @@ export default function Communities() {
     },
     {
       title: "Dance",
+      duration: "28s",
       items: [
         { title: "Basyk Dance Team", image: "/images/basyk.JPG" },
         { title: "Festival of Nations", image: "/images/festivalofnations.JPG" },
@@ -58,6 +63,7 @@ export default function Communities() {
     },
     {
       title: "Volunteer",
+      duration: "32s",
       items: [
         { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
         { title: "Volunteer", image: "/images/volunteer1.JPG" },
@@ -292,27 +298,44 @@ export default function Communities() {
         <div className="space-y-2"></div>
 
         <div className="space-y-10">
-          {campusGalleries.map((gallery) => (
-            <div key={gallery.title} className="space-y-4">
-              <h3 className="text-sm font-mono text-gray-500 uppercase tracking-wider">{gallery.title}</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {gallery.items.map((item) => (
-                  <figure key={item.title} className="space-y-2">
-                    <div className="w-full overflow-hidden rounded-sm border border-gray-200 bg-gray-50">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-52 object-cover"
-                        style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
-                        loading="lazy"
-                      />
-                    </div>
-                    <figcaption className="text-sm font-serif text-black">{item.title}</figcaption>
-                  </figure>
-                ))}
+          {campusGalleries.map((gallery, index) => {
+            const marqueeStyle = {
+              ["--marquee-duration" as string]: gallery.duration ?? "32s",
+            } as CSSProperties;
+            const marqueeClass = index % 2 === 0 ? "gallery-marquee" : "gallery-marquee reverse";
+
+            return (
+              <div key={gallery.title} className="space-y-4">
+                <h3 className="text-sm font-mono text-gray-500 uppercase tracking-wider">{gallery.title}</h3>
+                <div className="gallery-track">
+                  <div className={marqueeClass} style={marqueeStyle}>
+                    {[0, 1].map((duplicate) => (
+                      <div
+                        key={`${gallery.title}-${duplicate}`}
+                        className="gallery-row"
+                        aria-hidden={duplicate === 1}
+                      >
+                        {gallery.items.map((item) => (
+                          <figure key={`${gallery.title}-${item.title}-${duplicate}`} className="gallery-item">
+                            <div className="gallery-card">
+                              <img
+                                src={item.image}
+                                alt={item.title}
+                                className="gallery-image"
+                                style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+                                loading="lazy"
+                              />
+                            </div>
+                            <figcaption className="gallery-caption">{item.title}</figcaption>
+                          </figure>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </section>
