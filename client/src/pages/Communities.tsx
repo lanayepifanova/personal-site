@@ -60,10 +60,10 @@ export default function Communities() {
       title: "Volunteer",
       items: [
         { title: "Alternative Spring Break", image: "/images/alternativespringbreak.JPG" },
-        { title: "Volunteer", image: "/images/volunteer1.jpg" },
-        { title: "Volunteer", image: "/images/volunteer2.jpg" },
-        { title: "Volunteer", image: "/images/volunteer3.jpg" },
-        { title: "Volunteer", image: "/images/volunteer4.jpg" },
+        { title: "Volunteer", image: "/images/volunteer1.JPG" },
+        { title: "Volunteer", image: "/images/volunteer2.JPG" },
+        { title: "Volunteer", image: "/images/volunteer3.JPG" },
+        { title: "Volunteer", image: "/images/volunteer4.JPG" },
       ],
     },
   ];
