@@ -52,12 +52,20 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/yDI3W79e3sQ?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "manus 1.6 x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/wX-L8WQkXoY?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "runable.ai x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/2EGOU1YG4gk?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "VTSP x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/HDjuasybi_c?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "hinoter x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/a8ODBCXsSaQ?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
