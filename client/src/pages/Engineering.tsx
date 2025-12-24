@@ -84,7 +84,7 @@ export default function Engineering() {
           Real estate <a href="https://1madisonnyc.com" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800" onClick={(e) => e.stopPropagation()}>development projects</a> across $4B+ Manhattan office portfolio. Auto CAD and Bluebeam.
         </>
       ),
-      image: "/images/slgreen-gradient-massive.png",
+      image: "/images/slgreen.png",
       link: "https://www.slgreen.com"
     },
     {
