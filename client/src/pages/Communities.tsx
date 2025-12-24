@@ -23,11 +23,24 @@ export default function Communities() {
       ],
     },
     {
+      title: "Robotics",
+      items: [
+        { title: "Robotics", image: "/images/robotics1.JPG" },
+        { title: "Robotics", image: "/images/plane.JPG" },
+        { title: "Robotics", image: "/images/plane2.JPG" },
+        { title: "Robotics", image: "/images/plane3.JPG" },
+      ],
+    },
+    {
       title: "Music",
       items: [
         { title: "Chamber Music at Lincoln Center", image: "/images/lincolncenter.JPG" },
         { title: "Music", image: "/images/music2.JPG" },
         { title: "Music", image: "/images/music3.JPG" },
+        { title: "Music", image: "/images/music10.JPG" },
+        { title: "Music", image: "/images/music11.JPG" },
+        { title: "Music", image: "/images/music12.JPG" },
+        { title: "Music", image: "/images/music13.JPG" },
       ],
     },
     {
