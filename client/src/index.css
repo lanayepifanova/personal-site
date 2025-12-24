@@ -295,7 +295,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 0.125rem;
-  border: 1px solid var(--border);
+  border: none;
   background: var(--muted);
 }
 
