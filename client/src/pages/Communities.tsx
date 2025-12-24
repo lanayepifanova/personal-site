@@ -326,7 +326,6 @@ export default function Communities() {
                                 loading="lazy"
                               />
                             </div>
-                            <figcaption className="gallery-caption">{item.title}</figcaption>
                           </figure>
                         ))}
                       </div>

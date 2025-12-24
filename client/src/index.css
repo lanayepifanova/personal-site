@@ -304,6 +304,8 @@
   height: 9rem;
   object-fit: cover;
   display: block;
+  transform: scale(1.03);
+  transform-origin: center;
 }
 
 .gallery-caption {
