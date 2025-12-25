@@ -1,7 +1,7 @@
 import { AudienceCharts } from "@/components/AnalyticsCharts";
 import { DataCard, Section, SectionHeader, TechBadge } from "@/components/ui/custom";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { ArrowRight, Check, Mail, Download } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -53,14 +53,6 @@ export default function Home() {
               <br/><span className="text-foreground font-bold mt-2 block">Your shortcut to technical early adopters.</span>
             </p>
 
-            <a
-              href={`${import.meta.env.BASE_URL}media-kit.pdf`}
-              download="Lana_Yepifanova_Media_Kit.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-bold text-lg hover:bg-primary/90 transition-colors ml-6"
-            >
-              <Download size={20} />
-              Download Media Kit
-            </a>
           </motion.div>
 
           <motion.div
