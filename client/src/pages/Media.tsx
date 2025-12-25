@@ -89,6 +89,13 @@ export default function Media() {
     "https://www.youtube.com/embed/l3sHxv4NzfA"
   ];
 
+  const roboticsVideos = [
+    "https://www.youtube.com/embed/gG5wDGNnfJo",
+    "https://www.youtube.com/embed/9ZQ2MUSyQdg",
+    "https://www.youtube.com/embed/9aW_UDvRUWc",
+    "https://www.youtube.com/embed/W6Dn8IOq9uU"
+  ];
+
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
@@ -224,6 +231,52 @@ export default function Media() {
                 height="100%"
                 src={url}
                 title={`Dance Performance ${index + 1}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* FIRST Robotics */}
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
+          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+            FIRST Robotics: Steel Hawks 2601
+          </h2>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 uppercase tracking-wider">
+            <a
+              href="https://www.steelhawks.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition-colors"
+            >
+              steelhawks.net
+            </a>
+            <span className="text-gray-300">/</span>
+            <a
+              href="https://www.instagram.com/steelhawks2601/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition-colors"
+            >
+              @steelhawks2601
+            </a>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          {roboticsVideos.map((url, index) => (
+            <div key={index} className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+              <iframe
+                width="100%"
+                height="100%"
+                src={url}
+                title={`FIRST Robotics ${index + 1}`}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
