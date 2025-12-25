@@ -82,6 +82,13 @@ export default function Media() {
     "https://www.youtube.com/embed/u9M29JFT3eo"
   ];
 
+  const danceVideos = [
+    "https://www.youtube.com/embed/Qs3Z8Mcl5hM",
+    "https://www.youtube.com/embed/BZAXumqsj1k",
+    "https://www.youtube.com/embed/TbtVj_JWPRE",
+    "https://www.youtube.com/embed/l3sHxv4NzfA"
+  ];
+
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
@@ -198,6 +205,33 @@ export default function Media() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Dance */}
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
+          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+            Dance
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+          {danceVideos.map((url, index) => (
+            <div key={index} className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+              <iframe
+                width="100%"
+                height="100%"
+                src={url}
+                title={`Dance Performance ${index + 1}`}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                loading="lazy"
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          ))}
         </div>
       </section>
 
