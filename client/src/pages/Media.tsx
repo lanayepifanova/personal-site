@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { Instagram, Youtube, Linkedin, FileText } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -161,26 +162,42 @@ export default function Media() {
           </a>
         </div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-x-3 gap-y-6 md:gap-x-5 md:gap-y-8">
-          {partnerships.map((partner, index) => (
-            <div key={index} className="space-y-3 group">
-              <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                <iframe 
-                  width="100%" 
-                  height="100%" 
-                  src={partner.videoUrl} 
-                  title={partner.title}
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowFullScreen
-                  className="w-full h-full transition-all duration-500"
-                ></iframe>
+        <div className="gallery-track">
+          <div
+            className="gallery-marquee"
+            style={
+              { ["--marquee-duration" as string]: "36s" } as CSSProperties
+            }
+          >
+            {[0, 1].map((duplicate) => (
+              <div
+                key={`partnerships-${duplicate}`}
+                className="flex gap-6 pr-6"
+                aria-hidden={duplicate === 1}
+              >
+                {partnerships.map((partner, index) => (
+                  <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 w-40 sm:w-44 md:w-48 shrink-0 group">
+                    <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={partner.videoUrl}
+                        title={partner.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        loading="lazy"
+                        className="w-full h-full transition-all duration-500"
+                      ></iframe>
+                    </div>
+                    <h3 className="text-xs font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
+                      {partner.title}
+                    </h3>
+                  </div>
+                ))}
               </div>
-              <h3 className="text-sm font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
-                {partner.title}
-              </h3>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
