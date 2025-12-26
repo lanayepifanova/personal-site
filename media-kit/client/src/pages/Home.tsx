@@ -111,7 +111,7 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black mb-1">17.5K</div>
+                <div className="text-5xl font-black mb-1">18.2K</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Followers</div>
               </div>
               <div>
@@ -132,7 +132,7 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black mb-1">5.5K</div>
+                <div className="text-5xl font-black mb-1">6.1K</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Followers</div>
               </div>
               <div>
@@ -153,7 +153,7 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black mb-1">150+</div>
+                <div className="text-5xl font-black mb-1">200+</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Vetted Members</div>
               </div>
               <div>
