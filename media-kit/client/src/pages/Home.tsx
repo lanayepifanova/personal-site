@@ -291,9 +291,10 @@ export default function Home() {
             <SectionHeader title="Packages" subtitle="Partnership Options" />
             <div className="space-y-0 border-t border-border">
               {[
-                { name: "IG Reel", price: "$450", desc: "Dedicated video content" },
-                { name: "IG Reel + Story", price: "$550", desc: "Video + 24h Story Link" },
-                { name: "Discord Promo", price: "$75", desc: "Ping to vetted community" },
+                { name: "IG Reel (1 video)", price: "$450", desc: "Dedicated video content" },
+                { name: "IG Reels (2 videos)", price: "$600", desc: "Two dedicated videos" },
+                { name: "IG Reels (3 videos)", price: "$750", desc: "Three dedicated videos" },
+                { name: "IG Story (Static, 24h)", price: "$50", desc: "Static story for 24 hours" },
                 { name: "Monthly", price: "Custom", desc: "Long-term strategy" },
               ].map((item) => (
                 <div key={item.name} className="flex justify-between items-center py-6 border-b border-border group hover:bg-muted/30 px-4 transition-colors">
