@@ -50,25 +50,18 @@ export default function HandGestureControl({
           style={{
             left: "0px",
             top: "0px",
-            width: "26px",
-            height: "26px",
-            borderRadius: "9999px",
-            border: "2px solid #111827",
+            width: "34px",
+            height: "34px",
             transform: "translate(-50%, -50%)",
-            background: "rgba(255, 255, 255, 0.7)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: "16px",
+            fontSize: "24px",
             lineHeight: "1",
             opacity: gestureState.handPosition ? 1 : 0.5,
           }}
         >
-          {gestureState.isPalmClosed
-            ? "✊"
-            : gestureState.isIndexPointing
-              ? "☝️"
-              : "✋"}
+          {gestureState.isPalmClosed ? "✊" : "🖐️"}
         </div>
       )}
 
@@ -88,11 +81,9 @@ export default function HandGestureControl({
                 Hand Gesture Active
               </p>
               <p className="text-xs mt-1 text-gray-700">
-                {gestureState.isPalmClosed && "Palm Closed (Click)"}
-                {gestureState.isIndexPointing && "Index Pointing (Scroll)"}
-                {!gestureState.isPalmClosed &&
-                  !gestureState.isIndexPointing &&
-                  "Ready to detect gestures"}
+                {gestureState.isPalmClosed
+                  ? "Palm Closed (Click)"
+                  : "Move to top/bottom edge to scroll"}
               </p>
             </div>
           </div>
@@ -112,7 +103,7 @@ export default function HandGestureControl({
               <span className="font-semibold text-black">Palm Closed</span> = Click
             </li>
             <li>
-              <span className="font-semibold text-black">Index Pointing</span> = Scroll
+              <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
             </li>
             <li className="text-[10px] text-gray-500 mt-2">
               Move your mouse to exit hand mode

@@ -15,7 +15,6 @@ export interface GestureState {
   isActive: boolean;
   handPosition: HandPosition | null;
   isPalmClosed: boolean;
-  isIndexPointing: boolean;
   error: string | null;
 }
 
@@ -27,7 +26,6 @@ export const useHandGestureControl = () => {
     isActive: false,
     handPosition: null,
     isPalmClosed: false,
-    isIndexPointing: false,
     error: null,
   });
   const [isLoading, setIsLoading] = useState(false);
@@ -152,51 +150,17 @@ export const useHandGestureControl = () => {
     );
   };
 
-  const isIndexPointingGesture = (landmarks: HandLandmark[]): boolean => {
-    if (!landmarks || landmarks.length < 21) return false;
-
-    const indexTip = landmarks[8];
-    const middleTip = landmarks[12];
-    const ringTip = landmarks[16];
-    const pinkyTip = landmarks[20];
-    const thumbTip = landmarks[4];
-    const palmCenter = landmarks[9];
-
-    const indexDist = Math.sqrt(
-      Math.pow(indexTip.x - palmCenter.x, 2) +
-        Math.pow(indexTip.y - palmCenter.y, 2)
-    );
-
-    const middleDist = Math.sqrt(
-      Math.pow(middleTip.x - palmCenter.x, 2) +
-        Math.pow(middleTip.y - palmCenter.y, 2)
-    );
-    const ringDist = Math.sqrt(
-      Math.pow(ringTip.x - palmCenter.x, 2) +
-        Math.pow(ringTip.y - palmCenter.y, 2)
-    );
-    const pinkyDist = Math.sqrt(
-      Math.pow(pinkyTip.x - palmCenter.x, 2) +
-        Math.pow(pinkyTip.y - palmCenter.y, 2)
-    );
-    const thumbDist = Math.sqrt(
-      Math.pow(thumbTip.x - palmCenter.x, 2) +
-        Math.pow(thumbTip.y - palmCenter.y, 2)
-    );
-
-    return (
-      indexDist > 0.12 &&
-      middleDist < 0.08 &&
-      ringDist < 0.08 &&
-      pinkyDist < 0.08 &&
-      thumbDist < 0.1
-    );
-  };
-
   const simulateClick = useCallback((x: number, y: number) => {
     const now = Date.now();
     if (now - lastClickTimeRef.current < 300) return;
     lastClickTimeRef.current = now;
+
+    const element = document.elementFromPoint(x, y);
+    const link = element?.closest("a[href]") as HTMLAnchorElement | null;
+    if (link) {
+      window.location.href = link.href;
+      return;
+    }
 
     const event = new MouseEvent("click", {
       bubbles: true,
@@ -206,7 +170,6 @@ export const useHandGestureControl = () => {
       clientY: y,
     });
 
-    const element = document.elementFromPoint(x, y);
     element?.dispatchEvent(event);
   }, []);
 
@@ -259,7 +222,6 @@ export const useHandGestureControl = () => {
         }
 
         const isPalmClosed = isPalmClosedGesture(landmarks);
-        const isIndexPointing = isIndexPointingGesture(landmarks);
 
         setGestureState((prev) => ({
           ...prev,
@@ -268,7 +230,6 @@ export const useHandGestureControl = () => {
             y: cursorSmoothingRef.current.y,
           },
           isPalmClosed,
-          isIndexPointing,
         }));
 
         if (isPalmClosed) {
@@ -277,9 +238,11 @@ export const useHandGestureControl = () => {
             cursorSmoothingRef.current.y
           );
         }
-
-        if (isIndexPointing) {
-          simulateScroll(y < prevY ? "up" : "down");
+        const edgeThreshold = 90;
+        if (y < edgeThreshold) {
+          simulateScroll("up");
+        } else if (y > window.innerHeight - edgeThreshold) {
+          simulateScroll("down");
         }
       }
     } catch (error) {
@@ -331,7 +294,6 @@ export const useHandGestureControl = () => {
       isActive: false,
       handPosition: null,
       isPalmClosed: false,
-      isIndexPointing: false,
     }));
 
     if (animationFrameRef.current) {
