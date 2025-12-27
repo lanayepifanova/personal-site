@@ -6,7 +6,7 @@ function createStaticLocation(url: string) {
   const [path, search = ""] = url.split("?");
 
   return {
-    hook: () => [path || "/", () => null] as const,
+    hook: () => [path || "/", () => null] as [string, (path: string) => void],
     searchHook: () => search,
   };
 }

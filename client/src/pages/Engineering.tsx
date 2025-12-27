@@ -97,16 +97,6 @@ export default function Engineering() {
     }
   ];
 
-  const hackathons = [
-    {
-      name: "StarkHacks",
-      role: "Co-Head of Global Partnerships",
-      description:
-        "Supporting international sponsor outreach in Japan for StarkHacks, Purdue University's hardware hackathon.",
-      link: "https://starkhacks.com"
-    }
-  ];
-
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
@@ -220,41 +210,6 @@ export default function Engineering() {
               </div>
             );
           })}
-        </div>
-      </section>
-
-      {/* Research Labs + Hackathons */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 items-start">
-        <div className="space-y-6">
-          <h3 className="text-xl font-sans font-semibold text-black tracking-tight">Research Labs</h3>
-          <div className="text-gray-500 font-sans text-sm leading-relaxed">
-            (updated soon!)
-          </div>
-        </div>
-        <div className="space-y-6">
-          <h3 className="text-xl font-sans font-semibold text-black tracking-tight">Hackathons</h3>
-          <div className="grid grid-cols-1 gap-x-8 gap-y-8">
-            {hackathons.map((hackathon) => (
-              <div key={hackathon.name} className="flex flex-col">
-                <div className="flex justify-between items-baseline mb-1">
-                  <h4 className="text-base font-sans font-semibold text-black">
-                    {hackathon.name}
-                  </h4>
-                </div>
-                <div className="text-gray-500 font-sans text-sm leading-relaxed">
-                  <span className="text-black">{hackathon.role}</span> — {hackathon.description}{" "}
-                  <a
-                    href={hackathon.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
-                  >
-                    starkhacks.com
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

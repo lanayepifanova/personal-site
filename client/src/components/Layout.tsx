@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Code, Video, Users } from "lucide-react";
+import HandGestureControl from "@/components/HandGestureControl";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
@@ -63,6 +64,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
+      <HandGestureControl />
     </div>
   );
 }
