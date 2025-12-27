@@ -118,6 +118,9 @@ export const useHandGestureControl = () => {
     const ringTip = landmarks[16];
     const pinkyTip = landmarks[20];
     const palmCenter = landmarks[9];
+    const wrist = landmarks[0];
+    const indexMcp = landmarks[5];
+    const pinkyMcp = landmarks[17];
 
     const thumbDist = Math.sqrt(
       Math.pow(thumbTip.x - palmCenter.x, 2) +
@@ -140,7 +143,16 @@ export const useHandGestureControl = () => {
         Math.pow(pinkyTip.y - palmCenter.y, 2)
     );
 
-    const threshold = 0.08;
+    const wristToPalmDist = Math.hypot(
+      palmCenter.x - wrist.x,
+      palmCenter.y - wrist.y
+    );
+    const palmWidthDist = Math.hypot(
+      indexMcp.x - pinkyMcp.x,
+      indexMcp.y - pinkyMcp.y
+    );
+    const palmSize = Math.max(wristToPalmDist, palmWidthDist);
+    const threshold = Math.max(0.08, palmSize * 0.6);
     return (
       thumbDist < threshold &&
       indexDist < threshold &&
