@@ -17,7 +17,14 @@ export default function HandGestureControl({
 
   return (
     <>
-      <video ref={videoRef} className="hidden" width={640} height={480} />
+      <video
+        ref={videoRef}
+        className="hidden"
+        width={640}
+        height={480}
+        muted
+        playsInline
+      />
 
       <button
         onClick={toggleGestureControl}
@@ -43,15 +50,26 @@ export default function HandGestureControl({
           style={{
             left: "0px",
             top: "0px",
-            width: "18px",
-            height: "18px",
+            width: "26px",
+            height: "26px",
             borderRadius: "9999px",
             border: "2px solid #111827",
             transform: "translate(-50%, -50%)",
             background: "rgba(255, 255, 255, 0.7)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "16px",
+            lineHeight: "1",
             opacity: gestureState.handPosition ? 1 : 0.5,
           }}
-        />
+        >
+          {gestureState.isPalmClosed
+            ? "✊"
+            : gestureState.isIndexPointing
+              ? "☝️"
+              : "✋"}
+        </div>
       )}
 
       {gestureState.error && (

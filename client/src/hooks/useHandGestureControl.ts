@@ -35,6 +35,9 @@ export const useHandGestureControl = () => {
   const lastClickTimeRef = useRef<number>(0);
   const lastScrollTimeRef = useRef<number>(0);
   const cursorSmoothingRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
+  const activationTimestampRef = useRef<number>(0);
+  const mouseMoveDistanceRef = useRef<number>(0);
+  const lastMousePositionRef = useRef<{ x: number; y: number } | null>(null);
   const mouseActivityTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(
     null
   );
@@ -80,11 +83,21 @@ export const useHandGestureControl = () => {
         video: { facingMode: "user" },
       });
 
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.onloadedmetadata = () => {
-          videoRef.current?.play();
+      const video = videoRef.current;
+      if (video) {
+        video.onloadedmetadata = () => {
+          const playPromise = video.play();
+          if (playPromise?.catch) {
+            playPromise.catch((error) => {
+              console.error("Failed to play webcam stream:", error);
+              setGestureState((prev) => ({
+                ...prev,
+                error: "Webcam stream could not start. Please try again.",
+              }));
+            });
+          }
         };
+        video.srcObject = stream;
       }
 
       return true;
@@ -217,6 +230,11 @@ export const useHandGestureControl = () => {
     }
 
     try {
+      if (videoRef.current.readyState < 2) {
+        animationFrameRef.current = requestAnimationFrame(processFrame);
+        return;
+      }
+
       const results = gestureRecognizerRef.current.recognizeForVideo(
         videoRef.current,
         performance.now()
@@ -290,6 +308,8 @@ export const useHandGestureControl = () => {
       return;
     }
 
+    activationTimestampRef.current = Date.now();
+    isActiveRef.current = true;
     setGestureState((prev) => ({
       ...prev,
       isActive: true,
@@ -316,6 +336,7 @@ export const useHandGestureControl = () => {
 
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = null;
     }
 
     if (videoRef.current?.srcObject) {
@@ -328,6 +349,8 @@ export const useHandGestureControl = () => {
     if (cursor) {
       cursor.style.display = "none";
     }
+
+    cursorSmoothingRef.current = { x: 0, y: 0 };
   }, []);
 
   const toggleGestureControl = useCallback(async () => {
@@ -343,9 +366,25 @@ export const useHandGestureControl = () => {
   }, [gestureState.isActive]);
 
   useEffect(() => {
-    const handleMouseMove = () => {
-      if (gestureState.isActive) {
-        stopGestureControl();
+    const handleMouseMove = (event: MouseEvent) => {
+      const shouldIgnore =
+        Date.now() - activationTimestampRef.current < 700;
+
+      if (gestureState.isActive && !shouldIgnore) {
+        const { clientX, clientY } = event;
+        const lastPos = lastMousePositionRef.current;
+        if (lastPos) {
+          const dx = clientX - lastPos.x;
+          const dy = clientY - lastPos.y;
+          mouseMoveDistanceRef.current += Math.hypot(dx, dy);
+        }
+        lastMousePositionRef.current = { x: clientX, y: clientY };
+
+        if (mouseMoveDistanceRef.current > 220) {
+          stopGestureControl();
+          mouseMoveDistanceRef.current = 0;
+          lastMousePositionRef.current = null;
+        }
       }
 
       if (mouseActivityTimeoutRef.current) {
@@ -353,7 +392,8 @@ export const useHandGestureControl = () => {
       }
 
       mouseActivityTimeoutRef.current = setTimeout(() => {
-        // Placeholder for optional re-enable behavior.
+        mouseMoveDistanceRef.current = 0;
+        lastMousePositionRef.current = null;
       }, 5000);
     };
 
