@@ -126,41 +126,6 @@ export default function Media() {
         ))}
       </section>
 
-      {/* Piano Channel */}
-      <section className="space-y-12 border-b border-gray-100 pb-20">
-        <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
-          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
-            Piano
-          </h2>
-          <a 
-            href="https://www.youtube.com/@LanaYepifanova"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-mono text-gray-400 hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1"
-          >
-            <Youtube className="h-3 w-3" />
-            @LanaYepifanova
-          </a>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pianoVideos.map((url, index) => (
-            <div key={index} className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                src={url} 
-                title={`Piano Performance ${index + 1}`}
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Brand Partnerships */}
       <section className="space-y-12 border-b border-gray-100 pb-20">
         <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
@@ -212,6 +177,41 @@ export default function Media() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Piano Channel */}
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
+          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+            Piano
+          </h2>
+          <a 
+            href="https://www.youtube.com/@LanaYepifanova"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs font-mono text-gray-400 hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1"
+          >
+            <Youtube className="h-3 w-3" />
+            @LanaYepifanova
+          </a>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {pianoVideos.map((url, index) => (
+            <div key={index} className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src={url} 
+                title={`Piano Performance ${index + 1}`}
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -29,10 +29,10 @@ export default function HandGestureControl({
       <button
         onClick={toggleGestureControl}
         disabled={isLoading}
-        className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 ${
+        className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border text-[10px] font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2 ${
           gestureState.isActive
-            ? "bg-green-500 hover:bg-green-600 text-white shadow-lg"
-            : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+            ? "bg-black text-white border-black shadow-sm"
+            : "bg-white text-gray-500 border-gray-200 hover:text-black hover:border-black"
         } ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
         title={
           gestureState.isActive
@@ -73,19 +73,21 @@ export default function HandGestureControl({
       )}
 
       {gestureState.error && (
-        <div className="fixed bottom-4 left-4 z-50 bg-red-500 text-white px-4 py-3 rounded-lg shadow-lg max-w-sm">
+        <div className="fixed bottom-4 left-4 z-50 bg-white text-black px-4 py-3 rounded-lg shadow-sm border border-gray-200 max-w-sm">
           <p className="font-semibold">Error</p>
           <p className="text-sm mt-1">{gestureState.error}</p>
         </div>
       )}
 
       {gestureState.isActive && (
-        <div className="fixed bottom-4 right-4 z-50 bg-green-500 text-white px-4 py-3 rounded-lg shadow-lg text-sm">
+        <div className="fixed bottom-4 right-4 z-50 bg-white text-black px-4 py-3 rounded-lg shadow-sm text-sm border border-gray-200">
           <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 bg-white rounded-full animate-pulse" />
+            <span className="inline-block w-2 h-2 bg-black rounded-full animate-pulse" />
             <div>
-              <p className="font-semibold">Hand Gesture Active</p>
-              <p className="text-xs mt-1">
+              <p className="text-[10px] font-bold tracking-widest uppercase text-gray-500">
+                Hand Gesture Active
+              </p>
+              <p className="text-xs mt-1 text-gray-700">
                 {gestureState.isPalmClosed && "Palm Closed (Click)"}
                 {gestureState.isIndexPointing && "Index Pointing (Scroll)"}
                 {!gestureState.isPalmClosed &&
@@ -98,17 +100,19 @@ export default function HandGestureControl({
       )}
 
       {gestureState.isActive && (
-        <div className="fixed top-20 left-4 z-40 bg-white rounded-lg shadow-lg p-4 max-w-xs border-l-4 border-blue-500">
-          <h3 className="font-bold text-gray-800 mb-2">Gesture Controls</h3>
+        <div className="fixed top-20 left-4 z-40 bg-white rounded-lg shadow-sm p-4 max-w-xs border border-gray-200">
+          <h3 className="text-[10px] font-bold tracking-widest uppercase text-gray-500 mb-2">
+            Gesture Controls
+          </h3>
           <ul className="text-sm text-gray-700 space-y-1">
             <li>
-              <span className="font-semibold">Hand Movement</span> = Move cursor
+              <span className="font-semibold text-black">Hand Movement</span> = Move cursor
             </li>
             <li>
-              <span className="font-semibold">Palm Closed</span> = Click
+              <span className="font-semibold text-black">Palm Closed</span> = Click
             </li>
             <li>
-              <span className="font-semibold">Index Pointing</span> = Scroll
+              <span className="font-semibold text-black">Index Pointing</span> = Scroll
             </li>
             <li className="text-xs text-gray-500 mt-2">
               Move your mouse to exit hand mode
