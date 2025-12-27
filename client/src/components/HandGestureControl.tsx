@@ -73,39 +73,21 @@ export default function HandGestureControl({
       )}
 
       {gestureState.isActive && (
-        <div className="fixed bottom-4 right-4 z-50 bg-white text-black px-4 py-3 rounded-lg shadow-sm text-sm border border-gray-200">
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 bg-black rounded-full animate-pulse" />
-            <div>
-              <p className="text-[10px] font-bold tracking-widest uppercase text-gray-500">
-                Hand Gesture Active
-              </p>
-              <p className="text-xs mt-1 text-gray-700">
-                {gestureState.isPalmClosed
-                  ? "Palm Closed (Click)"
-                  : "Move to top/bottom edge to scroll"}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {gestureState.isActive && (
-        <div className="fixed top-16 right-4 z-40 bg-white rounded-md shadow-sm p-3 w-56 border border-gray-200">
-          <h3 className="text-[9px] font-bold tracking-widest uppercase text-gray-500 mb-2">
+        <div className="fixed top-16 right-4 z-40 bg-white rounded-md shadow-sm p-2 w-48 border border-gray-200">
+          <h3 className="text-[8px] font-bold tracking-widest uppercase text-gray-500 mb-2">
             Gesture Controls
           </h3>
-          <ul className="text-xs text-gray-700 space-y-1">
-            <li>
+          <ul className="text-[10px] text-gray-700 space-y-1">
+            <li className="whitespace-nowrap">
               <span className="font-semibold text-black">Hand Movement</span> = Move cursor
             </li>
-            <li>
+            <li className="whitespace-nowrap">
               <span className="font-semibold text-black">Palm Closed</span> = Click
             </li>
-            <li>
+            <li className="whitespace-nowrap">
               <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
             </li>
-            <li className="text-[10px] text-gray-500 mt-2">
+            <li className="text-[9px] text-gray-500 mt-2 whitespace-nowrap">
               Move your mouse to exit hand mode
             </li>
           </ul>
