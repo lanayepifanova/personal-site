@@ -19,11 +19,13 @@ export default function HandGestureControl({
     <>
       <video
         ref={videoRef}
-        className="hidden"
+        className="fixed -left-[10000px] top-0 w-px h-px opacity-0 pointer-events-none"
         width={640}
         height={480}
         muted
         playsInline
+        autoPlay
+        aria-hidden="true"
       />
 
       <button
@@ -36,7 +38,7 @@ export default function HandGestureControl({
         } ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
         title={
           gestureState.isActive
-            ? "Hand gesture control is active. Move your mouse to deactivate."
+            ? "Hand gesture control is active. Move your mouse or tap Hand Mode to deactivate."
             : "Click to activate hand gesture control"
         }
       >
@@ -88,7 +90,7 @@ export default function HandGestureControl({
               <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
             </li>
             <li className="text-[9px] text-gray-500 mt-2 whitespace-nowrap">
-              Move your mouse to exit hand mode
+              Move your mouse or tap Hand Mode to exit
             </li>
           </ul>
         </div>
