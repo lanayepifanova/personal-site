@@ -244,7 +244,7 @@ export const useHandGestureControl = () => {
         const landmarks = results.landmarks[0];
 
         const palmCenter = landmarks[9];
-        const x = palmCenter.x * window.innerWidth;
+        const x = (1 - palmCenter.x) * window.innerWidth;
         const y = palmCenter.y * window.innerHeight;
         const prevX = cursorSmoothingRef.current.x;
         const prevY = cursorSmoothingRef.current.y;

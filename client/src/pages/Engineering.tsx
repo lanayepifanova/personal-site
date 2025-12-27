@@ -159,34 +159,11 @@ export default function Engineering() {
       <section className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
           {corporate.map((job) => {
-            const isNavigable = Boolean(job.link);
-
-            const openJobLink = () => {
-              if (job.link) {
-                window.open(job.link, "_blank", "noopener,noreferrer");
-              }
-            };
-
-            const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-              if (!isNavigable) return;
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                openJobLink();
-              }
-            };
-            
-            return (
-              <div
-                key={`${job.company}-${job.period}`}
-                className="group flex flex-col cursor-pointer"
-                onClick={isNavigable ? openJobLink : undefined}
-                onKeyDown={isNavigable ? handleKeyDown : undefined}
-                role={isNavigable ? "link" : undefined}
-                tabIndex={isNavigable ? 0 : undefined}
-              >
+            const card = (
+              <>
                 <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
-                  <img 
-                    src={job.image} 
+                  <img
+                    src={job.image}
                     alt={job.company}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -207,6 +184,29 @@ export default function Engineering() {
                 <div className="text-gray-500 font-sans text-sm leading-relaxed">
                   {job.description}
                 </div>
+              </>
+            );
+
+            if (job.link) {
+              return (
+                <a
+                  key={`${job.company}-${job.period}`}
+                  href={job.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col cursor-pointer"
+                >
+                  {card}
+                </a>
+              );
+            }
+
+            return (
+              <div
+                key={`${job.company}-${job.period}`}
+                className="group flex flex-col"
+              >
+                {card}
               </div>
             );
           })}
