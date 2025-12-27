@@ -89,7 +89,7 @@ export default function HandGestureControl({
             <li className="whitespace-nowrap">
               <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
             </li>
-            <li className="text-[9px] text-gray-500 mt-2 whitespace-nowrap">
+            <li className="text-[9px] text-gray-500 mt-2 leading-snug">
               Move your mouse or tap Hand Mode to exit
             </li>
           </ul>
