@@ -100,11 +100,11 @@ export default function HandGestureControl({
       )}
 
       {gestureState.isActive && (
-        <div className="fixed top-20 left-4 z-40 bg-white rounded-lg shadow-sm p-4 max-w-xs border border-gray-200">
-          <h3 className="text-[10px] font-bold tracking-widest uppercase text-gray-500 mb-2">
+        <div className="fixed top-16 right-4 z-40 bg-white rounded-md shadow-sm p-3 w-56 border border-gray-200">
+          <h3 className="text-[9px] font-bold tracking-widest uppercase text-gray-500 mb-2">
             Gesture Controls
           </h3>
-          <ul className="text-sm text-gray-700 space-y-1">
+          <ul className="text-xs text-gray-700 space-y-1">
             <li>
               <span className="font-semibold text-black">Hand Movement</span> = Move cursor
             </li>
@@ -114,7 +114,7 @@ export default function HandGestureControl({
             <li>
               <span className="font-semibold text-black">Index Pointing</span> = Scroll
             </li>
-            <li className="text-xs text-gray-500 mt-2">
+            <li className="text-[10px] text-gray-500 mt-2">
               Move your mouse to exit hand mode
             </li>
           </ul>
