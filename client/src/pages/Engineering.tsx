@@ -36,7 +36,7 @@ export default function Engineering() {
           Developed data ingestion pipelines to aggregate leasing analytics. Proptech research for <a href="https://spark.jllt.com/portfolio/" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800" onClick={(e) => e.stopPropagation()}>JLL Spark</a> venture fund.
         </>
       ),
-      image: "/images/jll-minimal.png",
+      image: "/images/jll_cad.png",
       link: "https://www.jll.com"
     },
     {
@@ -84,7 +84,7 @@ export default function Engineering() {
           Real estate <a href="https://1madisonnyc.com" target="_blank" rel="noopener noreferrer" className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800" onClick={(e) => e.stopPropagation()}>development projects</a> across $4B+ Manhattan office portfolio. Auto CAD and Bluebeam.
         </>
       ),
-      image: "/images/slgreenfinal.png",
+      image: "/images/slgreen_cad.png",
       link: "https://www.slgreen.com"
     },
     {
