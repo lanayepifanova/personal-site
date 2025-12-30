@@ -6,7 +6,7 @@ export default function Engineering() {
   usePageMeta({
     title: "Lana Yepifanova | Engineering Portfolio",
     description:
-      "Engineering portfolio of Lana Yepifanova — applied math student at Rice University. Software, data, and product internships across Macquarie, JLL, OEDK, Rudin, SL Green, and more.",
+      "I'm a software engineer, content creator, and community builder studying applied mathematics at Rice University. I enjoy playing piano and watching anime.",
     canonicalPath: "/",
   });
 
