@@ -16,7 +16,7 @@ export default function Engineering() {
       role: "Incoming Commodities Trading Intern",
       period: "2026",
       description: "Power and gas desk. Supporting trading and structuring activities, modeling risk scenarios.",
-      image: "/images/macquarie-awards.png",
+      image: "/images/macquarie1.JPG",
       link: "https://www.macquarie.com"
     },
     {
