@@ -70,7 +70,7 @@ export default function Media() {
     },
     {
       title: "genspark x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/T2m0kT233-E?rel=0&modestbranding=1&controls=0&playsinline=1"
+      videoUrl: "https://www.youtube.com/embed/DC4PmnGcf1Y?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
