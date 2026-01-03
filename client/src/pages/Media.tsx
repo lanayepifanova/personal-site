@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, WheelEvent } from "react";
 import { Instagram, Youtube, Linkedin, FileText } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -96,6 +96,29 @@ export default function Media() {
     "https://www.youtube.com/embed/W6Dn8IOq9uU"
   ];
 
+  const handleGalleryWheel = (event: WheelEvent<HTMLDivElement>) => {
+    const { deltaX, deltaY } = event;
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      return;
+    }
+
+    const target = event.currentTarget;
+    const maxScrollLeft = target.scrollWidth - target.clientWidth;
+    if (maxScrollLeft <= 0) {
+      return;
+    }
+
+    const nextScrollLeft = target.scrollLeft + deltaY;
+    const clampedScrollLeft = Math.max(0, Math.min(maxScrollLeft, nextScrollLeft));
+
+    if (clampedScrollLeft === target.scrollLeft) {
+      return;
+    }
+
+    event.preventDefault();
+    target.scrollLeft = clampedScrollLeft;
+  };
+
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
@@ -141,7 +164,7 @@ export default function Media() {
           </a>
         </div>
         
-        <div className="gallery-track">
+        <div className="gallery-track" onWheel={handleGalleryWheel}>
           <div
             className="gallery-marquee"
             style={
@@ -242,7 +265,7 @@ export default function Media() {
           </div>
         </div>
 
-        <div className="gallery-track">
+        <div className="gallery-track" onWheel={handleGalleryWheel}>
           <div
             className="gallery-marquee"
             style={
@@ -305,7 +328,7 @@ export default function Media() {
           </div>
         </div>
 
-        <div className="gallery-track">
+        <div className="gallery-track" onWheel={handleGalleryWheel}>
           <div
             className="gallery-marquee reverse"
             style={

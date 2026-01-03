@@ -263,14 +263,28 @@
 }
 
 .gallery-track {
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   position: relative;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.gallery-track::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery-marquee {
   display: flex;
   width: max-content;
   animation: gallery-marquee var(--marquee-duration, 32s) linear infinite;
+}
+
+.gallery-track:hover .gallery-marquee,
+.gallery-track:focus-within .gallery-marquee,
+.gallery-track:active .gallery-marquee {
+  animation-play-state: paused;
 }
 
 .gallery-marquee.reverse {
