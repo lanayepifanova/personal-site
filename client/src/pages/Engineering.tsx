@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from "react";
-import { ArrowUpRight, Youtube, Github, Database, Gamepad2, Newspaper } from "lucide-react";
+import { ArrowUpRight, Youtube, Github, Database, Gamepad2, Newspaper, Box } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Engineering() {
@@ -143,6 +143,15 @@ export default function Engineering() {
         >
           <Newspaper className="h-4 w-4" />
           devpost
+        </a>
+        <a 
+          href="https://grabcad.com/lana.yepifanova-1"
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+        >
+          <Box className="h-4 w-4" />
+          grabcad
         </a>
       </div>
 

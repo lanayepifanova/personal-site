@@ -149,7 +149,7 @@ export default function Media() {
       </header>
 
       {/* Social Profiles */}
-      <section className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
         {socials.map((social) => (
           <a 
             key={social.platform} 
