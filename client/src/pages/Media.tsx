@@ -67,6 +67,10 @@ export default function Media() {
     {
       title: "hinoter x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/a8ODBCXsSaQ?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "genspark x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/T2m0kT233-E?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
