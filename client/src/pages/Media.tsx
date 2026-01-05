@@ -1,5 +1,5 @@
 import type { CSSProperties, WheelEvent, UIEvent } from "react";
-import { Instagram, Youtube, Linkedin, FileText } from "lucide-react";
+import { Instagram, Youtube, Linkedin, Twitter, FileText } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Media() {
@@ -32,6 +32,13 @@ export default function Media() {
       link: "https://www.linkedin.com/in/lana-yepifanova/",
       icon: Linkedin,
       stats: "Connect"
+    },
+    {
+      platform: "Twitter",
+      handle: "@lana_yaps",
+      link: "https://x.com/lana_yaps",
+      icon: Twitter,
+      stats: "Follow"
     }
   ];
 
