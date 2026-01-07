@@ -1,5 +1,5 @@
 import type { KeyboardEvent } from "react";
-import { ArrowUpRight, Youtube, Github, Database, Gamepad2, Newspaper, Box } from "lucide-react";
+import { ArrowUpRight, Github, Newspaper, Box, Code, Lightbulb, Trophy } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Engineering() {
@@ -107,7 +107,6 @@ export default function Engineering() {
 
       {/* Links */}
       <div className="mb-12 -mt-6 flex flex-wrap gap-6">
-
         <a 
           href="https://github.com/lanayepifanova" 
           target="_blank" 
@@ -135,6 +134,27 @@ export default function Engineering() {
           <Newspaper className="h-4 w-4" />
           devpost
         </a>
+        <span
+          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+          aria-disabled="true"
+        >
+          <Code className="h-4 w-4" />
+          leetcode
+        </span>
+        <span
+          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+          aria-disabled="true"
+        >
+          <Lightbulb className="h-4 w-4" />
+          instructables
+        </span>
+        <span
+          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+          aria-disabled="true"
+        >
+          <Trophy className="h-4 w-4" />
+          codeforces
+        </span>
       </div>
 
       {/* Experience Section */}

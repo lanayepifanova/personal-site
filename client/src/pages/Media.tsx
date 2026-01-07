@@ -44,10 +44,6 @@ export default function Media() {
 
   const partnerships = [
     {
-      title: "zo computer x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/3Q83eu7kQAQ?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
       title: "kalshi x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
