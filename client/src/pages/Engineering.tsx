@@ -118,22 +118,13 @@ export default function Engineering() {
           github
         </a>
         <a 
-          href="https://www.kaggle.com/lanayepifanovakaggle" 
+          href="https://grabcad.com/lana.yepifanova-1"
           target="_blank" 
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
         >
-          <Database className="h-4 w-4" />
-          kaggle
-        </a>
-        <a 
-          href="https://lanayepifanova.itch.io" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-        >
-          <Gamepad2 className="h-4 w-4" />
-          itch.io
+          <Box className="h-4 w-4" />
+          grabcad
         </a>
         <a 
           href="https://devpost.com/yepifanova-lana"
@@ -143,15 +134,6 @@ export default function Engineering() {
         >
           <Newspaper className="h-4 w-4" />
           devpost
-        </a>
-        <a 
-          href="https://grabcad.com/lana.yepifanova-1"
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-        >
-          <Box className="h-4 w-4" />
-          grabcad
         </a>
       </div>
 
