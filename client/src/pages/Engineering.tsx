@@ -116,37 +116,26 @@ export default function Engineering() {
           <Github className="h-4 w-4" />
           github
         </a>
-        <a 
-          href="https://grabcad.com/lana.yepifanova-1"
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+        <span
+          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+          aria-disabled="true"
         >
           <Box className="h-4 w-4" />
           grabcad
-        </a>
-        <a 
-          href="https://devpost.com/yepifanova-lana"
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+        </span>
+        <span
+          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+          aria-disabled="true"
         >
           <Newspaper className="h-4 w-4" />
           devpost
-        </a>
+        </span>
         <span
           className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
           aria-disabled="true"
         >
           <Code className="h-4 w-4" />
           leetcode
-        </span>
-        <span
-          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-          aria-disabled="true"
-        >
-          <Lightbulb className="h-4 w-4" />
-          instructables
         </span>
         <span
           className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
