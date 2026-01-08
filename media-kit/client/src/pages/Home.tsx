@@ -111,11 +111,11 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black mb-1">18.2K</div>
+                <div className="text-5xl font-black mb-1">20.0K</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Followers</div>
               </div>
               <div>
-                <div className="text-5xl font-black mb-1 text-primary">20K+</div>
+                <div className="text-5xl font-black mb-1 text-primary">30K+</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Avg Views / Reel</div>
               </div>
               <div className="text-sm text-muted-foreground border-l-2 border-border pl-3">
@@ -132,7 +132,7 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black mb-1">6.1K</div>
+                <div className="text-5xl font-black mb-1">6.3K</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Followers</div>
               </div>
               <div>
