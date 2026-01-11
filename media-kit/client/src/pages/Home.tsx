@@ -111,7 +111,7 @@ export default function Home() {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black mb-1">20.0K</div>
+                <div className="text-5xl font-black mb-1">20.1K</div>
                 <div className="font-mono text-sm text-muted-foreground uppercase">Followers</div>
               </div>
               <div>

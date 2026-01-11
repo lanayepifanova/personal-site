@@ -124,7 +124,7 @@ export default function Communities() {
             <span className="font-mono text-[10px] text-gray-500 border border-gray-300 px-1.5 py-0.5 rounded uppercase tracking-wider">Founder</span>
           </div>
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-            I started a hacker house at Rice University. We host weekly dinners, co-working sessions, and socials to foster innovation and community among student founders, builders, and creators. This is my passion project. I love everyone in this house dearly.
+            I started a hacker house at Rice University. We host weekly dinners, co-working sessions, and socials to foster innovation and community among student founders, builders, and creators.
           </p>
           
           <div className="flex gap-4 text-xs font-sans">
