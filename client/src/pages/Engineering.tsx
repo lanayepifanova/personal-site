@@ -6,7 +6,7 @@ export default function Engineering() {
   usePageMeta({
     title: "Lana Yepifanova | Engineering Portfolio",
     description:
-      "I'm a software engineer, content creator, and community builder studying applied mathematics at Rice University. I enjoy playing piano and watching anime.",
+      "I am an engineer, content creator, and community builder studying applied mathematics at Rice University. I enjoy playing piano and watching anime.",
     canonicalPath: "/",
   });
 
