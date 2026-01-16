@@ -226,7 +226,7 @@ export default function Communities() {
                   className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full text-gray-600 hover:text-black hover:border-black transition-colors"
                 >
                   <ExternalLink className="h-3 w-3" />
-                  Visit The Residency
+                  The Residency
                 </a>
                 <a
                   href="https://homebrew.nyc"
@@ -261,7 +261,7 @@ export default function Communities() {
                   className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full text-gray-600 hover:text-black hover:border-black transition-colors"
                 >
                   <ExternalLink className="h-3 w-3" />
-                  Visit The Collective
+                  The Collective
                 </a>
                 <a
                   href="https://www.linkedin.com/company/thecollectiveny/posts/?feedView=all"
