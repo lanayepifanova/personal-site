@@ -86,26 +86,25 @@ export default function Communities() {
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
-      <header className="border-b border-gray-200 pb-4 flex justify-between items-end">
-        <h2 className="text-3xl font-sans font-medium text-black tracking-tight">Rice Residency</h2>
-        <Heart className="h-4 w-4 text-gray-300 animate-pulse" />
-      </header>
-
       {/* Rice Residency Section */}
-      <section className="space-y-8">
-        <div className="space-y-4">
-          <div className="flex justify-between items-baseline">
-            <h2 className="text-lg font-serif text-black">Rice Residency</h2>
-            <span className="font-mono text-[10px] text-gray-500 border border-gray-300 px-1.5 py-0.5 rounded uppercase tracking-wider">Founder</span>
+      <section className="space-y-6">
+        <div className="space-y-1">
+          <div className="flex justify-between items-end">
+            <h2 className="text-3xl font-sans font-medium text-black tracking-tight">Rice Residency</h2>
           </div>
-          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-            I started a hacker house at Rice University. We host weekly dinners, co-working sessions, and socials to foster innovation and community among student founders, builders, and creators.
-          </p>
-          
-          <div className="flex gap-4 text-xs font-sans">
-            <a 
-              href="https://riceresidency.com" 
-              target="_blank" 
+          <div className="flex justify-between items-baseline">
+            <div className="text-lg font-serif text-black">Founder</div>
+          </div>
+        </div>
+
+        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
+          I started a hacker house at Rice University. We host weekly dinners, co-working sessions, and socials to foster innovation and community among student founders, builders, and creators.
+        </p>
+
+        <div className="flex gap-4 text-xs font-sans">
+          <a 
+            href="https://riceresidency.com" 
+            target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
             >
@@ -121,7 +120,6 @@ export default function Communities() {
               <Newspaper className="h-3 w-3" />
               Featured in The Thresher
             </a>
-          </div>
         </div>
 
         <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
