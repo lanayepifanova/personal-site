@@ -25,16 +25,6 @@ export default function Communities() {
       ],
     },
     {
-      title: "Robotics",
-      duration: "30s",
-      items: [
-        { title: "Robotics", image: "/images/robotics1.JPG" },
-        { title: "Robotics", image: "/images/plane.JPG" },
-        { title: "Robotics", image: "/images/plane2.JPG" },
-        { title: "Robotics", image: "/images/plane3.JPG" },
-      ],
-    },
-    {
       title: "Music",
       duration: "34s",
       items: [

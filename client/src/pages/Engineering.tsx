@@ -1,5 +1,6 @@
-import type { KeyboardEvent } from "react";
-import { ArrowUpRight, Github, Newspaper, Box, Code, Lightbulb, Trophy } from "lucide-react";
+import type { CSSProperties, UIEvent, WheelEvent } from "react";
+import { useState } from "react";
+import { ArrowUpRight, Github, Sigma, Box, Code, Lightbulb, Trophy } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Engineering() {
@@ -97,6 +98,62 @@ export default function Engineering() {
     }
   ];
 
+  const roboticsPhotos = [
+    { title: "Robotics", image: "/images/robotics1.JPG" },
+    { title: "Robotics", image: "/images/plane.JPG" },
+    { title: "Robotics", image: "/images/plane2.JPG" },
+    { title: "Robotics", image: "/images/plane3.JPG" }
+  ];
+
+  const riceEclipseVideo = {
+    title: "Rice Eclipse",
+    url: "https://www.youtube.com/embed/i4Ec6bv0YlM?modestbranding=1&rel=0",
+    thumbnail: "https://img.youtube.com/vi/i4Ec6bv0YlM/hqdefault.jpg"
+  };
+
+  const roboticsVideos = [
+    "https://www.youtube.com/embed/gG5wDGNnfJo",
+    "https://www.youtube.com/embed/9ZQ2MUSyQdg",
+    "https://www.youtube.com/embed/9aW_UDvRUWc",
+    "https://www.youtube.com/embed/W6Dn8IOq9uU"
+  ];
+
+  const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
+
+  const enableManualGallery = (target: HTMLDivElement) => {
+    if (!target.classList.contains("is-manual")) {
+      target.classList.add("is-manual");
+    }
+  };
+
+  const handleGalleryScroll = (event: UIEvent<HTMLDivElement>) => {
+    enableManualGallery(event.currentTarget);
+  };
+
+  const handleGalleryWheel = (event: WheelEvent<HTMLDivElement>) => {
+    const { deltaX, deltaY } = event;
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      return;
+    }
+
+    const target = event.currentTarget;
+    enableManualGallery(target);
+    const maxScrollLeft = target.scrollWidth - target.clientWidth;
+    if (maxScrollLeft <= 0) {
+      return;
+    }
+
+    const nextScrollLeft = target.scrollLeft + deltaY;
+    const clampedScrollLeft = Math.max(0, Math.min(maxScrollLeft, nextScrollLeft));
+
+    if (clampedScrollLeft === target.scrollLeft) {
+      return;
+    }
+
+    event.preventDefault();
+    target.scrollLeft = clampedScrollLeft;
+  };
+
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
       
@@ -120,15 +177,15 @@ export default function Engineering() {
           className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
           aria-disabled="true"
         >
-          <Box className="h-4 w-4" />
-          grabcad
+          <Sigma className="h-4 w-4" />
+          matlab
         </span>
         <span
           className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
           aria-disabled="true"
         >
-          <Newspaper className="h-4 w-4" />
-          devpost
+          <Box className="h-4 w-4" />
+          grabcad
         </span>
         <span
           className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
@@ -201,6 +258,205 @@ export default function Engineering() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* Engineering Teams */}
+      <section className="space-y-6 pb-20">
+        <header className="border-b border-gray-200 pb-3">
+          <h2 className="text-2xl font-sans font-medium text-black tracking-tight">Engineering Teams</h2>
+        </header>
+        <div className="grid gap-8 md:grid-cols-2">
+        <div className="space-y-6">
+          <button
+            type="button"
+            onClick={() => setActiveLightboxUrl(riceEclipseVideo.url)}
+            className="group text-left w-full"
+          >
+            <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+              <img
+                src={riceEclipseVideo.thumbnail}
+                alt={riceEclipseVideo.title}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+                <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
+                  <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <div className="flex justify-between items-baseline">
+            <h3 className="text-base font-sans font-semibold text-black">
+              Rice Eclipse
+            </h3>
+          </div>
+          <p className="text-gray-500 font-sans text-sm leading-relaxed">
+            Engineering team building solar cars and aerospace projects at Rice University. Learn more at{" "}
+            <a
+              href="http://eclipse.rice.edu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
+            >
+              eclipse.rice.edu
+            </a>
+            .
+          </p>
+        </div>
+
+        <div className="space-y-6">
+          <div className="aspect-[16/9] overflow-hidden rounded-xl bg-gray-100 shadow-sm border border-gray-100">
+            <img
+              src="/images/wind%20energy.jpg"
+              alt="Rice Wind Energy"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="flex justify-between items-baseline">
+            <h3 className="text-base font-sans font-semibold text-black">
+              Rice Wind Energy
+            </h3>
+          </div>
+          <p className="text-gray-500 font-sans text-sm leading-relaxed">
+            Student-led renewable energy team focused on wind turbine design, testing, and outreach. Learn more at{" "}
+            <a
+              href="https://ricewindenergy.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
+            >
+              ricewindenergy.com
+            </a>
+            .
+          </p>
+        </div>
+        </div>
+      </section>
+
+      {activeLightboxUrl && (
+        <div
+          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
+          onClick={() => setActiveLightboxUrl(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl bg-black"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setActiveLightboxUrl(null)}
+              className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+            >
+              close
+            </button>
+            <div className="aspect-video">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`${activeLightboxUrl}${activeLightboxUrl.includes("?") ? "&" : "?"}autoplay=1`}
+                title="Rice Eclipse Video"
+                frameBorder="0"
+                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Robotics Media */}
+      <section className="space-y-8 pb-20 -mt-8">
+        <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
+          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+            steel hawks 2601
+          </h2>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 uppercase tracking-wider">
+            <a
+              href="https://www.steelhawks.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition-colors"
+            >
+              steelhawks.net
+            </a>
+            <span className="text-gray-300">/</span>
+            <a
+              href="https://www.instagram.com/steelhawks2601/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition-colors"
+            >
+              @steelhawks2601
+            </a>
+          </div>
+        </div>
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
+          <div
+            className="gallery-marquee reverse"
+            style={
+              { ["--marquee-duration" as string]: "30s" } as CSSProperties
+            }
+          >
+            {[0, 1].map((duplicate) => (
+              <div
+                key={`robotics-videos-${duplicate}`}
+                className="flex gap-6 pr-6"
+                aria-hidden={duplicate === 1}
+              >
+                {roboticsVideos.map((url, index) => (
+                  <div key={`robotics-video-${index}`} className="w-64 sm:w-72 shrink-0">
+                    <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={url}
+                        title={`Steel Hawks Video ${index + 1}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        loading="lazy"
+                        className="w-full h-full"
+                      ></iframe>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
+          <div
+            className="gallery-marquee"
+            style={
+              { ["--marquee-duration" as string]: "30s" } as CSSProperties
+            }
+          >
+            {[0, 1].map((duplicate) => (
+              <div
+                key={`robotics-photos-${duplicate}`}
+                className="gallery-row"
+                aria-hidden={duplicate === 1}
+              >
+                {roboticsPhotos.map((item) => (
+                  <figure key={`${item.image}-${duplicate}`} className="gallery-item">
+                    <div className="gallery-card">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="gallery-image"
+                        loading="lazy"
+                      />
+                    </div>
+                  </figure>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

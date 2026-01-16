@@ -100,13 +100,6 @@ export default function Media() {
     "https://www.youtube.com/embed/l3sHxv4NzfA"
   ];
 
-  const roboticsVideos = [
-    "https://www.youtube.com/embed/gG5wDGNnfJo",
-    "https://www.youtube.com/embed/9ZQ2MUSyQdg",
-    "https://www.youtube.com/embed/9aW_UDvRUWc",
-    "https://www.youtube.com/embed/W6Dn8IOq9uU"
-  ];
-
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
       target.classList.add("is-manual");
@@ -308,69 +301,6 @@ export default function Media() {
                         height="100%"
                         src={url}
                         title={`Dance Performance ${index + 1}`}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                        loading="lazy"
-                        className="w-full h-full"
-                      ></iframe>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FIRST Robotics */}
-      <section className="space-y-12 border-b border-gray-100 pb-20">
-        <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
-          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
-            FIRST Robotics: Steel Hawks 2601
-          </h2>
-          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 uppercase tracking-wider">
-            <a
-              href="https://www.steelhawks.net"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black transition-colors"
-            >
-              steelhawks.net
-            </a>
-            <span className="text-gray-300">/</span>
-            <a
-              href="https://www.instagram.com/steelhawks2601/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-black transition-colors"
-            >
-              @steelhawks2601
-            </a>
-          </div>
-        </div>
-
-        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
-          <div
-            className="gallery-marquee reverse"
-            style={
-              { ["--marquee-duration" as string]: "30s" } as CSSProperties
-            }
-          >
-            {[0, 1].map((duplicate) => (
-              <div
-                key={`robotics-${duplicate}`}
-                className="flex gap-6 pr-6"
-                aria-hidden={duplicate === 1}
-              >
-                {roboticsVideos.map((url, index) => (
-                  <div key={`robotics-${index}`} className="w-64 sm:w-72 shrink-0">
-                    <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                      <iframe
-                        width="100%"
-                        height="100%"
-                        src={url}
-                        title={`FIRST Robotics ${index + 1}`}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
