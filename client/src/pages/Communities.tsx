@@ -63,6 +63,12 @@ export default function Communities() {
       ],
     },
   ];
+  const danceVideos = [
+    "https://www.youtube.com/embed/Qs3Z8Mcl5hM",
+    "https://www.youtube.com/embed/BZAXumqsj1k",
+    "https://www.youtube.com/embed/TbtVj_JWPRE",
+    "https://www.youtube.com/embed/l3sHxv4NzfA"
+  ];
 
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
@@ -314,6 +320,69 @@ export default function Communities() {
             className="w-full h-64 object-cover"
             loading="lazy"
           />
+        </div>
+      </section>
+
+      {/* Dance */}
+      <section className="space-y-12 border-t border-gray-100 pt-12">
+        <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
+          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+            Dance
+          </h2>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 uppercase tracking-wider">
+            <a
+              href="https://www.instagram.com/basyk.rice/?hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition-colors"
+            >
+              @basyk.rice
+            </a>
+            <span className="text-gray-300">/</span>
+            <a
+              href="https://www.harvardaadt.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-black transition-colors"
+            >
+              harvardaadt.org
+            </a>
+          </div>
+        </div>
+
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
+          <div
+            className="gallery-marquee"
+            style={
+              { ["--marquee-duration" as string]: "28s" } as CSSProperties
+            }
+          >
+            {[0, 1].map((duplicate) => (
+              <div
+                key={`dance-${duplicate}`}
+                className="flex gap-6 pr-6"
+                aria-hidden={duplicate === 1}
+              >
+                {danceVideos.map((url, index) => (
+                  <div key={`dance-${index}`} className="w-64 sm:w-72 shrink-0">
+                    <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={url}
+                        title={`Dance Performance ${index + 1}`}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        loading="lazy"
+                        className="w-full h-full"
+                      ></iframe>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

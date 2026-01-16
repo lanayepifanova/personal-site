@@ -1,43 +1,10 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
 
-const mediaKitDevEntry = () => ({
-  name: "media-kit-dev-entry",
-  configureServer(server) {
-    const mediaKitIndex = path.resolve(
-      import.meta.dirname,
-      "client/public/media-kit/index.html",
-    );
-
-    server.middlewares.use((req, res, next) => {
-      if (!req.url) {
-        next();
-        return;
-      }
-
-      const pathname = req.url.split("?")[0];
-      if (pathname !== "/media-kit" && pathname !== "/media-kit/") {
-        next();
-        return;
-      }
-
-      if (!fs.existsSync(mediaKitIndex)) {
-        next();
-        return;
-      }
-
-      res.statusCode = 200;
-      res.setHeader("Content-Type", "text/html; charset=utf-8");
-      res.end(fs.readFileSync(mediaKitIndex));
-    });
-  },
-});
-
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), mediaKitDevEntry()];
+const plugins = [react(), tailwindcss(), jsxLocPlugin()];
 
 export default defineConfig({
   plugins,
