@@ -1,8 +1,11 @@
-import type { CSSProperties, WheelEvent, UIEvent } from "react";
-import { Heart, ExternalLink, Newspaper, Instagram } from "lucide-react";
+import { useState, type CSSProperties, type WheelEvent, type UIEvent } from "react";
+import { createPortal } from "react-dom";
+import { ExternalLink, Newspaper, Instagram } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Communities() {
+  const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
+
   usePageMeta({
     title: "Lana Yepifanova | Communities at Rice University",
     description:
@@ -19,6 +22,8 @@ export default function Communities() {
           image: "/images/wrestling.jpg",
           objectPosition: "50% 55%",
         },
+        { title: "Flag Football", image: "/images/flagfootball.jpg" },
+        { title: "Track", image: "/images/track.jpg" },
         { title: "Rice Club Sailing Team", image: "/images/sailing.png" },
         { title: "Basketball", image: "/images/basketball.JPG" },
         { title: "Swimming", image: "/images/swimming.JPG" },
@@ -48,6 +53,24 @@ export default function Communities() {
     { title: "Dance", image: "/images/harvard1.JPG" },
     { title: "Dance", image: "/images/harvard2.JPG" },
   ];
+
+  const riceResidencyVideo = {
+    title: "Rice Residency",
+    url: "https://www.youtube.com/embed/U-tJ9IUpr9A",
+  };
+
+  const getYoutubeId = (url: string) => {
+    const match = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
+    return match ? match[1] : null;
+  };
+
+  const getYoutubeThumbnail = (url: string) => {
+    const id = getYoutubeId(url);
+    if (!id) {
+      return "";
+    }
+    return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+  };
 
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
@@ -93,12 +116,12 @@ export default function Communities() {
             <h2 className="text-3xl font-sans font-medium text-black tracking-tight">Rice Residency</h2>
           </div>
           <div className="flex justify-between items-baseline">
-            <div className="text-lg font-serif text-black">Founder</div>
+            <div className="text-lg font-serif text-black">Co-Founder and Co-Lead</div>
           </div>
         </div>
 
-        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-          I started a hacker house at Rice University. We host weekly dinners, co-working sessions, and socials to foster innovation and community among student founders, builders, and creators.
+        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
+          Rice Residency is a selective, founder-led hacker house near Rice University in Houston for students and early-stage founders building software, hardware, and deep-tech startups. Residents are chosen for technical ability and execution, and operate in a high-density environment with shared housing, accountability, and access to Houston’s energy, climate, medical, and industrial startup ecosystem. The program ends with a Demo Day where teams present shipped products to investors and operators. We have partnerships with Greentown Labs, Rice Nexus, Lilie Lab, and TiE Houston.
         </p>
 
         <div className="flex gap-4 text-xs font-sans">
@@ -122,18 +145,25 @@ export default function Communities() {
             </a>
         </div>
 
-        <div className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-          <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/U-tJ9IUpr9A" 
-            title="Rice Residency"
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            allowFullScreen
-            className="w-full h-full"
-          ></iframe>
-        </div>
+        <button
+          type="button"
+          onClick={() => setActiveLightboxUrl(riceResidencyVideo.url)}
+          className="group text-left w-full"
+        >
+          <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+            <img
+              src={getYoutubeThumbnail(riceResidencyVideo.url)}
+              alt={riceResidencyVideo.title}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+              <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
+                <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+              </div>
+            </div>
+          </div>
+        </button>
         
 
       </section>
@@ -146,7 +176,7 @@ export default function Communities() {
             <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
           </div>
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
-            I took a gap semester from Rice University to live at the hacker house for Harvard and MIT. This experience changed my life. I consider this place my second home.
+            I took a gap semester from Rice University to live at the hacker house for Harvard and MIT. This experience changed my life. Alumni and affiliated founders have gone on to raise from top firms including Greylock Partners, Sequoia Capital, General Catalyst, Pear VC, Felicis Ventures, and Z Fellows.
           </p>
           
           <div className="flex gap-4 text-xs font-sans">
@@ -416,6 +446,40 @@ export default function Communities() {
 
       </section>
 
+
+      {activeLightboxUrl &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
+            onClick={() => setActiveLightboxUrl(null)}
+          >
+            <div
+              className="relative w-full max-w-4xl bg-black"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveLightboxUrl(null)}
+                className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+              >
+                close
+              </button>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`${activeLightboxUrl}${activeLightboxUrl.includes("?") ? "&" : "?"}autoplay=1`}
+                  title="Rice Residency Video"
+                  frameBorder="0"
+                  allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+            </div>
+          </div>,
+          document.body,
+        )}
 
     </div>
   );

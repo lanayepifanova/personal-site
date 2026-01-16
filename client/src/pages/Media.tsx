@@ -284,6 +284,14 @@ export default function Media() {
     return match ? match[1] : null;
   };
 
+  const getYoutubeThumbnail = (url: string) => {
+    const id = getYoutubeId(url);
+    if (!id) {
+      return "";
+    }
+    return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+  };
+
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
       target.classList.add("is-manual");
@@ -400,7 +408,7 @@ export default function Media() {
                   >
                     <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
                       <img
-                        src={`https://img.youtube.com/vi/${getYoutubeId(partner.videoUrl) ?? ""}/hqdefault.jpg`}
+                        src={getYoutubeThumbnail(partner.videoUrl)}
                         alt={partner.title}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -582,7 +590,7 @@ export default function Media() {
                   >
                     <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
                       <img
-                        src={`https://img.youtube.com/vi/${getYoutubeId(url) ?? ""}/hqdefault.jpg`}
+                        src={getYoutubeThumbnail(url)}
                         alt={`Piano Short ${index + 1}`}
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -611,7 +619,7 @@ export default function Media() {
                 >
                   <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
                     <img
-                      src={`https://img.youtube.com/vi/${getYoutubeId(url) ?? ""}/hqdefault.jpg`}
+                      src={getYoutubeThumbnail(url)}
                       alt={`Piano Performance ${index + 1}`}
                       className="w-full h-full object-cover"
                       loading="lazy"
