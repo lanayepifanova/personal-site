@@ -186,81 +186,75 @@ export default function Communities() {
 
       {/* The Residency + The Collective Section */}
       <section className="space-y-8 border-t border-gray-100 pt-12">
-        <div className="grid gap-12 lg:gap-16 md:grid-cols-2">
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex justify-between items-baseline">
-                <h2 className="text-lg font-serif text-black">The Residency</h2>
-                <div className="flex flex-wrap gap-3 text-xs font-sans">
-                  <a 
-                    href="https://www.livetheresidency.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    Visit The Residency
-                  </a>
-                  <a 
-                    href="https://homebrew.nyc" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    Homebrew Homies
-                  </a>
-                </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          <div className="border border-gray-200 p-5 space-y-4">
+            <div className="space-y-3">
+              <h2 className="text-lg font-serif text-black">The Residency</h2>
+              <div className="flex flex-wrap gap-2 text-[11px] font-mono uppercase tracking-wider">
+                <a
+                  href="https://www.livetheresidency.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full text-gray-600 hover:text-black hover:border-black transition-colors"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  Visit The Residency
+                </a>
+                <a
+                  href="https://homebrew.nyc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full text-gray-600 hover:text-black hover:border-black transition-colors"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  Homebrew Homies
+                </a>
               </div>
             </div>
 
             <div className="w-full overflow-hidden rounded-sm border border-gray-200">
-              <img 
-                src="/images/the-residency.jpeg" 
+              <img
+                src="/images/the-residency.jpeg"
                 alt="The Residency Community"
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />
             </div>
-
           </div>
 
-          <div className="space-y-4">
-            <div className="space-y-2">
-              <div className="flex justify-between items-baseline">
-                <h2 className="text-lg font-serif text-black">The Collective</h2>
-                <div className="flex flex-wrap gap-3 text-xs font-sans">
-                  <a 
-                    href="https://www.thecollectiveny.com" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    Visit The Collective
-                  </a>
-                  <a 
-                    href="https://www.linkedin.com/company/thecollectiveny/posts/?feedView=all" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
-                  >
-                    <ExternalLink className="h-3 w-3" />
-                    See Us Here
-                  </a>
-                </div>
+          <div className="border border-gray-200 p-5 space-y-4">
+            <div className="space-y-3">
+              <h2 className="text-lg font-serif text-black">The Collective</h2>
+              <div className="flex flex-wrap gap-2 text-[11px] font-mono uppercase tracking-wider">
+                <a
+                  href="https://www.thecollectiveny.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full text-gray-600 hover:text-black hover:border-black transition-colors"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  Visit The Collective
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/thecollectiveny/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 border border-gray-200 rounded-full text-gray-600 hover:text-black hover:border-black transition-colors"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  See Us Here
+                </a>
               </div>
             </div>
 
             <div className="w-full overflow-hidden rounded-sm border border-gray-200">
-              <img 
-                src="/images/the-collective.jpeg" 
+              <img
+                src="/images/the-collective.jpeg"
                 alt="The Collective Community"
                 className="w-full h-64 object-cover"
                 loading="lazy"
               />
             </div>
-
           </div>
         </div>
 

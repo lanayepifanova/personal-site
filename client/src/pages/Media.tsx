@@ -390,7 +390,7 @@ export default function Media() {
 
           {/* Brand Partnerships */}
           <section className="space-y-12 border-b border-gray-100 pb-20">
-            <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
               {partnerships.map((partner, index) => (
                 <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
                   <button
@@ -572,7 +572,7 @@ export default function Media() {
           {pianoShorts.length > 0 && (
             <div className="space-y-4">
               <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Shorts</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
                 {pianoShorts.map((url, index) => (
                   <button
                     key={`short-${index}`}
@@ -601,7 +601,7 @@ export default function Media() {
 
           <div className="space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Long form</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {pianoLongFormVideos.map((url, index) => (
                 <button
                   key={`long-${index}`}
