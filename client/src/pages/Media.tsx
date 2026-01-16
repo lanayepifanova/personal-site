@@ -339,7 +339,7 @@ export default function Media() {
             type="button"
             role="tab"
             aria-selected={activeTab === "portfolio"}
-            className={`relative z-10 px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-colors ${
+            className={`relative z-10 px-3.5 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
               activeTab === "portfolio" ? "text-white" : "text-gray-500 hover:text-black"
             }`}
             onClick={() => setActiveTab("portfolio")}
@@ -350,7 +350,7 @@ export default function Media() {
             type="button"
             role="tab"
             aria-selected={activeTab === "piano"}
-            className={`relative z-10 px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-colors ${
+            className={`relative z-10 px-3.5 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
               activeTab === "piano" ? "text-white" : "text-gray-500 hover:text-black"
             }`}
             onClick={() => setActiveTab("piano")}
@@ -363,7 +363,7 @@ export default function Media() {
             aria-selected={false}
             aria-disabled="true"
             disabled
-            className="relative z-10 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
+            className="relative z-10 px-3.5 py-2 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
           >
             Design Portfolio
           </button>
