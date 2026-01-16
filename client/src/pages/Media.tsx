@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
+import { createPortal } from "react-dom";
 import { ArrowRight, Check, Instagram, Linkedin, Mail, Music, Twitter, Youtube } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -90,27 +91,27 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/DC4PmnGcf1Y?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "Shorts Highlight 01",
+      title: "zo computer x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/PWAoOsb6j2A?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "Shorts Highlight 02",
+      title: "zo computer x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/W5pP0GSnGnY?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "Shorts Highlight 03",
-      videoUrl: "https://www.youtube.com/embed/ApH8CUpF3Vs?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
-      title: "Shorts Highlight 04",
+      title: "verdent.ai x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/p3WNprXmc74?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "Shorts Highlight 05",
+      title: "zo computer x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/ApH8CUpF3Vs?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "pippit x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/jMFlJz54ycQ?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "Shorts Highlight 06",
+      title: "zo computer x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/bPftR_iiVx0?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
@@ -260,25 +261,76 @@ export default function Media() {
     { name: "IG Story (Static, 24h)", price: "$75", desc: "Static story for 24 hours" },
     { name: "Monthly", price: "Custom", desc: "Long-term strategy" }
   ];
+  const pianoGallery = {
+    title: "Music",
+    duration: "34s",
+    items: [
+      {
+        title: "Chamber Music at Lincoln Center",
+        image: "/images/lincolncenter.JPG",
+        objectPosition: "50% 70%",
+      },
+      { title: "Music", image: "/images/music2.JPG" },
+      { title: "Music", image: "/images/music3.JPG" },
+      { title: "Music", image: "/images/music10.JPG" },
+      { title: "Music", image: "/images/music11.JPG" },
+      { title: "Music", image: "/images/music12.JPG" },
+      { title: "Music", image: "/images/music13.JPG" },
+    ],
+  };
 
   const getYoutubeId = (url: string) => {
     const match = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
     return match ? match[1] : null;
   };
 
+  const enableManualGallery = (target: HTMLDivElement) => {
+    if (!target.classList.contains("is-manual")) {
+      target.classList.add("is-manual");
+    }
+  };
+
+  const handleGalleryScroll = (event: UIEvent<HTMLDivElement>) => {
+    enableManualGallery(event.currentTarget);
+  };
+
+  const handleGalleryWheel = (event: WheelEvent<HTMLDivElement>) => {
+    const { deltaX, deltaY } = event;
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      return;
+    }
+
+    const target = event.currentTarget;
+    enableManualGallery(target);
+    const maxScrollLeft = target.scrollWidth - target.clientWidth;
+    if (maxScrollLeft <= 0) {
+      return;
+    }
+
+    const nextScrollLeft = target.scrollLeft + deltaY;
+    const clampedScrollLeft = Math.max(0, Math.min(maxScrollLeft, nextScrollLeft));
+
+    if (clampedScrollLeft === target.scrollLeft) {
+      return;
+    }
+
+    event.preventDefault();
+    target.scrollLeft = clampedScrollLeft;
+  };
+
   return (
-    <div className="page-stagger space-y-12 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
+    <div className="page-stagger space-y-12 animate-in fade-in duration-700 max-w-6xl mx-auto pt-8 pb-24 px-4">
       
       <header className="pb-1 space-y-1">
         <div
           role="tablist"
           aria-label="Media sections"
-          className="relative inline-grid grid-cols-3 border border-gray-200 p-1"
+          className="relative inline-grid grid-cols-3 border border-gray-200 p-0.5"
         >
           <div
-            className="absolute inset-y-1 left-1 bg-black transition-transform duration-300"
+            className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
             style={{
-              width: "calc((100% - 8px) / 3)",
+              width: "calc((100% - 4px) / 3)",
               transform: activeTab === "piano" ? "translateX(100%)" : "translateX(0%)",
             }}
             aria-hidden="true"
@@ -287,7 +339,7 @@ export default function Media() {
             type="button"
             role="tab"
             aria-selected={activeTab === "portfolio"}
-            className={`relative z-10 px-4 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
+            className={`relative z-10 px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-colors ${
               activeTab === "portfolio" ? "text-white" : "text-gray-500 hover:text-black"
             }`}
             onClick={() => setActiveTab("portfolio")}
@@ -298,7 +350,7 @@ export default function Media() {
             type="button"
             role="tab"
             aria-selected={activeTab === "piano"}
-            className={`relative z-10 px-4 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
+            className={`relative z-10 px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-colors ${
               activeTab === "piano" ? "text-white" : "text-gray-500 hover:text-black"
             }`}
             onClick={() => setActiveTab("piano")}
@@ -311,7 +363,7 @@ export default function Media() {
             aria-selected={false}
             aria-disabled="true"
             disabled
-            className="relative z-10 px-4 py-2 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
+            className="relative z-10 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
           >
             Design Portfolio
           </button>
@@ -338,7 +390,7 @@ export default function Media() {
 
           {/* Brand Partnerships */}
           <section className="space-y-12 border-b border-gray-100 pb-20">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
               {partnerships.map((partner, index) => (
                 <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
                   <button
@@ -504,26 +556,23 @@ export default function Media() {
           </section>
         </>
       ) : (
-        <section className="space-y-12">
-          <div className="border-b border-gray-100 pb-2 flex justify-between items-end">
-            <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
-              Piano Channel
-            </h2>
+        <section className="space-y-10 -mt-4">
+          <div className="flex items-center justify-between">
             <a 
               href="https://www.youtube.com/@LanaYepifanova"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono text-gray-400 hover:text-black transition-colors uppercase tracking-wider flex items-center gap-1"
+              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
             >
-              <Youtube className="h-3 w-3" />
-              @LanaYepifanova
+              <Youtube className="h-4 w-4" />
+              youtube
             </a>
           </div>
 
           {pianoShorts.length > 0 && (
             <div className="space-y-4">
               <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Shorts</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4">
                 {pianoShorts.map((url, index) => (
                   <button
                     key={`short-${index}`}
@@ -554,55 +603,99 @@ export default function Media() {
             <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Long form</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {pianoLongFormVideos.map((url, index) => (
-                <div key={`long-${index}`} className="aspect-video w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                  <iframe 
-                    width="100%" 
-                    height="100%" 
-                    src={url} 
-                    title={`Piano Performance ${index + 1}`}
-                    frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-                </div>
+                <button
+                  key={`long-${index}`}
+                  type="button"
+                  onClick={() => setActiveLightboxUrl(url)}
+                  className="group text-left"
+                >
+                  <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+                    <img
+                      src={`https://img.youtube.com/vi/${getYoutubeId(url) ?? ""}/hqdefault.jpg`}
+                      alt={`Piano Performance ${index + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+                      <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
+                        <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
               ))}
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Music Gallery</h3>
+            <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
+              <div
+                className="gallery-marquee"
+                style={
+                  { ["--marquee-duration" as string]: pianoGallery.duration } as CSSProperties
+                }
+              >
+                {[0, 1].map((duplicate) => (
+                  <div
+                    key={`piano-gallery-${duplicate}`}
+                    className="gallery-row"
+                    aria-hidden={duplicate === 1}
+                  >
+                    {pianoGallery.items.map((item) => (
+                      <figure key={`${item.image}-${duplicate}`} className="gallery-item">
+                        <div className="gallery-card">
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            className="gallery-image"
+                            style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+                            loading="lazy"
+                          />
+                        </div>
+                      </figure>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
       )}
 
-      {activeLightboxUrl && (
-        <div
-          className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
-          onClick={() => setActiveLightboxUrl(null)}
-        >
+      {activeLightboxUrl &&
+        createPortal(
           <div
-            className="relative w-full max-w-4xl bg-black"
-            onClick={(event) => event.stopPropagation()}
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
+            onClick={() => setActiveLightboxUrl(null)}
           >
-            <button
-              type="button"
-              onClick={() => setActiveLightboxUrl(null)}
-              className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+            <div
+              className="relative w-full max-w-4xl bg-black"
+              onClick={(event) => event.stopPropagation()}
             >
-              close
-            </button>
-            <div className="aspect-video">
-              <iframe
-                width="100%"
-                height="100%"
-                src={`${activeLightboxUrl}${activeLightboxUrl.includes("?") ? "&" : "?"}autoplay=1`}
-                title="Partnership video"
-                frameBorder="0"
-                allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
+              <button
+                type="button"
+                onClick={() => setActiveLightboxUrl(null)}
+                className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
+              >
+                close
+              </button>
+              <div className="aspect-video">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`${activeLightboxUrl}${activeLightboxUrl.includes("?") ? "&" : "?"}autoplay=1`}
+                  title="Partnership video"
+                  frameBorder="0"
+                  allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body,
+        )}
 
     </div>
   );

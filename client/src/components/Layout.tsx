@@ -22,22 +22,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="font-serif italic text-lg text-black font-medium">Lana Yepifanova</h1>
             <span className="font-sans text-[10px] text-gray-400 uppercase tracking-widest">Rice University • Applied Math</span>
           </div>
-          
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link 
-                key={item.href} 
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-2 text-[10px] font-bold tracking-widest transition-colors uppercase",
-                  location === item.href ? "text-black underline decoration-1 underline-offset-4" : "text-gray-400 hover:text-black"
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-
-          </nav>
+          <div className="flex items-center gap-8">
+            <nav className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link 
+                  key={item.href} 
+                  href={item.href}
+                  className={cn(
+                    "flex items-center gap-2 text-xs font-bold tracking-widest transition-colors uppercase",
+                    location === item.href ? "text-black underline decoration-1 underline-offset-4" : "text-gray-400 hover:text-black"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+            <HandGestureControl variant="inline" />
+          </div>
         </div>
       </header>
 
@@ -53,7 +54,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             )}
           >
             <item.icon className="h-4 w-4" />
-            <span className="text-[9px] font-bold tracking-widest">{item.label}</span>
+            <span className="text-[10px] font-bold tracking-widest">{item.label}</span>
           </Link>
         ))}
 
@@ -64,7 +65,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
 
-      <HandGestureControl />
     </div>
   );
 }

@@ -3,13 +3,16 @@ import { useHandGestureControl } from "@/hooks/useHandGestureControl";
 
 interface HandGestureControlProps {
   onToggle?: (isActive: boolean) => void;
+  variant?: "floating" | "inline";
 }
 
 export default function HandGestureControl({
   onToggle,
+  variant = "floating",
 }: HandGestureControlProps) {
   const { videoRef, gestureState, isLoading, toggleGestureControl } =
     useHandGestureControl();
+  const isInline = variant === "inline";
 
   useEffect(() => {
     onToggle?.(gestureState.isActive);
@@ -28,22 +31,50 @@ export default function HandGestureControl({
         aria-hidden="true"
       />
 
-      <button
-        onClick={toggleGestureControl}
-        disabled={isLoading}
-        className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border text-[10px] font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2 ${
-          gestureState.isActive
-            ? "bg-black text-white border-black shadow-sm"
-            : "bg-white text-gray-500 border-gray-200 hover:text-black hover:border-black"
-        } ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
-        title={
-          gestureState.isActive
-            ? "Hand gesture control is active. Move your mouse or tap Hand Mode to deactivate."
-            : "Click to activate hand gesture control"
-        }
-      >
-        {isLoading ? "Loading..." : gestureState.isActive ? "Hand Mode" : "Enable Hand"}
-      </button>
+      <div className={isInline ? "relative" : undefined}>
+        <button
+          onClick={toggleGestureControl}
+          disabled={isLoading}
+          className={`${
+            isInline
+              ? "px-4 py-2 rounded-lg border text-[10px] font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2"
+              : "fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border text-[10px] font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2"
+          } ${
+            gestureState.isActive
+              ? "bg-black text-white border-black shadow-sm"
+              : "bg-white text-gray-500 border-gray-200 hover:text-black hover:border-black"
+          } ${isLoading ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+          title={
+            gestureState.isActive
+              ? "Hand gesture control is active. Move your mouse or tap Hand Mode to deactivate."
+              : "Click to activate hand gesture control"
+          }
+        >
+          {isLoading ? "Loading..." : gestureState.isActive ? "Hand Mode" : "Enable Hand"}
+        </button>
+
+        {gestureState.isActive && isInline && (
+          <div className="absolute right-0 mt-2 z-40 bg-white rounded-md shadow-sm p-2 w-48 border border-gray-200">
+            <h3 className="text-[8px] font-bold tracking-widest uppercase text-gray-500 mb-2">
+              Gesture Controls
+            </h3>
+            <ul className="text-[10px] text-gray-700 space-y-1">
+              <li className="whitespace-nowrap">
+                <span className="font-semibold text-black">Hand Movement</span> = Move cursor
+              </li>
+              <li className="whitespace-nowrap">
+                <span className="font-semibold text-black">Palm Closed</span> = Click
+              </li>
+              <li className="whitespace-nowrap">
+                <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
+              </li>
+              <li className="text-[9px] text-gray-500 mt-2 leading-snug">
+                Move your mouse or tap Hand Mode to exit
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
 
       {gestureState.isActive && (
         <div
@@ -74,7 +105,7 @@ export default function HandGestureControl({
         </div>
       )}
 
-      {gestureState.isActive && (
+      {gestureState.isActive && !isInline && (
         <div className="fixed top-16 right-4 z-40 bg-white rounded-md shadow-sm p-2 w-48 border border-gray-200">
           <h3 className="text-[8px] font-bold tracking-widest uppercase text-gray-500 mb-2">
             Gesture Controls
