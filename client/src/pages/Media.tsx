@@ -327,7 +327,7 @@ export default function Media() {
   };
 
   return (
-    <div className="page-stagger space-y-12 animate-in fade-in duration-700 max-w-6xl mx-auto pt-8 pb-24 px-4">
+    <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-8 pb-24 px-4">
       
       <header className="pb-1 space-y-1">
         <div

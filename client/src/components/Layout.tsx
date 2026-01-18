@@ -7,9 +7,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/", label: "ENGINEERING", icon: Code },
-    { href: "/media", label: "MEDIA", icon: Video },
-    { href: "/communities", label: "COMMUNITIES", icon: Users },
+    { href: "/", label: "Engineering", icon: Code },
+    { href: "/media", label: "Media", icon: Video },
+    { href: "/communities", label: "Communities", icon: Users },
   ];
 
   return (
@@ -17,19 +17,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       
       {/* Top Bar (Minimal Header) */}
       <header className="z-40 border-b sticky top-0 transition-colors duration-300 border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container flex h-16 items-center justify-between max-w-4xl mx-auto px-4">
-          <div className="flex flex-col">
-            <h1 className="font-serif italic text-lg text-black font-medium">Lana Yepifanova</h1>
-            <span className="font-sans text-[10px] text-gray-400 uppercase tracking-widest">Rice University • Applied Math</span>
+        <div className="container flex h-20 items-center justify-between max-w-6xl mx-auto px-4">
+          <div className="flex flex-col pl-4">
+            <h1 className="font-sans text-2xl text-black font-semibold tracking-tight">Lana Yepifanova</h1>
           </div>
           <div className="flex items-center gap-8">
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
-                <Link 
+                <Link
                   key={item.href} 
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-2 text-xs font-bold tracking-widest transition-colors uppercase",
+                    "flex items-center gap-2 text-base font-semibold tracking-wide transition-colors font-sans",
                     location === item.href ? "text-black underline decoration-1 underline-offset-4" : "text-gray-400 hover:text-black"
                   )}
                 >
@@ -54,14 +53,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             )}
           >
             <item.icon className="h-4 w-4" />
-            <span className="text-[10px] font-bold tracking-widest">{item.label}</span>
+            <span className="text-sm font-semibold tracking-wide font-sans">{item.label}</span>
           </Link>
         ))}
 
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 container relative z-10 py-8 pb-24 md:pb-12 px-4">
+      <main className="flex-1 container relative z-10 py-8 pb-24 md:pb-12 px-4 max-w-6xl mx-auto">
         {children}
       </main>
 

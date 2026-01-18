@@ -7,11 +7,12 @@ export default function Engineering() {
   usePageMeta({
     title: "Lana Yepifanova | Engineering Portfolio",
     description:
-      "I am an engineer, content creator, and community builder studying applied mathematics at Rice University. I enjoy playing piano and watching anime.",
+      "I am an engineer, content creator, and community builder. I enjoy playing piano and watching anime.",
     canonicalPath: "/",
   });
 
   const corporate = [
+    /*
     {
       company: "Macquarie Group",
       role: "Incoming Commodities Trading Intern",
@@ -20,6 +21,7 @@ export default function Engineering() {
       image: "/images/macquarie1.JPG",
       link: "https://www.macquarie.com"
     },
+    */
     {
       company: "Unitbot",
       role: "Property Management Platform",
@@ -92,9 +94,19 @@ export default function Engineering() {
       company: "NYC Dept of Environmental Protection",
       role: "Civil Engineering Intern",
       period: "2022",
-      description: "Hydraulic modeling and infrastructure mapping of stormwater systems.",
+      description:
+        "Hydraulic modeling and infrastructure mapping of stormwater systems using InfoWorks, maintaining databases.",
       image: "/images/nyc-dep-cad-final.png",
       link: "https://www.nyc.gov/site/dep/water/drinking-water.page"
+    },
+    {
+      company: "NY Conservation League of Voters",
+      role: "Software Engineering",
+      period: "2022",
+      description:
+        "Built interactive maps using ArcGIS and Google Earth Engine displaying district-level environmental voting records.",
+      image: "/images/nyclv.png.jpeg",
+      link: null
     }
   ];
 
@@ -155,110 +167,114 @@ export default function Engineering() {
   };
 
   return (
-    <div className="page-stagger space-y-20 animate-in fade-in duration-700 max-w-4xl mx-auto pt-8 pb-24 px-4">
+    <div className="page-stagger space-y-20 animate-in fade-in duration-700 pt-8 pb-24 px-4">
       
-      {/* Header */}
-      <header className="mb-12">
-        <h2 className="text-3xl font-sans font-medium text-black tracking-tight">Engineering</h2>
-      </header>
+      <section className="-mt-2">
+        <div className="space-y-1 mb-6">
+          <div className="text-3xl font-sans font-medium text-black tracking-tight">
+            BS Electrical and Computer Engineering
+          </div>
+          <div className="text-lg font-serif text-black">Rice University 2023-2028</div>
+        </div>
 
-      {/* Links */}
-      <div className="mb-12 -mt-6 flex flex-wrap gap-6">
-        <a 
-          href="https://github.com/lanayepifanova" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-        >
-          <Github className="h-4 w-4" />
-          github
-        </a>
-        <span
-          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-          aria-disabled="true"
-        >
-          <Sigma className="h-4 w-4" />
-          matlab
-        </span>
-        <span
-          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-          aria-disabled="true"
-        >
-          <Box className="h-4 w-4" />
-          grabcad
-        </span>
-        <span
-          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-          aria-disabled="true"
-        >
-          <Code className="h-4 w-4" />
-          leetcode
-        </span>
-        <span
-          className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-          aria-disabled="true"
-        >
-          <Trophy className="h-4 w-4" />
-          codeforces
-        </span>
-      </div>
+        {/* Links */}
+        <div className="flex flex-wrap gap-6">
+          <a
+            href="https://github.com/lanayepifanova"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+          >
+            <Github className="h-4 w-4" />
+            github
+          </a>
+          <span
+            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            aria-disabled="true"
+          >
+            <Sigma className="h-4 w-4" />
+            matlab
+          </span>
+          <span
+            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            aria-disabled="true"
+          >
+            <Box className="h-4 w-4" />
+            grabcad
+          </span>
+          <span
+            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            aria-disabled="true"
+          >
+            <Code className="h-4 w-4" />
+            leetcode
+          </span>
+          <span
+            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            aria-disabled="true"
+          >
+            <Trophy className="h-4 w-4" />
+            codeforces
+          </span>
+        </div>
 
-      {/* Experience Section */}
-      <section className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-          {corporate.map((job) => {
-            const card = (
-              <>
-                <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
-                  <img
-                    src={job.image}
-                    alt={job.company}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  {job.link && (
-                    <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
-                      <ArrowUpRight className="h-3 w-3 text-black" />
-                    </div>
-                  )}
-                </div>
-                <div className="flex justify-between items-baseline mb-1">
-                  <h3 className="text-base font-sans font-semibold text-black group-hover:underline decoration-1 underline-offset-4 transition-all">
-                    {job.company}
-                  </h3>
-                  <span className="font-sans text-sm text-gray-400">
-                    {job.period}
-                  </span>
-                </div>
-                <div className="text-gray-500 font-sans text-sm leading-relaxed">
-                  {job.description}
-                </div>
-              </>
-            );
+        {/* Experience Section */}
+        <section className="space-y-6 mt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+            {corporate.map((job) => {
+              const card = (
+                <>
+                  <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
+                    <img
+                      src={job.image}
+                      alt={job.company}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {job.link && (
+                      <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-sm">
+                        <ArrowUpRight className="h-3 w-3 text-black" />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex justify-between items-baseline mb-1">
+                    <h3 className="text-base font-sans font-semibold text-black group-hover:underline decoration-1 underline-offset-4 transition-all">
+                      {job.company}
+                    </h3>
+                    <span className="font-sans text-sm text-gray-400">
+                      {job.period}
+                    </span>
+                  </div>
+                  <div className="text-gray-500 font-sans text-sm leading-relaxed">
+                    {job.description}
+                  </div>
+                </>
+              );
 
-            if (job.link) {
+              if (job.link) {
+                return (
+                  <a
+                    key={`${job.company}-${job.period}`}
+                    href={job.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col cursor-pointer"
+                  >
+                    {card}
+                  </a>
+                );
+              }
+
               return (
-                <a
+                <div
                   key={`${job.company}-${job.period}`}
-                  href={job.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex flex-col cursor-pointer"
+                  className="group flex flex-col"
                 >
                   {card}
-                </a>
+                </div>
               );
-            }
-
-            return (
-              <div
-                key={`${job.company}-${job.period}`}
-                className="group flex flex-col"
-              >
-                {card}
-              </div>
-            );
-          })}
-        </div>
+            })}
+          </div>
+        </section>
       </section>
 
       {/* Engineering Teams */}
