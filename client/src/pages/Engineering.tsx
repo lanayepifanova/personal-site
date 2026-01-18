@@ -316,7 +316,8 @@ export default function Engineering() {
             </h3>
           </div>
           <p className="text-gray-500 font-sans text-sm leading-relaxed">
-            Engineering team building solar cars and aerospace projects at Rice University. Learn more at{" "}
+            Rocketry team that designs, builds, and launches high-powered rockets for national competitions and research.
+            Working across propulsion, avionics, structures, and recovery systems. Learn more at{" "}
             <a
               href="http://eclipse.rice.edu"
               target="_blank"
@@ -344,7 +345,8 @@ export default function Engineering() {
             </h3>
           </div>
           <p className="text-gray-500 font-sans text-sm leading-relaxed">
-            Student-led renewable energy team focused on wind turbine design, testing, and outreach. Learn more at{" "}
+            Wind energy team advancing small-scale turbine design through hands-on experimentation.
+            Working across aerodynamics, electrical systems and structural design. Learn more at{" "}
             <a
               href="https://ricewindenergy.com"
               target="_blank"

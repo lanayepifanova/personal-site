@@ -19,37 +19,32 @@ export default function Media() {
       platform: "Instagram",
       handle: "@lana_yaps",
       link: "https://instagram.com/lana_yaps",
-      icon: Instagram,
-      stats: "Instagram (20k+)"
+      icon: Instagram
     },
     {
       platform: "YouTube",
       handle: "@lana_yaps",
       link: "https://youtube.com/@lana_yaps",
-      icon: Youtube,
-      stats: "50k+ Views"
+      icon: Youtube
     },
 
     {
       platform: "LinkedIn",
       handle: "@lanayepifanova",
       link: "https://www.linkedin.com/in/lana-yepifanova/",
-      icon: Linkedin,
-      stats: "Connect"
+      icon: Linkedin
     },
     {
       platform: "Twitter",
       handle: "@lana_yaps",
       link: "https://x.com/lana_yaps",
-      icon: Twitter,
-      stats: "Follow"
+      icon: Twitter
     },
     {
       platform: "TikTok",
       handle: "@lana_yaps",
       link: "https://www.tiktok.com/@lana_yaps",
-      icon: Music,
-      stats: "Follow"
+      icon: Music
     }
   ];
 
@@ -328,79 +323,95 @@ export default function Media() {
 
   return (
     <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-8 pb-24 px-4">
-      <header className="pb-1 space-y-1">
-        <div
-          role="tablist"
-          aria-label="Media sections"
-          className="relative inline-grid grid-cols-3 border border-gray-200 p-0.5"
-        >
-          <div
-            className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
-            style={{
-              width: "calc((100% - 4px) / 3)",
-              transform: activeTab === "piano" ? "translateX(100%)" : "translateX(0%)",
-            }}
-            aria-hidden="true"
-          />
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === "portfolio"}
-            className={`relative z-10 px-3.5 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
-              activeTab === "portfolio" ? "text-white" : "text-gray-500 hover:text-black"
-            }`}
-            onClick={() => setActiveTab("portfolio")}
-          >
-            Content Portfolio
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === "piano"}
-            className={`relative z-10 px-3.5 py-2 text-sm font-mono uppercase tracking-wider transition-colors ${
-              activeTab === "piano" ? "text-white" : "text-gray-500 hover:text-black"
-            }`}
-            onClick={() => setActiveTab("piano")}
-          >
-            Piano Channel
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={false}
-            aria-disabled="true"
-            disabled
-            className="relative z-10 px-3.5 py-2 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
-          >
-            Design Portfolio
-          </button>
+      <header className="pb-1">
+        <div className="flex flex-col md:flex-row md:items-stretch md:flex-nowrap gap-4">
+          <div className="flex flex-col gap-9">
+            <div
+              role="tablist"
+              aria-label="Media sections"
+              className="relative inline-grid grid-cols-3 border border-gray-200 p-0.5"
+            >
+              <div
+                className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
+                style={{
+                  width: "calc((100% - 4px) / 3)",
+                  transform: activeTab === "piano" ? "translateX(100%)" : "translateX(0%)",
+                }}
+                aria-hidden="true"
+              />
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "portfolio"}
+                className={`relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
+                  activeTab === "portfolio" ? "text-white" : "text-gray-500 hover:text-black"
+                }`}
+                onClick={() => setActiveTab("portfolio")}
+              >
+                Content Portfolio
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={activeTab === "piano"}
+                className={`relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
+                  activeTab === "piano" ? "text-white" : "text-gray-500 hover:text-black"
+                }`}
+                onClick={() => setActiveTab("piano")}
+              >
+                Piano Channel
+              </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={false}
+              aria-disabled="true"
+              disabled
+              className="group relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
+            >
+              Design Portfolio
+              <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+                coming soon!
+              </span>
+            </button>
+            </div>
+            {activeTab === "portfolio" ? (
+              <div className="flex flex-wrap gap-4 pl-2">
+                {socials.map((social) => (
+                  <a 
+                    key={social.platform} 
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                  >
+                    <social.icon className="h-4 w-4" />
+                    <span>
+                      {social.platform === "Twitter"
+                        ? "twitter/x"
+                        : social.platform.toLowerCase()}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            ) : null}
+          </div>
+          {activeTab === "portfolio" ? (
+            <div className="border border-gray-200 p-4 w-full md:w-auto md:ml-auto self-stretch flex flex-col justify-center">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
+                Instagram Audience
+              </div>
+              <div className="text-2xl font-serif text-black mt-1">20k+</div>
+              <div className="text-xs text-gray-500 mt-1">followers</div>
+            </div>
+          ) : null}
         </div>
       </header>
 
       {activeTab === "portfolio" ? (
         <>
-          {/* Social Profiles */}
-          <section className="flex flex-wrap gap-4 -mt-4">
-            {socials.map((social) => (
-              <a 
-                key={social.platform} 
-                href={social.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-              >
-                <social.icon className="h-4 w-4" />
-                {social.platform === "Instagram"
-                  ? "instagram (20k+)"
-                  : social.platform === "Twitter"
-                    ? "twitter/x"
-                    : social.platform.toLowerCase()}
-              </a>
-            ))}
-          </section>
-
           {/* Brand Partnerships */}
-          <section className="space-y-12 border-b border-gray-100 pb-20">
+          <section className="space-y-12 border-b border-gray-100 pb-20 -mt-4">
             <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
               {partnerships.map((partner, index) => (
                 <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
@@ -568,21 +579,20 @@ export default function Media() {
         </>
       ) : (
         <section className="space-y-10 -mt-4">
-          <div className="flex items-center justify-between">
-            <a 
-              href="https://www.youtube.com/@LanaYepifanova"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-            >
-              <Youtube className="h-4 w-4" />
-              youtube
-            </a>
-          </div>
-
           {pianoShorts.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Shorts</h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Shorts</h3>
+                <a 
+                  href="https://www.youtube.com/@LanaYepifanova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                >
+                  <Youtube className="h-4 w-4" />
+                  piano youtube channel link
+                </a>
+              </div>
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
                 {pianoShorts.map((url, index) => (
                   <button
@@ -610,8 +620,19 @@ export default function Media() {
             </div>
           )}
 
-          <div className="space-y-4">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Long form</h3>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Long form</h3>
+                <a 
+                  href="https://www.youtube.com/@LanaYepifanova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                >
+                  <Youtube className="h-4 w-4" />
+                  piano youtube channel link
+                </a>
+              </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {pianoLongFormVideos.map((url, index) => (
                 <button
