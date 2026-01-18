@@ -173,7 +173,7 @@ export default function Communities() {
         <div className="space-y-2">
           <div className="flex justify-between items-baseline">
             <h2 className="text-lg font-serif text-black">Harvard St Commons</h2>
-            <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Member</span>
+            <span className="font-mono text-[10px] text-gray-500 uppercase tracking-wider">Resident</span>
           </div>
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-xl">
             I took a gap semester from Rice University to live at the hacker house for Harvard and MIT. This experience changed my life. Alumni and affiliated founders have gone on to raise from top firms including Greylock Partners, Sequoia Capital, General Catalyst, Pear VC, Felicis Ventures, and Z Fellows.

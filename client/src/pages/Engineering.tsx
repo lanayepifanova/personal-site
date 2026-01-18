@@ -27,7 +27,8 @@ export default function Engineering() {
       company: "Unitbot",
       role: "Property Management Platform",
       period: "2025",
-      description: "Automated maintenance requests and rent reminders for NYC landlords. Acquired by early beta user.",
+      description:
+        "Solo Founder. Automated maintenance requests and rent reminders for NYC landlords. Acquired by early beta user.",
       image: "/images/unitbot-zoomed.png",
       link: null
     },

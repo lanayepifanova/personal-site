@@ -20,7 +20,7 @@ export default function Media() {
       handle: "@lana_yaps",
       link: "https://instagram.com/lana_yaps",
       icon: Instagram,
-      stats: "15k+ Followers"
+      stats: "Instagram (20k+)"
     },
     {
       platform: "YouTube",
@@ -328,7 +328,6 @@ export default function Media() {
 
   return (
     <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-8 pb-24 px-4">
-      
       <header className="pb-1 space-y-1">
         <div
           role="tablist"
@@ -391,7 +390,11 @@ export default function Media() {
                 className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
               >
                 <social.icon className="h-4 w-4" />
-                {social.platform === "Twitter" ? "twitter/x" : social.platform.toLowerCase()}
+                {social.platform === "Instagram"
+                  ? "instagram (20k+)"
+                  : social.platform === "Twitter"
+                    ? "twitter/x"
+                    : social.platform.toLowerCase()}
               </a>
             ))}
           </section>
