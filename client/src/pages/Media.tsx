@@ -366,8 +366,8 @@ export default function Media() {
               role="tab"
               aria-selected={false}
               aria-disabled="true"
-              disabled
-              className="group relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-not-allowed"
+              className="group relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-default"
+              onClick={(event) => event.preventDefault()}
             >
               Design Portfolio
               <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
@@ -397,13 +397,18 @@ export default function Media() {
             ) : null}
           </div>
           {activeTab === "portfolio" ? (
-            <div className="border border-gray-200 p-4 w-full md:w-auto md:ml-auto self-stretch flex flex-col justify-center">
+            <a
+              href="https://instagram.com/lana_yaps"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border border-gray-200 p-4 w-full md:w-auto md:ml-auto self-stretch flex flex-col justify-center transition-colors hover:border-black"
+            >
               <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
                 Instagram Audience
               </div>
               <div className="text-2xl font-serif text-black mt-1">20k+</div>
               <div className="text-xs text-gray-500 mt-1">followers</div>
-            </div>
+            </a>
           ) : null}
         </div>
       </header>

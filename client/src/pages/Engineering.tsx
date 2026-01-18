@@ -196,32 +196,44 @@ export default function Engineering() {
             github
           </a>
           <span
-            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Sigma className="h-4 w-4" />
             matlab
+            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+              coming soon!
+            </span>
           </span>
           <span
-            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Box className="h-4 w-4" />
             grabcad
+            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+              coming soon!
+            </span>
           </span>
           <span
-            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Code className="h-4 w-4" />
             leetcode
+            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+              coming soon!
+            </span>
           </span>
           <span
-            className="inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Trophy className="h-4 w-4" />
             codeforces
+            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+              coming soon!
+            </span>
           </span>
         </div>
 
