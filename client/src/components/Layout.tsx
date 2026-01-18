@@ -1,7 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Code, Video, Users } from "lucide-react";
-import HandGestureControl from "@/components/HandGestureControl";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
@@ -21,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col pl-4">
             <h1 className="font-sans text-2xl text-black font-semibold tracking-tight">Lana Yepifanova</h1>
           </div>
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 pr-4">
             <nav className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <Link
@@ -36,7 +35,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <HandGestureControl variant="inline" />
           </div>
         </div>
       </header>

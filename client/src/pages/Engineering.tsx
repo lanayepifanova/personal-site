@@ -2,6 +2,7 @@ import type { CSSProperties, UIEvent, WheelEvent } from "react";
 import { useState } from "react";
 import { ArrowUpRight, Github, Sigma, Box, Code, Lightbulb, Trophy } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import HandGestureControl from "@/components/HandGestureControl";
 
 export default function Engineering() {
   usePageMeta({
@@ -170,11 +171,16 @@ export default function Engineering() {
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 pt-8 pb-24 px-4">
       
       <section className="-mt-2">
-        <div className="space-y-1 mb-6">
-          <div className="text-3xl font-sans font-medium text-black tracking-tight">
-            BS Electrical and Computer Engineering
+        <div className="flex items-start justify-between gap-6 mb-6">
+          <div className="space-y-1">
+            <div className="text-3xl font-sans font-medium text-black tracking-tight">
+              BS Electrical and Computer Engineering
+            </div>
+            <div className="text-lg font-serif text-black">Rice University 2023-2028</div>
           </div>
-          <div className="text-lg font-serif text-black">Rice University 2023-2028</div>
+          <div className="pt-1">
+            <HandGestureControl variant="inline" />
+          </div>
         </div>
 
         {/* Links */}
@@ -219,7 +225,7 @@ export default function Engineering() {
         </div>
 
         {/* Experience Section */}
-        <section className="space-y-6 mt-4">
+        <section className="space-y-6 mt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {corporate.map((job) => {
               const card = (

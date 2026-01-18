@@ -250,10 +250,11 @@ export const useHandGestureControl = () => {
             cursorSmoothingRef.current.y
           );
         }
-        const edgeThreshold = 90;
-        if (y < edgeThreshold) {
+        const upperZone = window.innerHeight * 0.2;
+        const lowerZone = window.innerHeight * 0.8;
+        if (y < upperZone) {
           simulateScroll("up");
-        } else if (y > window.innerHeight - edgeThreshold) {
+        } else if (y > lowerZone) {
           simulateScroll("down");
         }
       }

@@ -37,8 +37,8 @@ export default function HandGestureControl({
           disabled={isLoading}
           className={`${
             isInline
-              ? "px-4 py-2 rounded-lg border text-[10px] font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2"
-              : "fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border text-[10px] font-bold tracking-widest uppercase transition-all duration-200 flex items-center gap-2"
+              ? "px-4 py-2 rounded-lg border text-sm font-semibold tracking-wide font-sans transition-all duration-200 flex items-center gap-2"
+              : "fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border text-sm font-semibold tracking-wide font-sans transition-all duration-200 flex items-center gap-2"
           } ${
             gestureState.isActive
               ? "bg-black text-white border-black shadow-sm"
@@ -54,11 +54,8 @@ export default function HandGestureControl({
         </button>
 
         {gestureState.isActive && isInline && (
-          <div className="absolute right-0 mt-2 z-40 bg-white rounded-md shadow-sm p-2 w-48 border border-gray-200">
-            <h3 className="text-[8px] font-bold tracking-widest uppercase text-gray-500 mb-2">
-              Gesture Controls
-            </h3>
-            <ul className="text-[10px] text-gray-700 space-y-1">
+          <div className="absolute right-0 mt-2 z-40 bg-white rounded-md shadow-sm p-3 w-56 border border-gray-200">
+            <ul className="text-xs text-gray-700 space-y-1 font-sans">
               <li className="whitespace-nowrap">
                 <span className="font-semibold text-black">Hand Movement</span> = Move cursor
               </li>
@@ -67,9 +64,6 @@ export default function HandGestureControl({
               </li>
               <li className="whitespace-nowrap">
                 <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
-              </li>
-              <li className="text-[9px] text-gray-500 mt-2 leading-snug">
-                Move your mouse or tap Hand Mode to exit
               </li>
             </ul>
           </div>
@@ -106,11 +100,8 @@ export default function HandGestureControl({
       )}
 
       {gestureState.isActive && !isInline && (
-        <div className="fixed top-16 right-4 z-40 bg-white rounded-md shadow-sm p-2 w-48 border border-gray-200">
-          <h3 className="text-[8px] font-bold tracking-widest uppercase text-gray-500 mb-2">
-            Gesture Controls
-          </h3>
-          <ul className="text-[10px] text-gray-700 space-y-1">
+        <div className="fixed top-16 right-4 z-40 bg-white rounded-md shadow-sm p-3 w-56 border border-gray-200">
+          <ul className="text-xs text-gray-700 space-y-1 font-sans">
             <li className="whitespace-nowrap">
               <span className="font-semibold text-black">Hand Movement</span> = Move cursor
             </li>
@@ -119,9 +110,6 @@ export default function HandGestureControl({
             </li>
             <li className="whitespace-nowrap">
               <span className="font-semibold text-black">Top/Bottom Edge</span> = Scroll
-            </li>
-            <li className="text-[9px] text-gray-500 mt-2 leading-snug">
-              Move your mouse or tap Hand Mode to exit
             </li>
           </ul>
         </div>
