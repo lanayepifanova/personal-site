@@ -30,7 +30,7 @@ export default function Engineering() {
       period: "2025",
       description:
         "Solo Founder. Automated maintenance requests and rent reminders for NYC landlords. Acquired by early beta user.",
-      image: "/images/unitbot-zoomed.png",
+      image: "/images/unitbot_true.png",
       imagePosition: "0% center",
       link: null
     },
