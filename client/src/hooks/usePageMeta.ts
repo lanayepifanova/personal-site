@@ -4,12 +4,10 @@ type PageMetaOptions = {
   title: string;
   description: string;
   canonicalPath?: string;
-  image?: string;
   ogType?: "website" | "article" | "profile";
 };
 
 const SITE_URL = "https://lanayepifanova.com";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 
 function setMetaTag(attribute: "name" | "property", value: string, content: string) {
   let tag = document.querySelector<HTMLMetaElement>(`meta[${attribute}="${value}"]`);
@@ -25,7 +23,6 @@ export function usePageMeta({
   title,
   description,
   canonicalPath,
-  image,
   ogType = "website",
 }: PageMetaOptions) {
   useEffect(() => {
@@ -35,7 +32,6 @@ export function usePageMeta({
         ? canonicalPath
         : `${SITE_URL}${canonicalPath}`
       : SITE_URL;
-    const resolvedImage = image?.startsWith("http") ? image : image ? `${SITE_URL}${image}` : DEFAULT_OG_IMAGE;
 
     document.title = pageTitle;
     setMetaTag("property", "og:title", pageTitle);
@@ -59,9 +55,7 @@ export function usePageMeta({
 
     setMetaTag("property", "og:type", ogType);
     setMetaTag("property", "og:url", resolvedUrl);
-    setMetaTag("property", "og:image", resolvedImage);
-    setMetaTag("name", "twitter:card", "summary_large_image");
+    setMetaTag("name", "twitter:card", "summary");
     setMetaTag("name", "twitter:url", resolvedUrl);
-    setMetaTag("name", "twitter:image", resolvedImage);
-  }, [title, description, canonicalPath, image, ogType]);
+  }, [title, description, canonicalPath, ogType]);
 }
