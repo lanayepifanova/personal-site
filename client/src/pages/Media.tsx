@@ -103,7 +103,7 @@ export default function Media() {
     },
     {
       title: "pippit x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/jMFlJz54ycQ?rel=0&modestbranding=1&controls=0&playsinline=1"
+      videoUrl: "https://www.youtube.com/embed/U2TG45-NfgE?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "zo computer x @lana_yaps",
