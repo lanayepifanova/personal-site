@@ -74,6 +74,10 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/2EGOU1YG4gk?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "readdy.ai x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/Ru0vxQ7Kmhg?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "VTSP x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/HDjuasybi_c?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
