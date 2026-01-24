@@ -291,9 +291,9 @@ export default function Home() {
             <SectionHeader title="Packages" subtitle="Partnership Options" />
             <div className="space-y-0 border-t border-border">
               {[
-                { name: "IG Reel (1 video)", price: "$450", desc: "Dedicated video content" },
-                { name: "IG Reels (2 videos)", price: "$600", desc: "Two dedicated videos" },
-                { name: "IG Reels (3 videos)", price: "$750", desc: "Three dedicated videos" },
+                { name: "IG Reel (1 video)", price: "$500", desc: "Dedicated video content" },
+                { name: "IG Reels (2 videos)", price: "$900", desc: "Two dedicated videos" },
+                { name: "IG Reels (3 videos)", price: "$1,250", desc: "Three dedicated videos" },
                 { name: "IG Story (Static, 24h)", price: "$50", desc: "Static story for 24 hours" },
                 { name: "Monthly", price: "Custom", desc: "Long-term strategy" },
               ].map((item) => (
@@ -305,6 +305,23 @@ export default function Home() {
                   <div className="font-mono text-xl font-bold text-primary">{item.price}</div>
                 </div>
               ))}
+            </div>
+            <div className="mt-8">
+              <div className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-3">Add-ons</div>
+              <div className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex items-center justify-between border-b border-border/50 pb-2">
+                  <span>Usage rights (30 days paid ads)</span>
+                  <span className="font-mono text-foreground">+$150</span>
+                </div>
+                <div className="flex items-center justify-between border-b border-border/50 pb-2">
+                  <span>Link in bio (7 days)</span>
+                  <span className="font-mono text-foreground">+$100</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Rush delivery (48hrs)</span>
+                  <span className="font-mono text-foreground">+$100</span>
+                </div>
+              </div>
             </div>
           </div>
 
