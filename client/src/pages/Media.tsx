@@ -253,18 +253,6 @@ export default function Media() {
     "Moment App"
   ];
 
-  const partnershipOptions = [
-    { name: "IG Story (Static, 24h)", price: "$75" },
-    { name: "IG Reel (1 video)", price: "$550" },
-    { name: "IG Reels (2 videos)", price: "$900" },
-    { name: "IG Reels (3 videos)", price: "$1,250" },
-    { name: "Monthly", price: "Custom" }
-  ];
-  const addOns = [
-    { name: "Usage rights (30 days paid ads)", price: "+$150" },
-    { name: "Link in bio (7 days)", price: "+$100" },
-    { name: "Rush delivery (48hrs)", price: "+$100" }
-  ];
   const pianoGallery = {
     title: "Music",
     duration: "34s",
@@ -541,36 +529,8 @@ export default function Media() {
           <section className="space-y-12">
             <div className="border-b border-gray-100 pb-2">
               <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
-                Packages & Contact
+                Contact
               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="border border-gray-200 p-6 lg:p-7 bg-white">
-                <div className="text-xs font-mono uppercase tracking-wider text-gray-400">Packages</div>
-                <div className="mt-4 border-t border-gray-100 divide-y divide-gray-100 text-sm text-gray-700">
-                  {partnershipOptions.map((item) => (
-                    <div key={item.name} className="flex items-center justify-between py-3">
-                      <span className="font-serif text-black">{item.name}</span>
-                      <span className="font-mono text-gray-800">{item.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="border border-gray-200 p-6 lg:p-7 bg-white">
-                <div className="text-xs font-mono uppercase tracking-wider text-gray-400">Add-ons</div>
-                <div className="mt-4 border-t border-gray-100 pt-4">
-                  <div className="divide-y divide-gray-100 text-xs text-gray-600">
-                    {addOns.map((item) => (
-                      <div key={item.name} className="flex items-center justify-between py-2">
-                        <span>{item.name}</span>
-                        <span className="font-mono text-gray-800">{item.price}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className="border border-gray-200 bg-gray-50 p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
