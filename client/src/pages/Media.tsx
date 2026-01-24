@@ -54,6 +54,10 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "kalshi x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/FhLcm04UtTM?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "kimi.ai x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/hFdhKgM0giM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
