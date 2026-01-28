@@ -86,6 +86,10 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/DC4PmnGcf1Y?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "bubble lab x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/oD4xNH2MwME?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "zo computer x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/PWAoOsb6j2A?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
@@ -184,9 +188,27 @@ export default function Media() {
   ];
 
   const audienceStats = [
-    { label: "Gender Split", value: "79% Male", subtext: "21% Female" },
-    { label: "Primary Geo", value: "75% US", subtext: "High Purchasing Power" },
-    { label: "Career Stage", value: "Early", subtext: "Students, Grads, Founders" }
+    {
+      label: "Gender Split",
+      value: "58% Male",
+      subtext: "41% Female",
+      image: "/images/gender.jpg",
+      alt: "Audience gender split chart"
+    },
+    {
+      label: "Primary Geo",
+      value: "72% US",
+      subtext: "High Purchasing Power",
+      image: "/images/country.jpg",
+      alt: "Audience country distribution chart"
+    },
+    {
+      label: "Career Stage",
+      value: "Early",
+      subtext: "Students, Grads, Founders",
+      image: "/images/ages.jpg",
+      alt: "Audience age distribution chart"
+    }
   ];
 
   const audienceTags = ["AI Tools", "SaaS", "EdTech", "Productivity", "Fintech", "Dev Tools", "Startups"];
@@ -463,7 +485,15 @@ export default function Media() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {audienceStats.map((stat) => (
-                <div key={stat.label} className="border border-gray-200 p-5 space-y-2">
+                <div key={stat.label} className="border border-gray-200 p-5 space-y-4">
+                  <div className="aspect-[4/3] w-full overflow-hidden border border-gray-100 bg-gray-50">
+                    <img
+                      src={stat.image}
+                      alt={stat.alt}
+                      className="h-full w-full object-contain p-2"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="text-xs font-mono text-gray-400 uppercase tracking-wider">{stat.label}</div>
                   <div className="text-2xl font-serif text-black">{stat.value}</div>
                   <div className="text-xs text-gray-500">{stat.subtext}</div>
