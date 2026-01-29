@@ -269,17 +269,25 @@ export default function Media() {
   ];
 
   const trustedPartners = [
+    "Cursor",
     "Moonshot AI",
     "Readdy AI",
     "Genspark",
-    "kalshi",
+    "Kalshi",
     "Runable",
     "Lilys AI",
     "Mitra App",
+    "Zo Computer",
+    "Verdent AI",
+    "Onepage AI",
+    "Pippit AI",
+    "Hinoter",
+    "Bubble Lab",
     "StudyX",
     "PrepAI",
     "Cluely",
     "Jobright",
+    "MakeUGC",
     "Moment App"
   ];
 
@@ -547,10 +555,27 @@ export default function Media() {
                   Repeat partnerships signal low execution risk. From early-stage startups to established AI platforms,
                   I deliver technical audiences that convert.
                 </p>
-                <div className="border border-gray-200 p-5">
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
-                  <div className="text-2xl font-serif text-black mt-2">Manus AI</div>
-                  <div className="text-xs text-gray-500 mt-1">3 Successful Campaigns</div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="border border-gray-200 p-4">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-xl font-serif text-black mt-2">Manus AI</div>
+                    <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
+                  </div>
+                  <div className="border border-gray-200 p-4">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-xl font-serif text-black mt-2">Kalshi</div>
+                    <div className="text-[11px] text-gray-500 mt-1">11 Successful Campaigns</div>
+                  </div>
+                  <div className="border border-gray-200 p-4">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-xl font-serif text-black mt-2">Cursor</div>
+                    <div className="text-[11px] text-gray-500 mt-1">2 Successful Campaigns</div>
+                  </div>
+                  <div className="border border-gray-200 p-4">
+                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-xl font-serif text-black mt-2">Zo Computer</div>
+                    <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
+                  </div>
                 </div>
               </div>
 
