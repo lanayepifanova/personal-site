@@ -239,7 +239,7 @@ export default function Media() {
     {
       quote:
         "I reached out to Lana to create a short video about Kalshi and asked if she could create it as soon as possible. She got it done within 6 hours, with great response times. I would 100% encourage you to work with her.",
-      author: "Nicholas Hull",
+      author: "Nicholas Hull + Salman Sohani",
       role: "kalshi"
     },
     {
