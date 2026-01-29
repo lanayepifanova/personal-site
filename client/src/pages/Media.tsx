@@ -120,6 +120,10 @@ export default function Media() {
     {
       title: "kalshi x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "onepage.ai x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/pyj7hNZOGPw?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
