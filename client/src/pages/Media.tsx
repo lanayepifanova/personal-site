@@ -50,6 +50,14 @@ export default function Media() {
 
   const partnerships = [
     {
+      title: "verdent x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/ut0fX-qcpjo?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "bubble lab x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/oD4xNH2MwME?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "kimi.ai x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/hFdhKgM0giM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
@@ -86,10 +94,6 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/DC4PmnGcf1Y?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "bubble lab x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/oD4xNH2MwME?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
       title: "zo computer x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/PWAoOsb6j2A?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
@@ -114,16 +118,12 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/bPftR_iiVx0?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "kalshi x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/FhLcm04UtTM?rel=0&modestbranding=1&controls=0&playsinline=1"
+      title: "onepage.ai x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/pyj7hNZOGPw?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "kalshi x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
-      title: "onepage.ai x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/pyj7hNZOGPw?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
