@@ -124,6 +124,10 @@ export default function Media() {
     {
       title: "kalshi x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "makeugc x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/eGKLEYygy5E?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
 
