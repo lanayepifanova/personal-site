@@ -408,13 +408,13 @@ export default function Media() {
               onClick={(event) => event.preventDefault()}
             >
               Design Portfolio
-              <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-full border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+              <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
                 coming soon!
               </span>
             </button>
             </div>
             {activeTab === "portfolio" ? (
-              <div className="flex items-start gap-4 pl-2">
+              <div className="flex items-start gap-4">
                 <div className="flex flex-1 flex-col gap-3">
                   <div className="flex items-center gap-3 overflow-x-auto py-1 md:overflow-visible md:py-0 md:flex md:flex-wrap md:gap-4">
                     {socials.map((social) => (
