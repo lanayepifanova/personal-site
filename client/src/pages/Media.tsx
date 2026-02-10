@@ -22,29 +22,28 @@ export default function Media() {
       icon: Instagram
     },
     {
-      platform: "YouTube",
-      handle: "@lana_yaps",
-      link: "https://youtube.com/@lana_yaps",
-      icon: Youtube
-    },
-
-    {
       platform: "LinkedIn",
       handle: "@lanayepifanova",
       link: "https://www.linkedin.com/in/lana-yepifanova/",
       icon: Linkedin
     },
     {
-      platform: "Twitter",
+      platform: "YouTube",
       handle: "@lana_yaps",
-      link: "https://x.com/lana_yaps",
-      icon: Twitter
+      link: "https://youtube.com/@lana_yaps",
+      icon: Youtube
     },
     {
       platform: "TikTok",
       handle: "@lana_yaps",
       link: "https://www.tiktok.com/@lana_yaps",
       icon: Music
+    },
+    {
+      platform: "Twitter",
+      handle: "@lana_yaps",
+      link: "https://x.com/lana_yaps",
+      icon: Twitter
     }
   ];
 
@@ -361,7 +360,7 @@ export default function Media() {
   };
 
   return (
-    <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-8 pb-24 px-4">
+    <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-2 sm:pt-4 pb-24 px-4">
       <header className="pb-1">
         <div className="flex flex-col md:flex-row md:items-stretch md:flex-nowrap gap-4">
           <div className="flex flex-col gap-9">
@@ -416,36 +415,36 @@ export default function Media() {
             </div>
             {activeTab === "portfolio" ? (
               <div className="flex items-start gap-4 pl-2">
-                <div className="grid flex-1 grid-cols-3 gap-3 md:flex md:flex-wrap md:gap-4">
-                  {socials.map((social) => (
-                    <a 
-                      key={social.platform} 
-                      href={social.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                    >
-                      <social.icon className="h-4 w-4" />
-                      <span>
-                        {social.platform === "Twitter"
-                          ? "twitter/x"
-                          : social.platform.toLowerCase()}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-                <a
-                  href="https://instagram.com/lana_yaps"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="md:hidden border border-gray-200 p-3 w-28 self-stretch flex flex-col justify-center transition-colors hover:border-black"
-                >
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
-                    Instagram Audience
+                <div className="flex flex-1 flex-col gap-3">
+                  <div className="flex items-center gap-3 overflow-x-auto py-1 md:overflow-visible md:py-0 md:flex md:flex-wrap md:gap-4">
+                    {socials.map((social) => (
+                      <a 
+                        key={social.platform} 
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                      >
+                        <social.icon className="h-4 w-4" />
+                        <span>
+                          {social.platform === "Twitter"
+                          ? "x"
+                            : social.platform.toLowerCase()}
+                        </span>
+                      </a>
+                    ))}
                   </div>
-                  <div className="text-xl font-serif text-black mt-1">20k+</div>
-                  <div className="text-[10px] text-gray-500 mt-1">followers</div>
-                </a>
+                  <a
+                    href="https://instagram.com/lana_yaps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black"
+                  >
+                    <span className="text-gray-400">Instagram Audience</span>
+                    <span className="font-sans text-black">20k+</span>
+                    <span className="text-gray-400">followers</span>
+                  </a>
+                </div>
               </div>
             ) : null}
           </div>

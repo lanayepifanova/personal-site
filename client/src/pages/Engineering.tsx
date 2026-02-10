@@ -177,7 +177,7 @@ export default function Engineering() {
       <section className="-mt-2">
         <div className="flex items-start justify-between gap-6 mb-6">
           <div className="space-y-1">
-            <div className="text-2xl sm:text-3xl font-sans font-medium text-black tracking-tight">
+            <div className="text-xl sm:text-2xl lg:text-3xl font-sans font-medium text-black tracking-tight">
               BS Electrical and Computer Engineering
             </div>
             <div className="text-lg font-serif text-black">Rice University 2023-2028</div>
