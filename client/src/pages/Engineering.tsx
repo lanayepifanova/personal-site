@@ -188,18 +188,18 @@ export default function Engineering() {
         </div>
 
         {/* Links */}
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-nowrap gap-4 overflow-x-auto sm:flex-wrap sm:gap-6 sm:overflow-visible">
           <a
             href="https://github.com/lanayepifanova"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
           >
             <Github className="h-4 w-4" />
             github
           </a>
           <span
-            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Sigma className="h-4 w-4" />
@@ -209,7 +209,7 @@ export default function Engineering() {
             </span>
           </span>
           <span
-            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Box className="h-4 w-4" />
@@ -219,7 +219,7 @@ export default function Engineering() {
             </span>
           </span>
           <span
-            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Code className="h-4 w-4" />
@@ -229,7 +229,7 @@ export default function Engineering() {
             </span>
           </span>
           <span
-            className="group relative inline-flex items-center gap-2 text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
             aria-disabled="true"
           >
             <Trophy className="h-4 w-4" />

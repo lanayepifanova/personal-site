@@ -415,23 +415,37 @@ export default function Media() {
             </button>
             </div>
             {activeTab === "portfolio" ? (
-              <div className="flex flex-wrap gap-4 pl-2">
-                {socials.map((social) => (
-                  <a 
-                    key={social.platform} 
-                    href={social.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                  >
-                    <social.icon className="h-4 w-4" />
-                    <span>
-                      {social.platform === "Twitter"
-                        ? "twitter/x"
-                        : social.platform.toLowerCase()}
-                    </span>
-                  </a>
-                ))}
+              <div className="flex items-start gap-4 pl-2">
+                <div className="grid flex-1 grid-cols-3 gap-3 md:flex md:flex-wrap md:gap-4">
+                  {socials.map((social) => (
+                    <a 
+                      key={social.platform} 
+                      href={social.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                    >
+                      <social.icon className="h-4 w-4" />
+                      <span>
+                        {social.platform === "Twitter"
+                          ? "twitter/x"
+                          : social.platform.toLowerCase()}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+                <a
+                  href="https://instagram.com/lana_yaps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:hidden border border-gray-200 p-3 w-28 self-stretch flex flex-col justify-center transition-colors hover:border-black"
+                >
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
+                    Instagram Audience
+                  </div>
+                  <div className="text-xl font-serif text-black mt-1">20k+</div>
+                  <div className="text-[10px] text-gray-500 mt-1">followers</div>
+                </a>
               </div>
             ) : null}
           </div>
@@ -440,7 +454,7 @@ export default function Media() {
               href="https://instagram.com/lana_yaps"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-gray-200 p-4 w-full md:w-auto md:ml-auto self-stretch flex flex-col justify-center transition-colors hover:border-black"
+              className="hidden md:flex border border-gray-200 p-4 w-full md:w-auto md:ml-auto self-stretch flex-col justify-center transition-colors hover:border-black"
             >
               <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
                 Instagram Audience
