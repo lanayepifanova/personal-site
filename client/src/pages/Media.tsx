@@ -1,4 +1,4 @@
-import { useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
+import { useMemo, useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, Check, Instagram, Linkedin, Mail, Music, Twitter, Youtube } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -48,6 +48,10 @@ export default function Media() {
   ];
 
   const partnerships = [
+    {
+      title: "chatly x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/A0D93I5R_ds?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
     {
       title: "verdent x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/ut0fX-qcpjo?rel=0&modestbranding=1&controls=0&playsinline=1"
@@ -125,10 +129,34 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "kalshi x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/X9Jptx11Ki4?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "kalshi x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/eU95tzZr_sM?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "cursor x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/PX7djLNkAIM?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "cursor x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/iVopbdduqbY?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "makeugc x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/eGKLEYygy5E?rel=0&modestbranding=1&controls=0&playsinline=1"
+      videoUrl: "https://www.youtube.com/embed/trME4lYjX8k?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
   ];
+
+  const shuffledPartnerships = useMemo(() => {
+    const shuffle = <T,>(items: T[]) => [...items].sort(() => Math.random() - 0.5);
+    const cursorPartnerships = partnerships.filter((partner) => partner.title === "cursor x @lana_yaps");
+    const otherPartnerships = partnerships.filter((partner) => partner.title !== "cursor x @lana_yaps");
+
+    return [...shuffle(cursorPartnerships), ...shuffle(otherPartnerships)];
+  }, []);
 
   const pianoShorts = [
     "https://www.youtube.com/embed/MA44NkrRnPU",
@@ -470,7 +498,7 @@ export default function Media() {
           {/* Brand Partnerships */}
           <section className="space-y-12 border-b border-gray-100 pb-20 -mt-4">
             <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
-              {partnerships.map((partner, index) => (
+              {shuffledPartnerships.map((partner, index) => (
                 <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
                   <button
                     type="button"
