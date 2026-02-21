@@ -395,12 +395,12 @@ export default function Media() {
             <div
               role="tablist"
               aria-label="Media sections"
-              className="relative inline-grid grid-cols-3 border border-gray-200 p-0.5"
+              className="relative inline-grid grid-cols-2 border border-gray-200 p-0.5"
             >
               <div
                 className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
                 style={{
-                  width: "calc((100% - 4px) / 3)",
+                  width: "calc((100% - 4px) / 2)",
                   transform: activeTab === "piano" ? "translateX(100%)" : "translateX(0%)",
                 }}
                 aria-hidden="true"
@@ -427,19 +427,6 @@ export default function Media() {
               >
                 Piano Channel
               </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={false}
-              aria-disabled="true"
-              className="group relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-default"
-              onClick={(event) => event.preventDefault()}
-            >
-              Design Portfolio
-              <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-                coming soon!
-              </span>
-            </button>
             </div>
             {activeTab === "portfolio" ? (
               <div className="flex items-start gap-4">
@@ -469,7 +456,7 @@ export default function Media() {
                     className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black"
                   >
                     <span className="text-gray-400">Instagram Audience</span>
-                    <span className="font-sans text-black">20k+</span>
+                    <span className="font-sans text-black">22k+</span>
                     <span className="text-gray-400">followers</span>
                   </a>
                 </div>
@@ -481,13 +468,12 @@ export default function Media() {
               href="https://instagram.com/lana_yaps"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex border border-gray-200 p-4 w-full md:w-auto md:ml-auto self-stretch flex-col justify-center transition-colors hover:border-black"
+              className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
             >
-              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">
+              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 whitespace-nowrap">
                 Instagram Audience
               </div>
-              <div className="text-2xl font-serif text-black mt-1">20k+</div>
-              <div className="text-xs text-gray-500 mt-1">followers</div>
+              <div className="text-2xl font-serif text-black whitespace-nowrap">22k+ followers</div>
             </a>
           ) : null}
         </div>

@@ -1,9 +1,8 @@
 import type { CSSProperties, UIEvent, WheelEvent } from "react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, Github, Sigma, Box, Code, Lightbulb, Trophy } from "lucide-react";
+import { ArrowUpRight, Github, Sigma, Box, Code } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-import HandGestureControl from "@/components/HandGestureControl";
 
 export default function Engineering() {
   usePageMeta({
@@ -175,73 +174,111 @@ export default function Engineering() {
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 pt-8 pb-24 px-4">
       
       <section className="-mt-2">
-        <div className="flex items-start justify-between gap-6 mb-6">
-          <div className="space-y-1">
-            <div className="text-xl sm:text-2xl lg:text-3xl font-sans font-medium text-black tracking-tight">
-              BS Electrical and Computer Engineering
+        <header className="pb-1">
+          <div className="flex flex-col md:flex-row md:items-stretch md:flex-nowrap gap-4">
+            <div className="flex flex-col gap-6">
+              <div
+                role="tablist"
+                aria-label="Engineering sections"
+                className="relative inline-grid grid-cols-2 border border-gray-200 p-0.5"
+              >
+                <div
+                  className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
+                  style={{
+                    width: "calc((100% - 4px) / 2)",
+                    transform: "translateX(0%)",
+                  }}
+                  aria-hidden="true"
+                />
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={true}
+                  className="relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider text-white"
+                >
+                  Work Experience
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={false}
+                  aria-disabled="true"
+                  className="group relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-default"
+                  onClick={(event) => event.preventDefault()}
+                >
+                  Design Portfolio
+                  <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+                    coming soon!
+                  </span>
+                </button>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="flex flex-1 flex-col gap-3">
+                  <div className="flex items-center gap-3 overflow-x-auto py-1 md:overflow-visible md:py-0 md:flex md:flex-wrap md:gap-4">
+                    <a
+                      href="https://github.com/lanayepifanova"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                    >
+                      <Github className="h-4 w-4" />
+                      github
+                    </a>
+                    <span
+                      className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+                      aria-disabled="true"
+                    >
+                      <Sigma className="h-4 w-4" />
+                      matlab
+                      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+                        coming soon!
+                      </span>
+                    </span>
+                    <span
+                      className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+                      aria-disabled="true"
+                    >
+                      <Box className="h-4 w-4" />
+                      grabcad
+                      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+                        coming soon!
+                      </span>
+                    </span>
+                    <span
+                      className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
+                      aria-disabled="true"
+                    >
+                      <Code className="h-4 w-4" />
+                      leetcode
+                      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
+                        coming soon!
+                      </span>
+                    </span>
+                  </div>
+                  <div className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black">
+                    <span className="text-gray-400">Education</span>
+                    <span className="font-sans text-black">Rice University</span>
+                    <span className="text-gray-400">2023-2027</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="text-lg font-serif text-black">Rice University 2023-2028</div>
+            <a
+              href="https://www.rice.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
+            >
+              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 whitespace-nowrap">
+                Education
+              </div>
+              <div className="text-2xl font-serif text-black whitespace-nowrap">Rice University</div>
+              <div className="text-xs text-gray-500 whitespace-nowrap">2023-2027</div>
+            </a>
           </div>
-          <div className="pt-1">
-            <HandGestureControl variant="inline" />
-          </div>
-        </div>
+        </header>
 
-        {/* Links */}
-        <div className="flex flex-nowrap gap-4 overflow-x-auto sm:flex-wrap sm:gap-6 sm:overflow-visible">
-          <a
-            href="https://github.com/lanayepifanova"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-          >
-            <Github className="h-4 w-4" />
-            github
-          </a>
-          <span
-            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-            aria-disabled="true"
-          >
-            <Sigma className="h-4 w-4" />
-            matlab
-            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-              coming soon!
-            </span>
-          </span>
-          <span
-            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-            aria-disabled="true"
-          >
-            <Box className="h-4 w-4" />
-            grabcad
-            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-              coming soon!
-            </span>
-          </span>
-          <span
-            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-            aria-disabled="true"
-          >
-            <Code className="h-4 w-4" />
-            leetcode
-            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-              coming soon!
-            </span>
-          </span>
-          <span
-            className="group relative inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-            aria-disabled="true"
-          >
-            <Trophy className="h-4 w-4" />
-            codeforces
-            <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-              coming soon!
-            </span>
-          </span>
-        </div>
-
-        {/* Experience Section */}
-        <section className="space-y-6 mt-6">
+        <section className="space-y-6 mt-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {corporate.map((job) => (
               <button
@@ -327,81 +364,80 @@ export default function Engineering() {
           document.body
         )}
 
-      {/* Engineering Teams */}
       <section className="space-y-6 pb-20">
-        <header className="border-b border-gray-200 pb-3">
-          <h2 className="text-2xl font-sans font-medium text-black tracking-tight">Engineering Teams</h2>
-        </header>
-        <div className="grid gap-8 md:grid-cols-2">
-        <div className="space-y-6">
-          <button
-            type="button"
-            onClick={() => setActiveLightboxUrl(riceEclipseVideo.url)}
-            className="group text-left w-full"
-          >
-            <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+          <header className="border-b border-gray-200 pb-3">
+            <h2 className="text-2xl font-sans font-medium text-black tracking-tight">Engineering Teams</h2>
+          </header>
+          <div className="grid gap-8 md:grid-cols-2">
+          <div className="space-y-6">
+            <button
+              type="button"
+              onClick={() => setActiveLightboxUrl(riceEclipseVideo.url)}
+              className="group text-left w-full"
+            >
+              <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+                <img
+                  src={riceEclipseVideo.thumbnail}
+                  alt={riceEclipseVideo.title}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+                  <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
+                    <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+                  </div>
+                </div>
+              </div>
+            </button>
+            <div className="flex justify-between items-baseline">
+              <h3 className="text-base font-sans font-semibold text-black">
+                Rice Eclipse
+              </h3>
+            </div>
+            <p className="text-gray-500 font-sans text-sm leading-relaxed">
+              Rocketry team that designs, builds, and launches high-powered rockets for national competitions and research.
+              Working across propulsion, avionics, structures, and recovery systems. Learn more at{" "}
+              <a
+                href="http://eclipse.rice.edu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
+              >
+                eclipse.rice.edu
+              </a>
+              .
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="aspect-[16/9] overflow-hidden rounded-xl bg-gray-100 shadow-sm border border-gray-100">
               <img
-                src={riceEclipseVideo.thumbnail}
-                alt={riceEclipseVideo.title}
+                src="/images/wind%20energy.jpg"
+                alt="Rice Wind Energy"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
-                  <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
-                </div>
-              </div>
             </div>
-          </button>
-          <div className="flex justify-between items-baseline">
-            <h3 className="text-base font-sans font-semibold text-black">
-              Rice Eclipse
-            </h3>
+            <div className="flex justify-between items-baseline">
+              <h3 className="text-base font-sans font-semibold text-black">
+                Rice Wind Energy
+              </h3>
+            </div>
+            <p className="text-gray-500 font-sans text-sm leading-relaxed">
+              Wind energy team advancing small-scale turbine design through hands-on experimentation.
+              Working across aerodynamics, electrical systems and structural design. Learn more at{" "}
+              <a
+                href="https://ricewindenergy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
+              >
+                ricewindenergy.com
+              </a>
+              .
+            </p>
           </div>
-          <p className="text-gray-500 font-sans text-sm leading-relaxed">
-            Rocketry team that designs, builds, and launches high-powered rockets for national competitions and research.
-            Working across propulsion, avionics, structures, and recovery systems. Learn more at{" "}
-            <a
-              href="http://eclipse.rice.edu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
-            >
-              eclipse.rice.edu
-            </a>
-            .
-          </p>
-        </div>
-
-        <div className="space-y-6">
-          <div className="aspect-[16/9] overflow-hidden rounded-xl bg-gray-100 shadow-sm border border-gray-100">
-            <img
-              src="/images/wind%20energy.jpg"
-              alt="Rice Wind Energy"
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
           </div>
-          <div className="flex justify-between items-baseline">
-            <h3 className="text-base font-sans font-semibold text-black">
-              Rice Wind Energy
-            </h3>
-          </div>
-          <p className="text-gray-500 font-sans text-sm leading-relaxed">
-            Wind energy team advancing small-scale turbine design through hands-on experimentation.
-            Working across aerodynamics, electrical systems and structural design. Learn more at{" "}
-            <a
-              href="https://ricewindenergy.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-gray-400 underline-offset-2 transition-all text-gray-500 hover:text-gray-800"
-            >
-              ricewindenergy.com
-            </a>
-            .
-          </p>
-        </div>
-        </div>
       </section>
 
       {activeLightboxUrl &&
