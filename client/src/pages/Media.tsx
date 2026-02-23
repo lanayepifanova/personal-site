@@ -44,7 +44,7 @@ export default function Media() {
       handle: "@lana_yaps",
       link: "https://x.com/lana_yaps",
       icon: Twitter
-    }
+    },
   ];
 
   const partnerships = [
@@ -121,8 +121,16 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/bPftR_iiVx0?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "zo x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/Axz5CRJsMLs?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "onepage.ai x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/pyj7hNZOGPw?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "vivora.ai x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/t3AzvrMm3Ro?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "kalshi x @lana_yaps",
@@ -135,6 +143,10 @@ export default function Media() {
     {
       title: "kalshi x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/eU95tzZr_sM?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "kalshi x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/7y7AtS7SsYc?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
       title: "cursor x @lana_yaps",
@@ -444,6 +456,8 @@ export default function Media() {
                         <span>
                           {social.platform === "Twitter"
                           ? "x"
+                          : social.platform === "Instagram"
+                          ? "insta"
                             : social.platform.toLowerCase()}
                         </span>
                       </a>

@@ -180,7 +180,7 @@ export default function Engineering() {
               <div
                 role="tablist"
                 aria-label="Engineering sections"
-                className="relative inline-grid grid-cols-2 border border-gray-200 p-0.5"
+                className="relative grid w-full grid-cols-2 border border-gray-200 p-0.5"
               >
                 <div
                   className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
