@@ -59,6 +59,21 @@ export default function Communities() {
     url: "https://www.youtube.com/embed/U-tJ9IUpr9A",
   };
 
+  const communityLinks = [
+    {
+      title: "Rice University Police Department: Citizens Police Academy",
+      href: "https://news.rice.edu/news/2024/rice-students-staff-get-behind-scenes-look-rupd-through-citizens-police-academy",
+    },
+    {
+      title: "Ballet Arts: Seven Seas! Performance at New York City Center",
+      href: "https://www.dance-enthusiast.com/get-involved/reviews/view/Ballet-Arts-presents-Live-in-Living-Color-June-22-2023",
+    },
+    {
+      title: "PSAL Athlete: New York City Girls Wrestling Champion",
+      href: "https://thhsclassic.com/18762/sport/psal-winter-season-five-thhs-athletes-with-outstanding-stats/",
+    },
+  ];
+
   const getYoutubeId = (url: string) => {
     const match = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
     return match ? match[1] : null;
@@ -444,6 +459,26 @@ export default function Communities() {
           })}
         </div>
 
+      </section>
+
+      <section className="-mt-12 pb-20 border-t border-gray-100 pt-12">
+        <div className="space-y-2">
+          <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Links</h3>
+          {communityLinks.map((link) => (
+            <a
+              key={link.title}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
+            >
+              <div className="min-w-0">
+                <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
+              </div>
+              <ExternalLink className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black" />
+            </a>
+          ))}
+        </div>
       </section>
 
 

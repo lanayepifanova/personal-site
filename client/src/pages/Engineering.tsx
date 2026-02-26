@@ -133,6 +133,21 @@ export default function Engineering() {
     "https://www.youtube.com/embed/W6Dn8IOq9uU"
   ];
 
+  const workshopLinks = [
+    {
+      title: "CS Girlies Hackathon: How to Sell Your App",
+      href: "https://www.csgirlies.com/hackathon-schedule?ref=devpost"
+    },
+    {
+      title: "Harvard Hacker House: How to Get Your Dream Job?",
+      href: "https://www.youtube.com/watch?v=_a4pVwbSWVM"
+    },
+    {
+      title: "Humanities Symposium: King Lear and HBO's Succession",
+      href: "https://thhsclassic.com/19036/news/ninth-annual-humanities-symposium-features-presenters-audience-members-from-across-queens/"
+    }
+  ];
+
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
   const [activeJob, setActiveJob] = useState<(typeof corporate)[number] | null>(null);
 
@@ -563,6 +578,26 @@ export default function Engineering() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="-mt-12 pb-20">
+        <div className="space-y-2">
+          <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Workshops</h3>
+          {workshopLinks.map((link) => (
+            <a
+              key={link.title}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
+            >
+              <div className="min-w-0">
+                <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
+              </div>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black" />
+            </a>
+          ))}
         </div>
       </section>
 

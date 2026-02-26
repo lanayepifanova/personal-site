@@ -352,6 +352,25 @@ export default function Media() {
     ],
   };
 
+  const pianoGalleryLinks = [
+    {
+      title: "Themes from Attack on Titan",
+      href: "https://www.youtube.com/watch?v=ij4a8EmkP3Y",
+    },
+    {
+      title: "NYC Honors Music Festival",
+      href: "https://thhsclassic.com/16181/arts-entertainment/harrisites-earn-multiples-seats-in-nyc-honors-music-festival/",
+    },
+    {
+      title: "Schindler's List Chamber Strings",
+      href: "https://www.youtube.com/watch?app=desktop&v=IParHYpUkNY",
+    },
+    {
+      title: "Townsend Harris NYSSMA Spring Concert",
+      href: "https://thhsclassic.com/16500/arts-entertainment/thhs-music-program-performs-in-an-eventful-month-of-concerts-and-festivals/",
+    },
+  ];
+
   const getYoutubeId = (url: string) => {
     const match = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
     return match ? match[1] : null;
@@ -772,6 +791,23 @@ export default function Media() {
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="mt-12 space-y-2">
+              <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Performances & Features</h3>
+              {pianoGalleryLinks.map((link) => (
+                <a
+                  key={link.title}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
+                >
+                  <div className="min-w-0">
+                    <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
+                  </div>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-black" />
+                </a>
+              ))}
             </div>
           </div>
         </section>
