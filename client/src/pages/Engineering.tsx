@@ -221,7 +221,7 @@ export default function Engineering() {
                   className="group relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-default"
                   onClick={(event) => event.preventDefault()}
                 >
-                  Design Portfolio
+                  Passion Projects
                   <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
                     coming soon!
                   </span>
