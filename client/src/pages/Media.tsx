@@ -130,7 +130,7 @@ export default function Media() {
     },
     {
       title: "lovart x @lana_yaps",
-      videoUrl: "https://youtube.com/shorts/UWZsnYvzDbs?feature=share"
+      videoUrl: "https://youtube.com/shorts/8hpAHUCtQW8?feature=share"
     },
     {
       title: "onepage.ai x @lana_yaps",
