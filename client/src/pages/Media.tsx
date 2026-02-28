@@ -125,6 +125,14 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/Axz5CRJsMLs?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
+      title: "zo x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/5ojU_x3-4g8?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "lovart x @lana_yaps",
+      videoUrl: "https://www.youtube.com/embed/5ojU_x3-4g8?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
       title: "onepage.ai x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/pyj7hNZOGPw?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
