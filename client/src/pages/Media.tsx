@@ -149,6 +149,10 @@ export default function Media() {
       videoUrl: "https://youtube.com/shorts/a21hI-NmqR0?feature=share"
     },
     {
+      title: "cursor x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/6-8nQqCXGys?feature=share"
+    },
+    {
       title: "makeugc x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/trME4lYjX8k?rel=0&modestbranding=1&controls=0&playsinline=1"
     }
