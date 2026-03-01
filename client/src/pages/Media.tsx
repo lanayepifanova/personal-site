@@ -142,14 +142,6 @@ export default function Media() {
     },
     {
       title: "kalshi x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/X9Jptx11Ki4?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
-      title: "kalshi x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/eU95tzZr_sM?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
-      title: "kalshi x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/7y7AtS7SsYc?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
