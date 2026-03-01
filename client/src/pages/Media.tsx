@@ -122,11 +122,7 @@ export default function Media() {
     },
     {
       title: "zo x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/Axz5CRJsMLs?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
-      title: "zo x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/5ojU_x3-4g8?rel=0&modestbranding=1&controls=0&playsinline=1"
+      videoUrl: "https://youtube.com/shorts/5ojU_x3-4g8?feature=share"
     },
     {
       title: "lovart x @lana_yaps",
@@ -158,11 +154,7 @@ export default function Media() {
     },
     {
       title: "cursor x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/PX7djLNkAIM?rel=0&modestbranding=1&controls=0&playsinline=1"
-    },
-    {
-      title: "cursor x @lana_yaps",
-      videoUrl: "https://www.youtube.com/embed/iVopbdduqbY?rel=0&modestbranding=1&controls=0&playsinline=1"
+      videoUrl: "https://youtube.com/shorts/a21hI-NmqR0?feature=share"
     },
     {
       title: "makeugc x @lana_yaps",
@@ -380,8 +372,35 @@ export default function Media() {
   ];
 
   const getYoutubeId = (url: string) => {
-    const match = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
-    return match ? match[1] : null;
+    const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
+    if (embedMatch) {
+      return embedMatch[1];
+    }
+
+    const shortsMatch = url.match(/\/shorts\/([a-zA-Z0-9_-]+)/);
+    if (shortsMatch) {
+      return shortsMatch[1];
+    }
+
+    const watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
+    if (watchMatch) {
+      return watchMatch[1];
+    }
+
+    return null;
+  };
+
+  const getYoutubeEmbedUrl = (url: string) => {
+    if (url.includes("/embed/")) {
+      return url;
+    }
+
+    const id = getYoutubeId(url);
+    if (!id) {
+      return url;
+    }
+
+    return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`;
   };
 
   const getYoutubeThumbnail = (url: string) => {
@@ -529,7 +548,7 @@ export default function Media() {
                 <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
                   <button
                     type="button"
-                    onClick={() => setActiveLightboxUrl(partner.videoUrl)}
+                    onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(partner.videoUrl))}
                     className="text-left"
                   >
                     <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
@@ -707,7 +726,7 @@ export default function Media() {
                   <button
                     key={`short-${index}`}
                     type="button"
-                    onClick={() => setActiveLightboxUrl(url)}
+                    onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
                     className="group text-left"
                   >
                     <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
@@ -747,7 +766,7 @@ export default function Media() {
                 <button
                   key={`long-${index}`}
                   type="button"
-                  onClick={() => setActiveLightboxUrl(url)}
+                  onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
                   className="group text-left"
                 >
                   <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
