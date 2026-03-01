@@ -8,7 +8,7 @@ export default function Engineering() {
   usePageMeta({
     title: "Lana Yepifanova | Engineering Portfolio",
     description:
-      "I am an engineer, content creator, and community builder. I enjoy playing piano and watching anime.",
+      "I am an engineer, content creator, and community builder. In my free time, I enjoy playing piano, reading dystopian novels, and tinkering in makerspaces.",
     canonicalPath: "/",
   });
 
