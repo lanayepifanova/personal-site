@@ -226,8 +226,7 @@ export default function Media() {
     "https://www.youtube.com/embed/9fDRZKqb4Uo",
     "https://www.youtube.com/embed/_DiAbZRqQZg",
     "https://www.youtube.com/embed/jxJ8cFxw4qI",
-    "https://www.youtube.com/embed/ACmF4cCZjkY",
-    "https://www.youtube.com/embed/EKwhxSqqpTE"
+    "https://www.youtube.com/embed/ACmF4cCZjkY"
   ];
 
   const audienceStats = [
@@ -349,6 +348,26 @@ export default function Media() {
   };
 
   const pianoGalleryLinks = [
+    {
+      title: "Piano Duet - Demon Slayer",
+      href: "https://www.youtube.com/watch?v=-62X6l-FxLQ",
+    },
+    {
+      title: "Chamber Strings Winter Concert 2021",
+      href: "https://www.youtube.com/watch?v=4uOeYV1DbeQ",
+    },
+    {
+      title: "Once Upon a December",
+      href: "https://www.youtube.com/watch?v=UVuxaMUdjfA",
+    },
+    {
+      title: "Music from \"Abdelazer\" by Henry Purcell",
+      href: "https://www.youtube.com/watch?v=sFLrXiMxqY8",
+    },
+    {
+      title: "Navarra Op 33 Pablo de Sarasate",
+      href: "https://www.youtube.com/watch?v=AuJeFHpvabA",
+    },
     {
       title: "Themes from Attack on Titan",
       href: "https://www.youtube.com/watch?v=ij4a8EmkP3Y",
