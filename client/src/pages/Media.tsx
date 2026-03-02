@@ -378,7 +378,7 @@ export default function Media() {
     },
     {
       title: "Schindler's List Chamber Strings",
-      href: "https://www.youtube.com/watch?app=desktop&v=IParHYpUkNY",
+      href: "https://www.youtube.com/watch?v=RuruQ862ajk",
     },
     {
       title: "Townsend Harris NYSSMA Spring Concert",
