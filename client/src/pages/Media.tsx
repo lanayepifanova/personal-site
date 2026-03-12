@@ -155,6 +155,22 @@ export default function Media() {
     {
       title: "makeugc x @lana_yaps",
       videoUrl: "https://www.youtube.com/embed/trME4lYjX8k?rel=0&modestbranding=1&controls=0&playsinline=1"
+    },
+    {
+      title: "predis.ai x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/xc7ddIXUDBc?feature=share"
+    },
+    {
+      title: "sticker x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/ZX9VYEaeMYM?feature=share"
+    },
+    {
+      title: "sticker x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/qK9TZUOdUUU?feature=share"
+    },
+    {
+      title: "sticker x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/LoQ72cn7rFg?feature=share"
     }
   ];
 
@@ -558,7 +574,7 @@ export default function Media() {
         <>
           {/* Brand Partnerships */}
           <section className="space-y-12 border-b border-gray-100 pb-20 -mt-4">
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
+            <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
               {shuffledPartnerships.map((partner, index) => (
                 <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
                   <button
@@ -736,7 +752,7 @@ export default function Media() {
                   piano youtube channel link
                 </a>
               </div>
-              <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
                 {pianoShorts.map((url, index) => (
                   <button
                     key={`short-${index}`}
