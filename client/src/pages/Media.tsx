@@ -1,6 +1,6 @@
 import { useMemo, useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Check, Instagram, Linkedin, Mail, Music, Twitter, Youtube } from "lucide-react";
+import { ArrowRight, Check, Instagram, Mail, Music, Rss, Youtube } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Media() {
@@ -22,12 +22,6 @@ export default function Media() {
       icon: Instagram
     },
     {
-      platform: "LinkedIn",
-      handle: "@lanayepifanova",
-      link: "https://www.linkedin.com/in/lana-yepifanova/",
-      icon: Linkedin
-    },
-    {
       platform: "YouTube",
       handle: "@lana_yaps",
       link: "https://youtube.com/@lana_yaps",
@@ -40,10 +34,10 @@ export default function Media() {
       icon: Music
     },
     {
-      platform: "Twitter",
-      handle: "@lana_yaps",
-      link: "https://x.com/lana_yaps",
-      icon: Twitter
+      platform: "Substack",
+      handle: "@lanayepifanova",
+      link: "https://substack.com/@lanayepifanova",
+      icon: Rss
     },
   ];
 
@@ -480,11 +474,11 @@ export default function Media() {
     <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-2 sm:pt-4 pb-24 px-4">
       <header className="pb-1">
         <div className="flex flex-col md:flex-row md:items-stretch md:flex-nowrap gap-4">
-          <div className="flex flex-col gap-9">
+          <div className="flex flex-col gap-5">
             <div
               role="tablist"
               aria-label="Media sections"
-              className="relative inline-grid grid-cols-2 border border-gray-200 p-0.5"
+              className="relative grid w-full grid-cols-2 border border-gray-200 p-0.5"
             >
               <div
                 className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
@@ -498,7 +492,7 @@ export default function Media() {
                 type="button"
                 role="tab"
                 aria-selected={activeTab === "portfolio"}
-                className={`relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
+                className={`relative z-10 px-7 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
                   activeTab === "portfolio" ? "text-white" : "text-gray-500 hover:text-black"
                 }`}
                 onClick={() => setActiveTab("portfolio")}
@@ -509,7 +503,7 @@ export default function Media() {
                 type="button"
                 role="tab"
                 aria-selected={activeTab === "piano"}
-                className={`relative z-10 px-4.5 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
+                className={`relative z-10 px-7 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
                   activeTab === "piano" ? "text-white" : "text-gray-500 hover:text-black"
                 }`}
                 onClick={() => setActiveTab("piano")}
@@ -533,9 +527,7 @@ export default function Media() {
                         <span>
                           {social.platform === "Twitter"
                           ? "x"
-                          : social.platform === "Instagram"
-                          ? "insta"
-                            : social.platform.toLowerCase()}
+                          : social.platform.toLowerCase()}
                         </span>
                       </a>
                     ))}

@@ -1,7 +1,7 @@
 import type { CSSProperties, UIEvent, WheelEvent } from "react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, Github, Sigma, Box, Code } from "lucide-react";
+import { ArrowUpRight, Github, Box, Code, Linkedin, Twitter } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Engineering() {
@@ -150,6 +150,12 @@ export default function Engineering() {
 
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
   const [activeJob, setActiveJob] = useState<(typeof corporate)[number] | null>(null);
+  const [activeTab, setActiveTab] = useState<"work" | "projects">("work");
+
+  const writings = [
+    // essays, notes, and writings go here
+    // { title: "Example Essay", date: "2025", description: "...", href: "..." }
+  ] as { title: string; date: string; description: string; href?: string }[];
 
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
@@ -201,30 +207,27 @@ export default function Engineering() {
                   className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
                   style={{
                     width: "calc((100% - 4px) / 2)",
-                    transform: "translateX(0%)",
+                    transform: activeTab === "work" ? "translateX(0%)" : "translateX(100%)",
                   }}
                   aria-hidden="true"
                 />
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={true}
-                  className="relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider text-white"
+                  aria-selected={activeTab === "work"}
+                  className={`relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors duration-300 ${activeTab === "work" ? "text-white" : "text-gray-500 hover:text-black"}`}
+                  onClick={() => setActiveTab("work")}
                 >
                   Work Experience
                 </button>
                 <button
                   type="button"
                   role="tab"
-                  aria-selected={false}
-                  aria-disabled="true"
-                  className="group relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider text-gray-300 cursor-default"
-                  onClick={(event) => event.preventDefault()}
+                  aria-selected={activeTab === "projects"}
+                  className={`relative z-10 px-9 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors duration-300 ${activeTab === "projects" ? "text-white" : "text-gray-500 hover:text-black"}`}
+                  onClick={() => setActiveTab("projects")}
                 >
                   Passion Projects
-                  <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-                    coming soon!
-                  </span>
                 </button>
               </div>
               <div className="flex items-start gap-4">
@@ -239,36 +242,42 @@ export default function Engineering() {
                       <Github className="h-4 w-4" />
                       github
                     </a>
-                    <span
-                      className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-                      aria-disabled="true"
-                    >
-                      <Sigma className="h-4 w-4" />
-                      matlab
-                      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-                        coming soon!
-                      </span>
-                    </span>
-                    <span
-                      className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-                      aria-disabled="true"
+                    <a
+                      href="https://grabcad.com/lana.yepifanova-1"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                     >
                       <Box className="h-4 w-4" />
                       grabcad
-                      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-                        coming soon!
-                      </span>
-                    </span>
-                    <span
-                      className="group relative inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-400 border-b border-gray-200 pb-0.5 cursor-default"
-                      aria-disabled="true"
+                    </a>
+                    <a
+                      href="https://devpost.com/yepifanova-lana"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                     >
                       <Code className="h-4 w-4" />
-                      leetcode
-                      <span className="pointer-events-none absolute left-1/2 bottom-full mb-2 -translate-x-1/2 whitespace-nowrap rounded-none border border-gray-200 bg-white px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-400 opacity-0 shadow-sm transition-opacity duration-200 group-hover:opacity-100">
-                        coming soon!
-                      </span>
-                    </span>
+                      devpost
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/lana-yepifanova/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                      linkedin
+                    </a>
+                    <a
+                      href="https://x.com/lana_yaps"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                    >
+                      <Twitter className="h-4 w-4" />
+                      x
+                    </a>
                   </div>
                   <div className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black">
                     <span className="text-gray-400">Education</span>
@@ -293,38 +302,88 @@ export default function Engineering() {
           </div>
         </header>
 
-        <section className="space-y-6 mt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
-            {corporate.map((job) => (
-              <button
-                key={`${job.company}-${job.period}`}
-                type="button"
-                className="group flex flex-col text-left cursor-pointer"
-                onClick={() => setActiveJob(job)}
-              >
-                <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
-                  <img
-                    src={job.image}
-                    alt={job.company}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    style={job.imagePosition ? { objectPosition: job.imagePosition } : undefined}
-                  />
-                </div>
-                <div className="flex justify-between items-baseline mb-1">
-                  <h3 className="text-base font-sans font-semibold text-black group-hover:underline decoration-1 underline-offset-4 transition-all">
-                    {job.company}
-                  </h3>
-                  <span className="font-sans text-sm text-gray-400">
-                    {job.period}
-                  </span>
-                </div>
-                <div className="text-gray-500 font-sans text-sm leading-relaxed">
-                  {job.description}
-                </div>
-              </button>
-            ))}
-          </div>
-        </section>
+        {activeTab === "work" && (
+          <section className="space-y-6 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+              {corporate.map((job) => (
+                <button
+                  key={`${job.company}-${job.period}`}
+                  type="button"
+                  className="group flex flex-col text-left cursor-pointer"
+                  onClick={() => setActiveJob(job)}
+                >
+                  <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
+                    <img
+                      src={job.image}
+                      alt={job.company}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={job.imagePosition ? { objectPosition: job.imagePosition } : undefined}
+                    />
+                  </div>
+                  <div className="flex justify-between items-baseline mb-1">
+                    <h3 className="text-base font-sans font-semibold text-black group-hover:underline decoration-1 underline-offset-4 transition-all">
+                      {job.company}
+                    </h3>
+                    <span className="font-sans text-sm text-gray-400">
+                      {job.period}
+                    </span>
+                  </div>
+                  <div className="text-gray-500 font-sans text-sm leading-relaxed">
+                    {job.description}
+                  </div>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {activeTab === "projects" && (
+          <section className="space-y-10 mt-8">
+            {writings.length === 0 ? (
+              <div className="py-16 text-center text-sm text-gray-400 font-mono uppercase tracking-wider">
+                Essays and notes coming soon.
+              </div>
+            ) : (
+              <div className="space-y-0 divide-y divide-gray-100">
+                {writings.map((item) => (
+                  <div key={item.title} className="py-5">
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-start justify-between gap-4"
+                      >
+                        <div className="space-y-1">
+                          <div className="text-sm font-sans font-medium text-black group-hover:underline underline-offset-4 decoration-1">
+                            {item.title}
+                          </div>
+                          {item.description && (
+                            <div className="text-sm text-gray-500 leading-relaxed">{item.description}</div>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <span className="text-xs text-gray-400 font-mono">{item.date}</span>
+                          <ArrowUpRight className="h-4 w-4 text-gray-300 group-hover:text-black transition-colors" />
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="space-y-1">
+                          <div className="text-sm font-sans font-medium text-black">{item.title}</div>
+                          {item.description && (
+                            <div className="text-sm text-gray-500 leading-relaxed">{item.description}</div>
+                          )}
+                        </div>
+                        <span className="text-xs text-gray-400 font-mono shrink-0">{item.date}</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+        )}
       </section>
 
       {activeJob &&
@@ -379,7 +438,7 @@ export default function Engineering() {
           document.body
         )}
 
-      <section className="space-y-6 pb-20">
+      {activeTab === "work" && <section className="space-y-6 pb-20">
           <header className="border-b border-gray-200 pb-3">
             <h2 className="text-2xl font-sans font-medium text-black tracking-tight">Engineering Teams</h2>
           </header>
@@ -453,9 +512,9 @@ export default function Engineering() {
             </p>
           </div>
           </div>
-      </section>
+      </section>}
 
-      {activeLightboxUrl &&
+      {activeTab === "work" && activeLightboxUrl &&
         createPortal(
           <div
             className="fixed inset-0 z-50 bg-black/70 grid place-items-center px-4 py-8"
@@ -490,7 +549,7 @@ export default function Engineering() {
         )}
 
       {/* Robotics Media */}
-      <section className="space-y-8 pb-20 -mt-8">
+      {activeTab === "work" && <section className="space-y-8 pb-20 -mt-8">
         <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
           <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
             steel hawks 2601
@@ -579,27 +638,29 @@ export default function Engineering() {
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
-      <section className="-mt-12 pb-20">
-        <div className="space-y-2">
-          <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Workshops</h3>
-          {workshopLinks.map((link) => (
-            <a
-              key={link.title}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
-            >
-              <div className="min-w-0">
-                <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
-              </div>
-              <ArrowUpRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black" />
-            </a>
-          ))}
-        </div>
-      </section>
+      {activeTab === "work" && (
+        <section className="-mt-12 pb-20">
+          <div className="space-y-2">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Workshops</h3>
+            {workshopLinks.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
+                </div>
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black" />
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
 
     </div>
   );
