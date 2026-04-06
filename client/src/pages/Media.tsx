@@ -165,6 +165,38 @@ export default function Media() {
     {
       title: "sticker x @lana_yaps",
       videoUrl: "https://youtube.com/shorts/LoQ72cn7rFg?feature=share"
+    },
+    {
+      title: "makeugc x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/CXg0Wv5TB5w?feature=share"
+    },
+    {
+      title: "emergent x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/oobvnm27hqE?feature=share"
+    },
+    {
+      title: "design.com x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/minkayz_Sxw?feature=share"
+    },
+    {
+      title: "printify x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/MM_6wOqC0do?feature=share"
+    },
+    {
+      title: "virale x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/eNfedIpdD-k?feature=share"
+    },
+    {
+      title: "immersive x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/XxwBGIbOOVI?feature=share"
+    },
+    {
+      title: "emergent x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/vDxcXCR2Jrk?feature=share"
+    },
+    {
+      title: "genspark x @lana_yaps",
+      videoUrl: "https://youtube.com/shorts/CnLeHk-vOkY?feature=share"
     }
   ];
 
