@@ -1,7 +1,7 @@
 import type { CSSProperties, UIEvent, WheelEvent } from "react";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowUpRight, Github, Box, Code, Linkedin, Twitter } from "lucide-react";
+import { ArrowUpRight, Github, Box, Code, Linkedin } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Engineering() {
@@ -268,15 +268,6 @@ export default function Engineering() {
                     >
                       <Linkedin className="h-4 w-4" />
                       linkedin
-                    </a>
-                    <a
-                      href="https://x.com/lana_yaps"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                    >
-                      <Twitter className="h-4 w-4" />
-                      x
                     </a>
                   </div>
                   <div className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black">
