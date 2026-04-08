@@ -38,6 +38,7 @@ export default function Communities() {
         { title: "Volunteer", image: "/images/volunteer2.JPG" },
         { title: "Volunteer", image: "/images/volunteer3.JPG" },
         { title: "Volunteer", image: "/images/volunteer4.JPG" },
+        { title: "Volunteer", image: "/images/volunteer5.JPG", objectPosition: "50% 15%", scale: "1.4" },
       ],
     },
   ];
@@ -420,7 +421,7 @@ export default function Communities() {
                             src={item.image}
                             alt={item.title}
                             className="gallery-image"
-                            style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
+                            style={{ ...(item.objectPosition ? { objectPosition: item.objectPosition } : {}), ...(item.scale ? { transform: `scale(${item.scale})` } : {}) }}
                             loading="lazy"
                           />
                         </div>
