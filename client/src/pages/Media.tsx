@@ -1,6 +1,6 @@
 import { useMemo, useState, useEffect, type CSSProperties, type UIEvent, type WheelEvent } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Check, Instagram, Mail, Music, Rss, Youtube } from "lucide-react";
+import { ArrowRight, Check, Instagram, Mail, Music, Twitter, Youtube } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Media() {
@@ -40,10 +40,10 @@ export default function Media() {
       icon: Music
     },
     {
-      platform: "Substack",
-      handle: "@lanayepifanova",
-      link: "https://substack.com/@lanayepifanova",
-      icon: Rss
+      platform: "Twitter/X",
+      handle: "@lana_yaps",
+      link: "https://x.com/lana_yaps",
+      icon: Twitter
     },
   ];
 
@@ -571,11 +571,7 @@ export default function Media() {
                         className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                       >
                         <social.icon className="h-4 w-4" />
-                        <span>
-                          {social.platform === "Twitter"
-                          ? "X"
-                          : social.platform}
-                        </span>
+                        <span>{social.platform}</span>
                       </a>
                     ))}
                   </div>
