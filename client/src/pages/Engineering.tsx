@@ -1,5 +1,5 @@
 import type { CSSProperties, UIEvent, WheelEvent } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { ArrowUpRight, Github, Box, Code, Linkedin } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
@@ -150,12 +150,26 @@ export default function Engineering() {
 
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
   const [activeJob, setActiveJob] = useState<(typeof corporate)[number] | null>(null);
-  const [activeTab, setActiveTab] = useState<"work" | "projects">("work");
+  const [activeTab, setActiveTab] = useState<"work" | "projects">(() =>
+    window.location.hash === "#projects" ? "projects" : "work"
+  );
+
+  useEffect(() => {
+    window.location.hash = activeTab === "projects" ? "projects" : "";
+  }, [activeTab]);
 
   const writings = [
-    // essays, notes, and writings go here
-    // { title: "Example Essay", date: "2025", description: "...", href: "..." }
+    // projects go here
   ] as { title: string; date: string; description: string; href?: string }[];
+
+  const essays = [
+    { title: "How Voice AI Wearables Will Rewire Hyperconnectivity", date: "04/15/2026", href: "/essays/voice-ai-wearables" },
+    { title: "AI Slop and Advertising Structures in a Technopoly", date: "03/15/2026", href: "/essays/ai-slop-advertising" },
+  ] as { title: string; date: string; href?: string }[];
+
+  const notes = [
+    // { title: "Example Note", date: "2025" }
+  ] as { title: string; date: string; href?: string }[];
 
   const enableManualGallery = (target: HTMLDivElement) => {
     if (!target.classList.contains("is-manual")) {
@@ -240,7 +254,7 @@ export default function Engineering() {
                       className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                     >
                       <Github className="h-4 w-4" />
-                      github
+                      GitHub
                     </a>
                     <a
                       href="https://grabcad.com/lana.yepifanova-1"
@@ -249,7 +263,7 @@ export default function Engineering() {
                       className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                     >
                       <Box className="h-4 w-4" />
-                      grabcad
+                      GrabCAD
                     </a>
                     <a
                       href="https://devpost.com/yepifanova-lana"
@@ -258,7 +272,7 @@ export default function Engineering() {
                       className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                     >
                       <Code className="h-4 w-4" />
-                      devpost
+                      Devpost
                     </a>
                     <a
                       href="https://www.linkedin.com/in/lana-yepifanova/"
@@ -267,7 +281,7 @@ export default function Engineering() {
                       className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
                     >
                       <Linkedin className="h-4 w-4" />
-                      linkedin
+                      LinkedIn
                     </a>
                   </div>
                   <div className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black">
@@ -329,50 +343,125 @@ export default function Engineering() {
         )}
 
         {activeTab === "projects" && (
-          <section className="space-y-10 mt-8">
-            {writings.length === 0 ? (
-              <div className="py-16 text-center text-sm text-gray-400 font-mono uppercase tracking-wider">
-                Essays and notes coming soon.
-              </div>
-            ) : (
-              <div className="space-y-0 divide-y divide-gray-100">
-                {writings.map((item) => (
-                  <div key={item.title} className="py-5">
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-start justify-between gap-4"
-                      >
-                        <div className="space-y-1">
-                          <div className="text-sm font-sans font-medium text-black group-hover:underline underline-offset-4 decoration-1">
-                            {item.title}
-                          </div>
-                          {item.description && (
-                            <div className="text-sm text-gray-500 leading-relaxed">{item.description}</div>
-                          )}
-                        </div>
-                        <div className="flex items-center gap-2 shrink-0">
-                          <span className="text-xs text-gray-400 font-mono">{item.date}</span>
-                          <ArrowUpRight className="h-4 w-4 text-gray-300 group-hover:text-black transition-colors" />
-                        </div>
-                      </a>
-                    ) : (
-                      <div className="flex items-start justify-between gap-4">
-                        <div className="space-y-1">
-                          <div className="text-sm font-sans font-medium text-black">{item.title}</div>
-                          {item.description && (
-                            <div className="text-sm text-gray-500 leading-relaxed">{item.description}</div>
-                          )}
-                        </div>
-                        <span className="text-xs text-gray-400 font-mono shrink-0">{item.date}</span>
-                      </div>
-                    )}
+          <section className="mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Left: projects */}
+              <div className="space-y-10">
+                {writings.length === 0 ? (
+                  <div className="w-full overflow-hidden rounded-sm border border-gray-200">
+                    <img
+                      src="/images/projects-placeholder.jpeg"
+                      alt="Projects coming soon"
+                      className="w-full h-auto object-cover"
+                      loading="lazy"
+                    />
                   </div>
-                ))}
+                ) : (
+                  <div className="space-y-0 divide-y divide-gray-100">
+                    {writings.map((item) => (
+                      <div key={item.title} className="py-5">
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-start justify-between gap-4"
+                          >
+                            <div className="space-y-1">
+                              <div className="text-sm font-sans font-medium text-black group-hover:underline underline-offset-4 decoration-1">
+                                {item.title}
+                              </div>
+                              {item.description && (
+                                <div className="text-sm text-gray-500 leading-relaxed">{item.description}</div>
+                              )}
+                            </div>
+                            <div className="flex items-center gap-2 shrink-0">
+                              <span className="text-xs text-gray-400 font-mono">{item.date}</span>
+                              <ArrowUpRight className="h-4 w-4 text-gray-300 group-hover:text-black transition-colors" />
+                            </div>
+                          </a>
+                        ) : (
+                          <div className="flex items-start justify-between gap-4">
+                            <div className="space-y-1">
+                              <div className="text-sm font-sans font-medium text-black">{item.title}</div>
+                              {item.description && (
+                                <div className="text-sm text-gray-500 leading-relaxed">{item.description}</div>
+                              )}
+                            </div>
+                            <span className="text-xs text-gray-400 font-mono shrink-0">{item.date}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
+
+              {/* Right: essays + notes */}
+              <div className="space-y-8">
+                <div className="space-y-2">
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Essays</h3>
+                  {essays.length === 0 ? (
+                    <div className="py-4 text-sm text-gray-400 font-mono uppercase tracking-wider">
+                      Essays coming soon.
+                    </div>
+                  ) : (
+                    <div className="divide-y divide-gray-100">
+                      {essays.map((essay) => (
+                        essay.href ? (
+                          <a
+                            key={essay.title}
+                            href={essay.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-baseline justify-between gap-4 py-2.5 hover:text-black transition-colors"
+                          >
+                            <span className="text-sm text-black group-hover:underline underline-offset-4 decoration-1">{essay.title}</span>
+                            <span className="text-xs text-gray-400 font-mono shrink-0">{essay.date}</span>
+                          </a>
+                        ) : (
+                          <div key={essay.title} className="flex items-baseline justify-between gap-4 py-2.5">
+                            <span className="text-sm text-black">{essay.title}</span>
+                            <span className="text-xs text-gray-400 font-mono shrink-0">{essay.date}</span>
+                          </div>
+                        )
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Notes</h3>
+                  {notes.length === 0 ? (
+                    <div className="py-4 text-sm text-gray-400 font-mono uppercase tracking-wider">
+                      Notes coming soon.
+                    </div>
+                  ) : (
+                    <div className="divide-y divide-gray-100">
+                      {notes.map((note) => (
+                        note.href ? (
+                          <a
+                            key={note.title}
+                            href={note.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-baseline justify-between gap-4 py-2.5 hover:text-black transition-colors"
+                          >
+                            <span className="text-sm text-black group-hover:underline underline-offset-4 decoration-1">{note.title}</span>
+                            <span className="text-xs text-gray-400 font-mono shrink-0">{note.date}</span>
+                          </a>
+                        ) : (
+                          <div key={note.title} className="flex items-baseline justify-between gap-4 py-2.5">
+                            <span className="text-sm text-black">{note.title}</span>
+                            <span className="text-xs text-gray-400 font-mono shrink-0">{note.date}</span>
+                          </div>
+                        )
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           </section>
         )}
       </section>

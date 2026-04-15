@@ -1,11 +1,17 @@
-import { useMemo, useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
+import { useMemo, useState, useEffect, type CSSProperties, type UIEvent, type WheelEvent } from "react";
 import { createPortal } from "react-dom";
 import { ArrowRight, Check, Instagram, Mail, Music, Rss, Youtube } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Media() {
-  const [activeTab, setActiveTab] = useState<"portfolio" | "piano">("portfolio");
+  const [activeTab, setActiveTab] = useState<"portfolio" | "piano">(() =>
+    window.location.hash === "#piano" ? "piano" : "portfolio"
+  );
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    window.location.hash = activeTab === "piano" ? "piano" : "";
+  }, [activeTab]);
 
   usePageMeta({
     title: "Lana Yepifanova | Media, Partnerships, and Piano",
@@ -43,172 +49,177 @@ export default function Media() {
 
   const partnerships = [
     {
-      title: "chatly x @lana_yaps",
+      title: "chatly",
       videoUrl: "https://www.youtube.com/embed/A0D93I5R_ds?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "verdent x @lana_yaps",
+      title: "verdent",
       videoUrl: "https://www.youtube.com/embed/ut0fX-qcpjo?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "bubble lab x @lana_yaps",
+      title: "bubble lab",
       videoUrl: "https://www.youtube.com/embed/oD4xNH2MwME?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "kimi.ai x @lana_yaps",
+      title: "kimi.ai",
       videoUrl: "https://www.youtube.com/embed/hFdhKgM0giM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "lilys.ai x @lana_yaps",
+      title: "lilys.ai",
       videoUrl: "https://www.youtube.com/embed/Hy2PwiCcorg?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "manus.ai x @lana_yaps",
+      title: "manus.ai",
       videoUrl: "https://www.youtube.com/embed/yDI3W79e3sQ?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "manus 1.6 x @lana_yaps",
+      title: "manus 1.6",
       videoUrl: "https://www.youtube.com/embed/wX-L8WQkXoY?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "runable.ai x @lana_yaps",
+      title: "runable.ai",
       videoUrl: "https://www.youtube.com/embed/2EGOU1YG4gk?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "readdy.ai x @lana_yaps",
+      title: "readdy.ai",
       videoUrl: "https://www.youtube.com/embed/Ru0vxQ7Kmhg?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "VTSP x @lana_yaps",
+      title: "VTSP",
       videoUrl: "https://www.youtube.com/embed/HDjuasybi_c?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "hinoter x @lana_yaps",
+      title: "hinoter",
       videoUrl: "https://www.youtube.com/embed/a8ODBCXsSaQ?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "genspark x @lana_yaps",
+      title: "genspark",
       videoUrl: "https://www.youtube.com/embed/DC4PmnGcf1Y?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "zo computer x @lana_yaps",
+      title: "zo computer",
       videoUrl: "https://www.youtube.com/embed/PWAoOsb6j2A?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "zo computer x @lana_yaps",
+      title: "zo computer",
       videoUrl: "https://www.youtube.com/embed/W5pP0GSnGnY?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "verdent.ai x @lana_yaps",
+      title: "verdent.ai",
       videoUrl: "https://www.youtube.com/embed/p3WNprXmc74?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "zo computer x @lana_yaps",
+      title: "zo computer",
       videoUrl: "https://www.youtube.com/embed/ApH8CUpF3Vs?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "pippit x @lana_yaps",
+      title: "pippit",
       videoUrl: "https://www.youtube.com/embed/U2TG45-NfgE?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "zo computer x @lana_yaps",
+      title: "zo computer",
       videoUrl: "https://www.youtube.com/embed/bPftR_iiVx0?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "zo x @lana_yaps",
+      title: "zo",
       videoUrl: "https://youtube.com/shorts/5ojU_x3-4g8?feature=share"
     },
     {
-      title: "lovart x @lana_yaps",
+      title: "lovart",
       videoUrl: "https://youtube.com/shorts/8hpAHUCtQW8?feature=share"
     },
     {
-      title: "onepage.ai x @lana_yaps",
+      title: "onepage.ai",
       videoUrl: "https://www.youtube.com/embed/pyj7hNZOGPw?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "vivora.ai x @lana_yaps",
+      title: "vivora.ai",
       videoUrl: "https://www.youtube.com/embed/t3AzvrMm3Ro?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "kalshi x @lana_yaps",
+      title: "kalshi",
       videoUrl: "https://www.youtube.com/embed/gM0jUvcudKM?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "kalshi x @lana_yaps",
+      title: "kalshi",
       videoUrl: "https://www.youtube.com/embed/7y7AtS7SsYc?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "cursor x @lana_yaps",
+      title: "cursor",
       videoUrl: "https://youtube.com/shorts/a21hI-NmqR0?feature=share"
     },
     {
-      title: "cursor x @lana_yaps",
+      title: "cursor",
       videoUrl: "https://youtube.com/shorts/6-8nQqCXGys?feature=share"
     },
     {
-      title: "makeugc x @lana_yaps",
+      title: "makeugc",
       videoUrl: "https://www.youtube.com/embed/trME4lYjX8k?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "predis.ai x @lana_yaps",
+      title: "predis.ai",
       videoUrl: "https://youtube.com/shorts/xc7ddIXUDBc?feature=share"
     },
     {
-      title: "sticker x @lana_yaps",
+      title: "sticker",
       videoUrl: "https://youtube.com/shorts/ZX9VYEaeMYM?feature=share"
     },
     {
-      title: "sticker x @lana_yaps",
+      title: "sticker",
       videoUrl: "https://youtube.com/shorts/qK9TZUOdUUU?feature=share"
     },
     {
-      title: "sticker x @lana_yaps",
+      title: "sticker",
       videoUrl: "https://youtube.com/shorts/LoQ72cn7rFg?feature=share"
     },
     {
-      title: "makeugc x @lana_yaps",
+      title: "makeugc",
       videoUrl: "https://youtube.com/shorts/CXg0Wv5TB5w?feature=share"
     },
     {
-      title: "emergent x @lana_yaps",
+      title: "emergent",
       videoUrl: "https://youtube.com/shorts/oobvnm27hqE?feature=share"
     },
     {
-      title: "design.com x @lana_yaps",
+      title: "design.com",
       videoUrl: "https://youtube.com/shorts/minkayz_Sxw?feature=share"
     },
     {
-      title: "printify x @lana_yaps",
+      title: "printify",
       videoUrl: "https://youtube.com/shorts/MM_6wOqC0do?feature=share"
     },
     {
-      title: "virale x @lana_yaps",
+      title: "virale",
       videoUrl: "https://youtube.com/shorts/eNfedIpdD-k?feature=share"
     },
     {
-      title: "immersive x @lana_yaps",
+      title: "immersive",
       videoUrl: "https://youtube.com/shorts/XxwBGIbOOVI?feature=share"
     },
     {
-      title: "emergent x @lana_yaps",
+      title: "emergent",
       videoUrl: "https://youtube.com/shorts/vDxcXCR2Jrk?feature=share"
     },
     {
-      title: "genspark x @lana_yaps",
+      title: "genspark",
       videoUrl: "https://youtube.com/shorts/CnLeHk-vOkY?feature=share"
     }
   ];
 
   const shuffledPartnerships = useMemo(() => {
     const shuffle = <T,>(items: T[]) => [...items].sort(() => Math.random() - 0.5);
-    const cursorPartnerships = partnerships.filter((partner) => partner.title === "cursor x @lana_yaps");
-    const otherPartnerships = partnerships.filter((partner) => partner.title !== "cursor x @lana_yaps");
+    const cursorPartnerships = partnerships.filter((partner) => partner.title === "cursor");
+    const otherPartnerships = partnerships.filter((partner) => partner.title !== "cursor");
 
     return [...shuffle(cursorPartnerships), ...shuffle(otherPartnerships)];
   }, []);
 
   const pianoShorts = [
+    "https://youtube.com/shorts/CQx9n07sxpc?feature=share",
+    "https://youtube.com/shorts/LGTKlTz5OrQ?feature=share",
+    "https://youtube.com/shorts/BCr-gcpEWho?feature=share",
+    "https://youtube.com/shorts/iYhBcFqq56A?feature=share",
+    "https://youtube.com/shorts/ONU2QyAzqBU?feature=share",
     "https://www.youtube.com/embed/MA44NkrRnPU",
     "https://www.youtube.com/embed/HurHh3najDA",
     "https://www.youtube.com/embed/xicvXsp_sZ0",
@@ -248,6 +259,10 @@ export default function Media() {
   ];
 
   const pianoLongFormVideos = [
+    "https://www.youtube.com/embed/-QUi0LcYvXo",
+    "https://www.youtube.com/embed/UU44y5_G6ds",
+    "https://www.youtube.com/embed/2FuQFFNT8CY",
+    "https://www.youtube.com/embed/svbAyKMe1V4",
     "https://www.youtube.com/embed/a_EnF8O21MM",
     "https://www.youtube.com/embed/WS9GGS7x4KU",
     "https://www.youtube.com/embed/HckykdFiDoc",
@@ -548,8 +563,8 @@ export default function Media() {
                 <div className="flex flex-1 flex-col gap-3">
                   <div className="flex items-center gap-3 overflow-x-auto py-1 md:overflow-visible md:py-0 md:flex md:flex-wrap md:gap-4">
                     {socials.map((social) => (
-                      <a 
-                        key={social.platform} 
+                      <a
+                        key={social.platform}
                         href={social.link}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -558,8 +573,8 @@ export default function Media() {
                         <social.icon className="h-4 w-4" />
                         <span>
                           {social.platform === "Twitter"
-                          ? "x"
-                          : social.platform.toLowerCase()}
+                          ? "X"
+                          : social.platform}
                         </span>
                       </a>
                     ))}
@@ -576,7 +591,40 @@ export default function Media() {
                   </a>
                 </div>
               </div>
-            ) : null}
+            ) : (
+              <div className="flex flex-1 flex-col gap-3">
+                <div className="flex items-center gap-4">
+                  <a
+                    href="https://www.youtube.com/@LanaYepifanova"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                  >
+                    <Youtube className="h-4 w-4" />
+                    Piano YouTube Videos
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@LanaYepifanova/shorts"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
+                  >
+                    <Youtube className="h-4 w-4" />
+                    Piano YouTube Shorts
+                  </a>
+                </div>
+                <a
+                  href="https://www.youtube.com/@LanaYepifanova"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black"
+                >
+                  <span className="text-gray-400">Piano YouTube Channel</span>
+                  <span className="font-sans text-black">111k+</span>
+                  <span className="text-gray-400">views</span>
+                </a>
+              </div>
+            )}
           </div>
           {activeTab === "portfolio" ? (
             <a
@@ -590,7 +638,19 @@ export default function Media() {
               </div>
               <div className="text-2xl font-serif text-black whitespace-nowrap">22k+ followers</div>
             </a>
-          ) : null}
+          ) : (
+            <a
+              href="https://www.youtube.com/@LanaYepifanova"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
+            >
+              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 whitespace-nowrap">
+                Piano YouTube Channel
+              </div>
+              <div className="text-2xl font-serif text-black whitespace-nowrap">111k+ views</div>
+            </a>
+          )}
         </div>
       </header>
 
@@ -762,78 +822,25 @@ export default function Media() {
         </>
       ) : (
         <section className="space-y-10 -mt-4">
-          {pianoShorts.length > 0 && (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Shorts</h3>
-                <a 
-                  href="https://www.youtube.com/@LanaYepifanova"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                >
-                  <Youtube className="h-4 w-4" />
-                  piano youtube channel link
-                </a>
-              </div>
-              <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
-                {pianoShorts.map((url, index) => (
-                  <button
-                    key={`short-${index}`}
-                    type="button"
-                    onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
-                    className="group text-left"
-                  >
-                    <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                      <img
-                        src={getYoutubeThumbnail(url)}
-                        alt={`Piano Short ${index + 1}`}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                        <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
-                          <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Long form</h3>
-                <a 
-                  href="https://www.youtube.com/@LanaYepifanova"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                >
-                  <Youtube className="h-4 w-4" />
-                  piano youtube channel link
-                </a>
-              </div>
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {pianoLongFormVideos.map((url, index) => (
+          <div className="space-y-4">
+            <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
+              {pianoShorts.map((url, index) => (
                 <button
-                  key={`long-${index}`}
+                  key={`short-${index}`}
                   type="button"
                   onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
                   className="group text-left"
                 >
-                  <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+                  <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
                     <img
                       src={getYoutubeThumbnail(url)}
-                      alt={`Piano Performance ${index + 1}`}
+                      alt={`Piano Short ${index + 1}`}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                      <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
-                        <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+                      <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
+                        <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
                       </div>
                     </div>
                   </div>
@@ -874,23 +881,51 @@ export default function Media() {
                 ))}
               </div>
             </div>
-            <div className="mt-12 space-y-2">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Performances & Features</h3>
-              {pianoGalleryLinks.map((link) => (
-                <a
-                  key={link.title}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
+          </div>
+
+          <div className="space-y-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {pianoLongFormVideos.map((url, index) => (
+                <button
+                  key={`long-${index}`}
+                  type="button"
+                  onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
+                  className="group text-left"
                 >
-                  <div className="min-w-0">
-                    <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
+                  <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
+                    <img
+                      src={getYoutubeThumbnail(url)}
+                      alt={`Piano Performance ${index + 1}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+                      <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
+                        <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+                      </div>
+                    </div>
                   </div>
-                  <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-black" />
-                </a>
+                </button>
               ))}
             </div>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Performances & Features</h3>
+            {pianoGalleryLinks.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
+              >
+                <div className="min-w-0">
+                  <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
+                </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-black" />
+              </a>
+            ))}
           </div>
         </section>
       )}
