@@ -583,7 +583,7 @@ export default function Media() {
                     href="https://instagram.com/lana_yaps"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black"
+                    className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono text-gray-500 transition-colors hover:border-black hover:text-black"
                   >
                     <span className="text-gray-400">Instagram Audience</span>
                     <span className="font-sans text-black">22k+</span>
@@ -617,7 +617,7 @@ export default function Media() {
                   href="https://www.youtube.com/@LanaYepifanova"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black"
+                  className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono text-gray-500 transition-colors hover:border-black hover:text-black"
                 >
                   <span className="text-gray-400">Piano YouTube Channel</span>
                   <span className="font-sans text-black">111k+</span>
@@ -633,7 +633,7 @@ export default function Media() {
               rel="noopener noreferrer"
               className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
             >
-              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 whitespace-nowrap">
+              <div className="text-[10px] font-mono text-gray-400 whitespace-nowrap">
                 Instagram Audience
               </div>
               <div className="text-2xl font-serif text-black whitespace-nowrap">22k+ followers</div>
@@ -645,7 +645,7 @@ export default function Media() {
               rel="noopener noreferrer"
               className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
             >
-              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 whitespace-nowrap">
+              <div className="text-[10px] font-mono text-gray-400 whitespace-nowrap">
                 Piano YouTube Channel
               </div>
               <div className="text-2xl font-serif text-black whitespace-nowrap">111k+ views</div>
@@ -691,7 +691,7 @@ export default function Media() {
           <section className="space-y-12 border-b border-gray-100 pb-20">
             <div className="space-y-4">
               <div className="border-b border-gray-100 pb-2">
-                <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+                <h2 className="text-sm font-sans font-bold text-gray-400">
                   Audience Snapshot
                 </h2>
               </div>
@@ -712,7 +712,7 @@ export default function Media() {
                       loading="lazy"
                     />
                   </div>
-                  <div className="text-xs font-mono text-gray-400 uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-xs font-mono text-gray-400">{stat.label}</div>
                   <div className="text-2xl font-serif text-black">{stat.value}</div>
                   <div className="text-xs text-gray-500">{stat.subtext}</div>
                 </div>
@@ -721,7 +721,7 @@ export default function Media() {
 
             <div className="flex flex-wrap gap-3">
               {audienceTags.map((tag) => (
-                <span key={tag} className="border border-gray-200 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-gray-500">
+                <span key={tag} className="border border-gray-200 px-3 py-1 text-[10px] font-mono text-gray-500">
                   {tag}
                 </span>
               ))}
@@ -730,7 +730,7 @@ export default function Media() {
 
           <section className="space-y-12 border-b border-gray-100 pb-20">
             <div className="border-b border-gray-100 pb-2">
-              <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+              <h2 className="text-sm font-sans font-bold text-gray-400">
                 What Partners Say
               </h2>
             </div>
@@ -741,7 +741,7 @@ export default function Media() {
                   <p className="text-sm font-serif text-gray-600 leading-relaxed">"{testimonial.quote}"</p>
                   <div className="border-t border-gray-100 pt-4">
                     <div className="text-sm font-serif text-black">{testimonial.author}</div>
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">{testimonial.role}</div>
+                    <div className="text-[10px] font-mono text-gray-400">{testimonial.role}</div>
                   </div>
                 </div>
               ))}
@@ -750,7 +750,7 @@ export default function Media() {
 
           <section className="space-y-12 border-b border-gray-100 pb-20">
             <div className="border-b border-gray-100 pb-2">
-              <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+              <h2 className="text-sm font-sans font-bold text-gray-400">
                 Trusted Partners
               </h2>
             </div>
@@ -763,29 +763,29 @@ export default function Media() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
                     <div className="text-xl font-serif text-black mt-2">Manus AI</div>
                     <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
                   </div>
                   <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
                     <div className="text-xl font-serif text-black mt-2">Kalshi</div>
                     <div className="text-[11px] text-gray-500 mt-1">11 Successful Campaigns</div>
                   </div>
                   <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
                     <div className="text-xl font-serif text-black mt-2">Cursor</div>
                     <div className="text-[11px] text-gray-500 mt-1">2 Successful Campaigns</div>
                   </div>
                   <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400">Featured Partner</div>
+                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
                     <div className="text-xl font-serif text-black mt-2">Zo Computer</div>
                     <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-xs font-mono uppercase tracking-wider text-gray-500">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-xs font-mono text-gray-500">
                 {trustedPartners.map((partner) => (
                   <div key={partner} className="border-b border-gray-100 pb-2">
                     {partner}
@@ -797,7 +797,7 @@ export default function Media() {
 
           <section className="space-y-12">
             <div className="border-b border-gray-100 pb-2">
-              <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+              <h2 className="text-sm font-sans font-bold text-gray-400">
                 Contact
               </h2>
             </div>
@@ -850,7 +850,7 @@ export default function Media() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Music Gallery</h3>
+            <h3 className="text-xs font-mono text-gray-400">Music Gallery</h3>
             <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
               <div
                 className="gallery-marquee"
@@ -911,7 +911,7 @@ export default function Media() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Performances & Features</h3>
+            <h3 className="text-xs font-mono text-gray-400">Performances & Features</h3>
             {pianoGalleryLinks.map((link) => (
               <a
                 key={link.title}

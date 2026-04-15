@@ -284,7 +284,7 @@ export default function Engineering() {
                       LinkedIn
                     </a>
                   </div>
-                  <div className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono uppercase tracking-wider text-gray-500 transition-colors hover:border-black hover:text-black">
+                  <div className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono text-gray-500 transition-colors hover:border-black hover:text-black">
                     <span className="text-gray-400">Education</span>
                     <span className="font-sans text-black">Rice University</span>
                     <span className="text-gray-400">2023-2027</span>
@@ -298,7 +298,7 @@ export default function Engineering() {
               rel="noopener noreferrer"
               className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
             >
-              <div className="text-[10px] font-mono uppercase tracking-wider text-gray-400 whitespace-nowrap">
+              <div className="text-[10px] font-mono text-gray-400 whitespace-nowrap">
                 Education
               </div>
               <div className="text-2xl font-serif text-black whitespace-nowrap">Rice University</div>
@@ -400,9 +400,9 @@ export default function Engineering() {
               {/* Right: essays + notes */}
               <div className="space-y-8">
                 <div className="space-y-2">
-                  <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Essays</h3>
+                  <h3 className="text-xs font-mono text-gray-400">Essays</h3>
                   {essays.length === 0 ? (
-                    <div className="py-4 text-sm text-gray-400 font-mono uppercase tracking-wider">
+                    <div className="py-4 text-sm text-gray-400 font-mono">
                       Essays coming soon.
                     </div>
                   ) : (
@@ -431,10 +431,10 @@ export default function Engineering() {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Notes</h3>
+                  <h3 className="text-xs font-mono text-gray-400">Notes</h3>
                   {notes.length === 0 ? (
-                    <div className="py-4 text-sm text-gray-400 font-mono uppercase tracking-wider">
-                      Notes coming soon.
+                    <div className="py-4 text-2xl text-black" style={{ fontFamily: "'Dancing Script', cursive" }}>
+                      notes coming soon.
                     </div>
                   ) : (
                     <div className="divide-y divide-gray-100">
@@ -631,10 +631,10 @@ export default function Engineering() {
       {/* Robotics Media */}
       {activeTab === "work" && <section className="space-y-8 pb-20 -mt-8">
         <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
-          <h2 className="text-sm font-sans font-bold text-gray-400 uppercase tracking-widest">
+          <h2 className="text-sm font-sans font-bold text-gray-400">
             steel hawks 2601
           </h2>
-          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400 uppercase tracking-wider">
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400">
             <a
               href="https://www.steelhawks.net"
               target="_blank"
@@ -723,7 +723,7 @@ export default function Engineering() {
       {activeTab === "work" && (
         <section className="-mt-12 pb-20">
           <div className="space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400">Workshops</h3>
+            <h3 className="text-xs font-mono text-gray-400">Workshops</h3>
             {workshopLinks.map((link) => (
               <a
                 key={link.title}
