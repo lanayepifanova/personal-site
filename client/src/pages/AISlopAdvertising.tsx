@@ -56,7 +56,7 @@ export default function AISlopAdvertising() {
         </p>
 
         <p>
-          In these systems, user attention — the time spent watching, scrolling, and interacting on these platforms — is converted into revenue primarily through advertising. Modern social media platforms (Snapchat, Pinterest, Reddit, TikTok) generate the overwhelming majority of their revenue from advertising, and their platforms are designed primarily as behavior-modification systems (Jaron Lanier). The engineers on these teams use machine learning models trained on watch time, replay behavior and engagement signals to maximize viewing duration. Digital platforms do not merely sell attention but extract behavioral data in order to predict and shape future actions (Shoshana Zuboff). User interactions like search queries, clicks, scrolling patterns, and location data, are transformed into behavioral surplus that can be used to construct predictive models. These predictions are then sold to advertisers seeking to influence behavior, and this process works through continuous feedback loops.
+          In these systems, user attention (the time spent watching, scrolling, and interacting on these platforms) is converted into revenue primarily through advertising. Modern social media platforms (Snapchat, Pinterest, Reddit, TikTok) generate the overwhelming majority of their revenue from advertising, and their platforms are designed primarily as behavior-modification systems (Jaron Lanier). The engineers on these teams use machine learning models trained on watch time, replay behavior and engagement signals to maximize viewing duration. Digital platforms do not merely sell attention but extract behavioral data in order to predict and shape future actions (Shoshana Zuboff). User interactions like search queries, clicks, scrolling patterns, and location data, are transformed into behavioral surplus that can be used to construct predictive models. These predictions are then sold to advertisers seeking to influence behavior, and this process works through continuous feedback loops.
         </p>
 
         <p>
@@ -72,7 +72,7 @@ export default function AISlopAdvertising() {
         </p>
 
         <p>
-          This incentive structure shapes the kind of content that proliferates online. We are currently witnessing an incredibly degenerate trend, specifically surrounding "AI influencers" and "AI UGC". AI generated influencers are an incredible metaphor for the interpersonal dissociation and false authenticity we are tipping into. These AI generated influencers are fully computer generated virtual personas acting as brand ambassadors and social media personalities — some popular examples including Lil' Miquela, Aitana Lopez, and Mia Zelu — who have millions of followers and take over a significant share of online real estate.
+          This incentive structure shapes the kind of content that proliferates online. We are currently witnessing an incredibly degenerate trend, specifically surrounding "AI influencers" and "AI UGC". AI generated influencers are an incredible metaphor for the interpersonal dissociation and false authenticity we are tipping into. These AI generated influencers are fully computer generated virtual personas acting as brand ambassadors and social media personalities (some popular examples including Lil' Miquela, Aitana Lopez, and Mia Zelu) who have millions of followers and take over a significant share of online real estate.
         </p>
 
         <p>

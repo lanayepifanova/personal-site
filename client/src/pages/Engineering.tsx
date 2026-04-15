@@ -632,7 +632,7 @@ export default function Engineering() {
       {activeTab === "work" && <section className="space-y-8 pb-20 -mt-8">
         <div className="border-b border-gray-100 pb-2 flex flex-wrap justify-between items-end gap-3">
           <h2 className="text-sm font-sans font-bold text-gray-400">
-            steel hawks 2601
+            Steel Hawks 2601
           </h2>
           <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-gray-400">
             <a
