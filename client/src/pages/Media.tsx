@@ -121,7 +121,7 @@ export default function Media() {
       videoUrl: "https://www.youtube.com/embed/bPftR_iiVx0?rel=0&modestbranding=1&controls=0&playsinline=1"
     },
     {
-      title: "zo",
+      title: "zo computer",
       videoUrl: "https://youtube.com/shorts/5ojU_x3-4g8?feature=share"
     },
     {
@@ -161,15 +161,15 @@ export default function Media() {
       videoUrl: "https://youtube.com/shorts/xc7ddIXUDBc?feature=share"
     },
     {
-      title: "sticker",
+      title: "sticker ai",
       videoUrl: "https://youtube.com/shorts/ZX9VYEaeMYM?feature=share"
     },
     {
-      title: "sticker",
+      title: "sticker ai",
       videoUrl: "https://youtube.com/shorts/qK9TZUOdUUU?feature=share"
     },
     {
-      title: "sticker",
+      title: "sticker ai",
       videoUrl: "https://youtube.com/shorts/LoQ72cn7rFg?feature=share"
     },
     {
@@ -177,7 +177,7 @@ export default function Media() {
       videoUrl: "https://youtube.com/shorts/CXg0Wv5TB5w?feature=share"
     },
     {
-      title: "emergent",
+      title: "emergent ai",
       videoUrl: "https://youtube.com/shorts/oobvnm27hqE?feature=share"
     },
     {
@@ -193,11 +193,11 @@ export default function Media() {
       videoUrl: "https://youtube.com/shorts/eNfedIpdD-k?feature=share"
     },
     {
-      title: "immersive",
+      title: "immersive ai",
       videoUrl: "https://youtube.com/shorts/XxwBGIbOOVI?feature=share"
     },
     {
-      title: "emergent",
+      title: "emergent ai",
       videoUrl: "https://youtube.com/shorts/vDxcXCR2Jrk?feature=share"
     },
     {
