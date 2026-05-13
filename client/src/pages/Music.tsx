@@ -72,11 +72,7 @@ function formatYouTubeTitle(url: string, title: string) {
     return "Themes from Demon Slayer";
   }
 
-  return cleanedTitle
-    .replace(/\s*\([^)]*\)\s*/g, " ")
-    .split(/\s+(?:[-|]|by)\s+/i)[0]
-    .replace(/\s{2,}/g, " ")
-    .trim();
+  return cleanedTitle;
 }
 
 function YouTubeTitle({ url, fallback }: { url: string; fallback?: string }) {
