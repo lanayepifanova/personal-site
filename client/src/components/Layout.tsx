@@ -1,15 +1,25 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Code, Video, Users } from "lucide-react";
+import { Code, FileText, Music, Users, Video } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/", label: "Engineering", icon: Code },
+    { href: "/engineering", label: "Engineering", icon: Code },
     { href: "/media", label: "Media", icon: Video },
+    { href: "/music", label: "Music", icon: Music },
+    { href: "/writing", label: "Writing", icon: FileText },
     { href: "/communities", label: "Communities", icon: Users },
   ];
+
+  const isActive = (href: string) => {
+    if (href === "/engineering") {
+      return location === "/" || location === "/engineering";
+    }
+
+    return location === href;
+  };
 
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden font-mono selection:bg-gray-200 selection:text-black bg-white text-black">
@@ -28,7 +38,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   href={item.href}
                   className={cn(
                     "flex items-center gap-2 text-base font-semibold tracking-wide transition-colors font-sans",
-                    location === item.href ? "text-black underline decoration-1 underline-offset-4" : "text-gray-400 hover:text-black"
+                    isActive(item.href) ? "text-black underline decoration-1 underline-offset-4" : "text-gray-400 hover:text-black"
                   )}
                 >
                   {item.label}
@@ -47,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             href={item.href}
             className={cn(
               "flex flex-col items-center gap-1 p-2 rounded-md transition-colors min-w-[60px]",
-              location === item.href ? "text-black bg-gray-50" : "text-gray-400"
+              isActive(item.href) ? "text-black bg-gray-50" : "text-gray-400"
             )}
           >
             <item.icon className="h-4 w-4" />

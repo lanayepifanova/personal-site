@@ -1,51 +1,19 @@
-import { useMemo, useState, useEffect, type CSSProperties, type UIEvent, type WheelEvent } from "react";
+import { useMemo, useState } from "react";
 import { createPortal } from "react-dom";
-import { ArrowRight, Check, Instagram, Mail, Music, Twitter, Youtube } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import instaPreview from "../../../insta.png";
+import videosPreview from "../../../videos.png";
 
 export default function Media() {
-  const [activeTab, setActiveTab] = useState<"portfolio" | "piano">(() =>
-    window.location.hash === "#piano" ? "piano" : "portfolio"
-  );
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
 
-  useEffect(() => {
-    window.location.hash = activeTab === "piano" ? "piano" : "";
-  }, [activeTab]);
-
   usePageMeta({
-    title: "Lana Yepifanova | Media, Partnerships, and Piano",
+    title: "Lana Yepifanova | Media and Partnerships",
     description:
-      "Media portfolio for Lana Yepifanova — brand partnerships, YouTube and Instagram highlights, and piano performance videos.",
+      "Paid partnerships portfolio for Lana Yepifanova — sponsored videos, audience snapshot, and brand collaborations.",
     canonicalPath: "/media",
   });
-
-  const socials = [
-    {
-      platform: "Instagram",
-      handle: "@lana_yaps",
-      link: "https://instagram.com/lana_yaps",
-      icon: Instagram
-    },
-    {
-      platform: "YouTube",
-      handle: "@lana_yaps",
-      link: "https://youtube.com/@lana_yaps",
-      icon: Youtube
-    },
-    {
-      platform: "TikTok",
-      handle: "@lana_yaps",
-      link: "https://www.tiktok.com/@lana_yaps",
-      icon: Music
-    },
-    {
-      platform: "Twitter/X",
-      handle: "@lana_yaps",
-      link: "https://x.com/lana_yaps",
-      icon: Twitter
-    },
-  ];
 
   const partnerships = [
     {
@@ -214,78 +182,6 @@ export default function Media() {
     return [...shuffle(cursorPartnerships), ...shuffle(otherPartnerships)];
   }, []);
 
-  const pianoShorts = [
-    "https://youtube.com/shorts/CQx9n07sxpc?feature=share",
-    "https://youtube.com/shorts/LGTKlTz5OrQ?feature=share",
-    "https://youtube.com/shorts/BCr-gcpEWho?feature=share",
-    "https://youtube.com/shorts/iYhBcFqq56A?feature=share",
-    "https://youtube.com/shorts/ONU2QyAzqBU?feature=share",
-    "https://www.youtube.com/embed/MA44NkrRnPU",
-    "https://www.youtube.com/embed/HurHh3najDA",
-    "https://www.youtube.com/embed/xicvXsp_sZ0",
-    "https://www.youtube.com/embed/_XhEL9qbuq0",
-    "https://www.youtube.com/embed/rCsVjlikmfM",
-    "https://www.youtube.com/embed/NyWwzsOPOJo",
-    "https://www.youtube.com/embed/ffKchWe1sQA",
-    "https://www.youtube.com/embed/Bf7JPNwWYPI",
-    "https://www.youtube.com/embed/yWF8CwPONAo",
-    "https://www.youtube.com/embed/de0_bC6mo1M",
-    "https://www.youtube.com/embed/fs6kyobuN3I",
-    "https://www.youtube.com/embed/dVCA50BT0GQ",
-    "https://www.youtube.com/embed/Sl3L3pOPGuA",
-    "https://www.youtube.com/embed/wJpgIXSOv50",
-    "https://www.youtube.com/embed/qCr6Npf9QAQ",
-    "https://www.youtube.com/embed/GdGL5UjnJW0",
-    "https://www.youtube.com/embed/_9pwm1eknJY",
-    "https://www.youtube.com/embed/STVxGq5cIuE",
-    "https://www.youtube.com/embed/cdDqom7byzI",
-    "https://www.youtube.com/embed/8t0S56k67NM",
-    "https://www.youtube.com/embed/wykxIF0WT_s",
-    "https://www.youtube.com/embed/GNG8Zd0ojfQ",
-    "https://www.youtube.com/embed/4s--U7h9-Uw",
-    "https://www.youtube.com/embed/zHQuJCSPBbA",
-    "https://www.youtube.com/embed/pVjROafIKNA",
-    "https://www.youtube.com/embed/0pYcg9JRUeo",
-    "https://www.youtube.com/embed/C27TsS4IVfc",
-    "https://www.youtube.com/embed/5PcDZK9lZ-8",
-    "https://www.youtube.com/embed/wNZLNTtB-b4",
-    "https://www.youtube.com/embed/bZohw5nHA50",
-    "https://www.youtube.com/embed/Ax9ALNVh2_0",
-    "https://www.youtube.com/embed/_CS39zBwITM",
-    "https://www.youtube.com/embed/HwKqzYltlj0",
-    "https://www.youtube.com/embed/OyAzXnlEl6Q",
-    "https://www.youtube.com/embed/a8Q47mqxgeM",
-    "https://www.youtube.com/embed/JXxHDZZ0ak8"
-  ];
-
-  const pianoLongFormVideos = [
-    "https://www.youtube.com/embed/-QUi0LcYvXo",
-    "https://www.youtube.com/embed/UU44y5_G6ds",
-    "https://www.youtube.com/embed/2FuQFFNT8CY",
-    "https://www.youtube.com/embed/svbAyKMe1V4",
-    "https://www.youtube.com/embed/a_EnF8O21MM",
-    "https://www.youtube.com/embed/WS9GGS7x4KU",
-    "https://www.youtube.com/embed/HckykdFiDoc",
-    "https://www.youtube.com/embed/PGjPOv8XLU8",
-    "https://www.youtube.com/embed/IvDVrmW9zbM",
-    "https://www.youtube.com/embed/oINIiGuD-bc",
-    "https://www.youtube.com/embed/d24gHZXd1xk",
-    "https://www.youtube.com/embed/j640cu_XAOM",
-    "https://www.youtube.com/embed/u9M29JFT3eo",
-    "https://www.youtube.com/embed/fa5MnbYxudo",
-    "https://www.youtube.com/embed/NkjYG9Ynxb4",
-    "https://www.youtube.com/embed/dN9tfNfY1nI",
-    "https://www.youtube.com/embed/DBjDQb_Dxt4",
-    "https://www.youtube.com/embed/zAqA5kXQoWk",
-    "https://www.youtube.com/embed/0j8_bvgiJjA",
-    "https://www.youtube.com/embed/evRwTdbUobI",
-    "https://www.youtube.com/embed/ghJWdeuf3YE",
-    "https://www.youtube.com/embed/9fDRZKqb4Uo",
-    "https://www.youtube.com/embed/_DiAbZRqQZg",
-    "https://www.youtube.com/embed/jxJ8cFxw4qI",
-    "https://www.youtube.com/embed/ACmF4cCZjkY"
-  ];
-
   const audienceStats = [
     {
       label: "Gender Split",
@@ -386,63 +282,6 @@ export default function Media() {
     "Moment App"
   ];
 
-  const pianoGallery = {
-    title: "Music",
-    duration: "34s",
-    items: [
-      {
-        title: "Chamber Music at Lincoln Center",
-        image: "/images/lincolncenter.JPG",
-        objectPosition: "50% 70%",
-      },
-      { title: "Music", image: "/images/music2.JPG" },
-      { title: "Music", image: "/images/music3.JPG" },
-      { title: "Music", image: "/images/music10.JPG" },
-      { title: "Music", image: "/images/music11.JPG" },
-      { title: "Music", image: "/images/music12.JPG" },
-      { title: "Music", image: "/images/music13.JPG" },
-    ],
-  };
-
-  const pianoGalleryLinks = [
-    {
-      title: "Piano Duet - Demon Slayer",
-      href: "https://www.youtube.com/watch?v=-62X6l-FxLQ",
-    },
-    {
-      title: "Chamber Strings Winter Concert 2021",
-      href: "https://www.youtube.com/watch?v=4uOeYV1DbeQ",
-    },
-    {
-      title: "Once Upon a December",
-      href: "https://www.youtube.com/watch?v=UVuxaMUdjfA",
-    },
-    {
-      title: "Music from \"Abdelazer\" by Henry Purcell",
-      href: "https://www.youtube.com/watch?v=sFLrXiMxqY8",
-    },
-    {
-      title: "Navarra Op 33 Pablo de Sarasate",
-      href: "https://www.youtube.com/watch?v=AuJeFHpvabA",
-    },
-    {
-      title: "Themes from Attack on Titan",
-      href: "https://www.youtube.com/watch?v=ij4a8EmkP3Y",
-    },
-    {
-      title: "NYC Honors Music Festival",
-      href: "https://thhsclassic.com/16181/arts-entertainment/harrisites-earn-multiples-seats-in-nyc-honors-music-festival/",
-    },
-    {
-      title: "Schindler's List Chamber Strings",
-      href: "https://www.youtube.com/watch?v=RuruQ862ajk",
-    },
-    {
-      title: "Townsend Harris NYSSMA Spring Concert",
-      href: "https://thhsclassic.com/16500/arts-entertainment/thhs-music-program-performs-in-an-eventful-month-of-concerts-and-festivals/",
-    },
-  ];
-
   const getYoutubeId = (url: string) => {
     const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
     if (embedMatch) {
@@ -483,448 +322,246 @@ export default function Media() {
     return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
   };
 
-  const enableManualGallery = (target: HTMLDivElement) => {
-    if (!target.classList.contains("is-manual")) {
-      target.classList.add("is-manual");
-    }
-  };
-
-  const handleGalleryScroll = (event: UIEvent<HTMLDivElement>) => {
-    enableManualGallery(event.currentTarget);
-  };
-
-  const handleGalleryWheel = (event: WheelEvent<HTMLDivElement>) => {
-    const { deltaX, deltaY } = event;
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      return;
-    }
-
-    const target = event.currentTarget;
-    enableManualGallery(target);
-    const maxScrollLeft = target.scrollWidth - target.clientWidth;
-    if (maxScrollLeft <= 0) {
-      return;
-    }
-
-    const nextScrollLeft = target.scrollLeft + deltaY;
-    const clampedScrollLeft = Math.max(0, Math.min(maxScrollLeft, nextScrollLeft));
-
-    if (clampedScrollLeft === target.scrollLeft) {
-      return;
-    }
-
-    event.preventDefault();
-    target.scrollLeft = clampedScrollLeft;
-  };
-
   return (
     <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-2 sm:pt-4 pb-24 px-4">
-      <header className="pb-1">
-        <div className="flex flex-col md:flex-row md:items-stretch md:flex-nowrap gap-4">
-          <div className="flex flex-col gap-5">
-            <div
-              role="tablist"
-              aria-label="Media sections"
-              className="relative grid w-full grid-cols-2 border border-gray-200 p-0.5"
-            >
-              <div
-                className="absolute inset-y-0.5 left-0.5 bg-black transition-transform duration-300"
-                style={{
-                  width: "calc((100% - 4px) / 2)",
-                  transform: activeTab === "piano" ? "translateX(100%)" : "translateX(0%)",
-                }}
-                aria-hidden="true"
-              />
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === "portfolio"}
-                className={`relative z-10 px-7 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
-                  activeTab === "portfolio" ? "text-white" : "text-gray-500 hover:text-black"
-                }`}
-                onClick={() => setActiveTab("portfolio")}
-              >
-                Content Portfolio
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={activeTab === "piano"}
-                className={`relative z-10 px-7 py-2.5 text-sm font-mono uppercase tracking-wider transition-colors ${
-                  activeTab === "piano" ? "text-white" : "text-gray-500 hover:text-black"
-                }`}
-                onClick={() => setActiveTab("piano")}
-              >
-                Piano Channel
-              </button>
-            </div>
-            {activeTab === "portfolio" ? (
-              <div className="flex items-start gap-4">
-                <div className="flex flex-1 flex-col gap-3">
-                  <div className="flex items-center gap-3 overflow-x-auto py-1 md:overflow-visible md:py-0 md:flex md:flex-wrap md:gap-4">
-                    {socials.map((social) => (
-                      <a
-                        key={social.platform}
-                        href={social.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                      >
-                        <social.icon className="h-4 w-4" />
-                        <span>{social.platform}</span>
-                      </a>
-                    ))}
-                  </div>
-                  <a
-                    href="https://instagram.com/lana_yaps"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono text-gray-500 transition-colors hover:border-black hover:text-black"
-                  >
-                    <span className="text-gray-400">Instagram Audience</span>
-                    <span className="font-sans text-black">22k+</span>
-                    <span className="text-gray-400">followers</span>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="flex flex-1 flex-col gap-3">
-                <div className="flex items-center gap-4">
-                  <a
-                    href="https://www.youtube.com/@LanaYepifanova"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                  >
-                    <Youtube className="h-4 w-4" />
-                    Piano YouTube Videos
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@LanaYepifanova/shorts"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 whitespace-nowrap text-xs sm:text-sm text-gray-500 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                  >
-                    <Youtube className="h-4 w-4" />
-                    Piano YouTube Shorts
-                  </a>
-                </div>
-                <a
-                  href="https://www.youtube.com/@LanaYepifanova"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="md:hidden inline-flex items-center gap-2 whitespace-nowrap border border-gray-200 px-3 py-1.5 text-[11px] font-mono text-gray-500 transition-colors hover:border-black hover:text-black"
-                >
-                  <span className="text-gray-400">Piano YouTube Channel</span>
-                  <span className="font-sans text-black">111k+</span>
-                  <span className="text-gray-400">views</span>
-                </a>
-              </div>
-            )}
-          </div>
-          {activeTab === "portfolio" ? (
-            <a
-              href="https://instagram.com/lana_yaps"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
-            >
-              <div className="text-[10px] font-mono text-gray-400 whitespace-nowrap">
-                Instagram Audience
-              </div>
-              <div className="text-2xl font-serif text-black whitespace-nowrap">22k+ followers</div>
-            </a>
-          ) : (
-            <a
-              href="https://www.youtube.com/@LanaYepifanova"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex border border-gray-200 px-4 py-2.5 w-full md:w-auto md:min-w-[240px] md:ml-auto flex-col items-start justify-center gap-0.5 transition-colors hover:border-black"
-            >
-              <div className="text-[10px] font-mono text-gray-400 whitespace-nowrap">
-                Piano YouTube Channel
-              </div>
-              <div className="text-2xl font-serif text-black whitespace-nowrap">111k+ views</div>
-            </a>
-          )}
-        </div>
+      <header className="space-y-2">
+        <h1 className="text-3xl font-sans font-semibold tracking-tight text-black">Media</h1>
       </header>
 
-      {activeTab === "portfolio" ? (
-        <>
-          {/* Brand Partnerships */}
-          <section className="space-y-12 border-b border-gray-100 pb-20 -mt-4">
-            <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
-              {shuffledPartnerships.map((partner, index) => (
-                <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
-                  <button
-                    type="button"
-                    onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(partner.videoUrl))}
-                    className="text-left"
-                  >
-                    <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                      <img
-                        src={getYoutubeThumbnail(partner.videoUrl)}
-                        alt={partner.title}
-                        className="w-full h-full object-cover"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                        <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
-                          <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                  <h3 className="text-xs font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
-                    {partner.title}
-                  </h3>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="space-y-12 border-b border-gray-100 pb-20">
-            <div className="space-y-4">
-              <div className="border-b border-gray-100 pb-2">
-                <h2 className="text-sm font-sans font-bold text-gray-400">
-                  Audience Snapshot
-                </h2>
-              </div>
-              <p className="text-sm font-serif text-gray-600 max-w-2xl">
-                Creator reaching ambitious STEM students, founders, and early-career professionals.
-                <span className="block font-medium text-gray-800">Your shortcut to technical early adopters.</span>
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {audienceStats.map((stat) => (
-                <div key={stat.label} className="border border-gray-200 p-5 space-y-4">
-                  <div className="aspect-[4/3] w-full overflow-hidden border border-gray-100 bg-gray-50">
-                    <img
-                      src={stat.image}
-                      alt={stat.alt}
-                      className="h-full w-full object-contain p-2"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="text-xs font-mono text-gray-400">{stat.label}</div>
-                  <div className="text-2xl font-serif text-black">{stat.value}</div>
-                  <div className="text-xs text-gray-500">{stat.subtext}</div>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-3">
-              {audienceTags.map((tag) => (
-                <span key={tag} className="border border-gray-200 px-3 py-1 text-[10px] font-mono text-gray-500">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          <section className="space-y-12 border-b border-gray-100 pb-20">
-            <div className="border-b border-gray-100 pb-2">
-              <h2 className="text-sm font-sans font-bold text-gray-400">
-                What Partners Say
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {testimonials.map((testimonial) => (
-                <div key={`${testimonial.author}-${testimonial.role}`} className="border border-gray-200 p-6 space-y-4">
-                  <p className="text-sm font-serif text-gray-600 leading-relaxed">"{testimonial.quote}"</p>
-                  <div className="border-t border-gray-100 pt-4">
-                    <div className="text-sm font-serif text-black">{testimonial.author}</div>
-                    <div className="text-[10px] font-mono text-gray-400">{testimonial.role}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="space-y-12 border-b border-gray-100 pb-20">
-            <div className="border-b border-gray-100 pb-2">
-              <h2 className="text-sm font-sans font-bold text-gray-400">
-                Trusted Partners
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="space-y-4">
-                <p className="text-sm font-serif text-gray-600">
-                  Repeat partnerships signal low execution risk. From early-stage startups to established AI platforms,
-                  I deliver technical audiences that convert.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
-                    <div className="text-xl font-serif text-black mt-2">Manus AI</div>
-                    <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
-                  </div>
-                  <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
-                    <div className="text-xl font-serif text-black mt-2">Kalshi</div>
-                    <div className="text-[11px] text-gray-500 mt-1">11 Successful Campaigns</div>
-                  </div>
-                  <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
-                    <div className="text-xl font-serif text-black mt-2">Cursor</div>
-                    <div className="text-[11px] text-gray-500 mt-1">2 Successful Campaigns</div>
-                  </div>
-                  <div className="border border-gray-200 p-4">
-                    <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
-                    <div className="text-xl font-serif text-black mt-2">Zo Computer</div>
-                    <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-xs font-mono text-gray-500">
-                {trustedPartners.map((partner) => (
-                  <div key={partner} className="border-b border-gray-100 pb-2">
-                    {partner}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          <section className="space-y-12">
-            <div className="border-b border-gray-100 pb-2">
-              <h2 className="text-sm font-sans font-bold text-gray-400">
-                Contact
-              </h2>
-            </div>
-
-            <div className="border border-gray-200 bg-gray-50 p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div className="space-y-4">
-                <div className="text-2xl font-serif text-black">Ready to ship?</div>
-                <div className="text-sm text-gray-500">For product launches and long-term collaborations.</div>
-                <a 
-                  href="mailto:yepifanova.lana@gmail.com"
-                  className="flex items-center gap-3 text-xs sm:text-sm font-mono text-gray-700 hover:text-black transition-colors"
-                >
-                  <span className="w-10 h-10 bg-white flex items-center justify-center">
-                    <Mail size={18} />
-                  </span>
-                  <span className="whitespace-nowrap">yepifanova.lana@gmail.com</span>
-                </a>
-              </div>
-
-            </div>
-          </section>
-        </>
-      ) : (
-        <section className="space-y-10 -mt-4">
-          <div className="space-y-4">
-            <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
-              {pianoShorts.map((url, index) => (
-                <button
-                  key={`short-${index}`}
-                  type="button"
-                  onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
-                  className="group text-left"
-                >
-                  <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                    <img
-                      src={getYoutubeThumbnail(url)}
-                      alt={`Piano Short ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                      <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
-                        <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="space-y-4">
+          <div className="border-b border-gray-100 pb-2">
+            <h2 className="text-sm font-sans font-bold text-gray-400">
+              Content Creation
+            </h2>
           </div>
+        </div>
 
-          <div className="space-y-4">
-            <h3 className="text-xs font-mono text-gray-400">Music Gallery</h3>
-            <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
-              <div
-                className="gallery-marquee"
-                style={
-                  { ["--marquee-duration" as string]: pianoGallery.duration } as CSSProperties
-                }
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <a
+            href="https://www.instagram.com/lana_yaps/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group overflow-hidden rounded-xl border border-gray-200 bg-gray-50 transition-colors hover:border-black hover:bg-white"
+          >
+            <div className="aspect-[16/10] w-full overflow-hidden bg-gray-100">
+              <img
+                src={instaPreview}
+                alt="Instagram profile preview"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex items-center justify-between gap-3 p-4">
+              <div className="min-w-0">
+                <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400">
+                  Instagram Profile
+                </div>
+                <div className="truncate text-sm font-serif text-black">
+                  @lana_yaps
+                </div>
+              </div>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-gray-500 transition-colors group-hover:text-black" />
+            </div>
+          </a>
+
+          <a
+            href="https://www.instagram.com/lana_yaps/reels/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group overflow-hidden rounded-xl border border-gray-200 bg-gray-50 transition-colors hover:border-black hover:bg-white"
+          >
+            <div className="aspect-[16/10] w-full overflow-hidden bg-gray-100">
+              <img
+                src={videosPreview}
+                alt="Instagram reels preview"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                loading="lazy"
+              />
+            </div>
+            <div className="flex items-center justify-between gap-3 p-4">
+              <div className="min-w-0">
+                <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-gray-400">
+                  Instagram Reels
+                </div>
+                <div className="truncate text-sm font-serif text-black">
+                  @lana_yaps
+                </div>
+              </div>
+              <ArrowUpRight className="h-4 w-4 shrink-0 text-gray-500 transition-colors group-hover:text-black" />
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section className="space-y-12 border-b border-gray-100 pb-20 -mt-4">
+        <div className="space-y-4">
+          <div className="border-b border-gray-100 pb-2">
+            <h2 className="text-sm font-sans font-bold text-gray-400">
+              Paid Partnerships
+            </h2>
+          </div>
+        </div>
+        <div className="grid grid-cols-3 sm:grid-cols-7 gap-4">
+          {shuffledPartnerships.map((partner, index) => (
+            <div key={`${partner.title}-${index}`} className="flex flex-col gap-3 group">
+              <button
+                type="button"
+                onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(partner.videoUrl))}
+                className="text-left"
               >
-                {[0, 1].map((duplicate) => (
-                  <div
-                    key={`piano-gallery-${duplicate}`}
-                    className="gallery-row"
-                    aria-hidden={duplicate === 1}
-                  >
-                    {pianoGallery.items.map((item) => (
-                      <figure key={`${item.image}-${duplicate}`} className="gallery-item">
-                        <div className="gallery-card">
-                          <img
-                            src={item.image}
-                            alt={item.title}
-                            className="gallery-image"
-                            style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
-                            loading="lazy"
-                          />
-                        </div>
-                      </figure>
-                    ))}
+                <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+                  <img
+                    src={getYoutubeThumbnail(partner.videoUrl)}
+                    alt={partner.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+                    <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
+                      <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
+                    </div>
                   </div>
-                ))}
+                </div>
+              </button>
+              <h3 className="text-xs font-serif italic text-black text-center group-hover:underline decoration-1 underline-offset-4">
+                {partner.title} x @lana_yaps
+              </h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="space-y-4">
+          <div className="border-b border-gray-100 pb-2">
+            <h2 className="text-sm font-sans font-bold text-gray-400">
+              Audience Snapshot
+            </h2>
+          </div>
+          <p className="text-sm font-serif text-gray-600 max-w-2xl">
+            Creator reaching ambitious STEM students, founders, and early-career professionals.
+            <span className="block font-medium text-gray-800">Your shortcut to technical early adopters.</span>
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {audienceStats.map((stat) => (
+            <div key={stat.label} className="border border-gray-200 p-5 space-y-4">
+              <div className="aspect-[4/3] w-full overflow-hidden border border-gray-100 bg-gray-50">
+                <img
+                  src={stat.image}
+                  alt={stat.alt}
+                  className="h-full w-full object-contain p-2"
+                  loading="lazy"
+                />
+              </div>
+              <div className="text-xs font-mono text-gray-400">{stat.label}</div>
+              <div className="text-2xl font-serif text-black">{stat.value}</div>
+              <div className="text-xs text-gray-500">{stat.subtext}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap gap-3">
+          {audienceTags.map((tag) => (
+            <span key={tag} className="border border-gray-200 px-3 py-1 text-[10px] font-mono text-gray-500">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="border-b border-gray-100 pb-2">
+          <h2 className="text-sm font-sans font-bold text-gray-400">
+            What Partners Say
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testimonials.map((testimonial) => (
+            <div key={`${testimonial.author}-${testimonial.role}`} className="border border-gray-200 p-6 space-y-4">
+              <p className="text-sm font-serif text-gray-600 leading-relaxed">"{testimonial.quote}"</p>
+              <div className="border-t border-gray-100 pt-4">
+                <div className="text-sm font-serif text-black">{testimonial.author}</div>
+                <div className="text-[10px] font-mono text-gray-400">{testimonial.role}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-12 border-b border-gray-100 pb-20">
+        <div className="border-b border-gray-100 pb-2">
+          <h2 className="text-sm font-sans font-bold text-gray-400">
+            Trusted Partners
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div className="space-y-4">
+            <p className="text-sm font-serif text-gray-600">
+              Repeat partnerships signal low execution risk. From early-stage startups to established AI platforms,
+              I deliver technical audiences that convert.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="border border-gray-200 p-4">
+                <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
+                <div className="text-xl font-serif text-black mt-2">Manus AI</div>
+                <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
+              </div>
+              <div className="border border-gray-200 p-4">
+                <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
+                <div className="text-xl font-serif text-black mt-2">Kalshi</div>
+                <div className="text-[11px] text-gray-500 mt-1">11 Successful Campaigns</div>
+              </div>
+              <div className="border border-gray-200 p-4">
+                <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
+                <div className="text-xl font-serif text-black mt-2">Cursor</div>
+                <div className="text-[11px] text-gray-500 mt-1">2 Successful Campaigns</div>
+              </div>
+              <div className="border border-gray-200 p-4">
+                <div className="text-[10px] font-mono text-gray-400">Featured Partner</div>
+                <div className="text-xl font-serif text-black mt-2">Zo Computer</div>
+                <div className="text-[11px] text-gray-500 mt-1">3 Successful Campaigns</div>
               </div>
             </div>
           </div>
 
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {pianoLongFormVideos.map((url, index) => (
-                <button
-                  key={`long-${index}`}
-                  type="button"
-                  onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
-                  className="group text-left"
-                >
-                  <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
-                    <img
-                      src={getYoutubeThumbnail(url)}
-                      alt={`Piano Performance ${index + 1}`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                      <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
-                        <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
-                      </div>
-                    </div>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-2">
-            <h3 className="text-xs font-mono text-gray-400">Performances & Features</h3>
-            {pianoGalleryLinks.map((link) => (
-              <a
-                key={link.title}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-between gap-4 border-b border-gray-100 py-2.5 text-black transition-colors last:border-b-0"
-              >
-                <div className="min-w-0">
-                  <div className="text-sm sm:text-[15px] text-black leading-snug">{link.title}</div>
-                </div>
-                <ArrowRight className="h-4 w-4 shrink-0 text-gray-300 transition-transform group-hover:translate-x-1 group-hover:text-black" />
-              </a>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-xs font-mono text-gray-500">
+            {trustedPartners.map((partner) => (
+              <div key={partner} className="border-b border-gray-100 pb-2">
+                {partner}
+              </div>
             ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+      <section className="space-y-12">
+        <div className="border-b border-gray-100 pb-2">
+          <h2 className="text-sm font-sans font-bold text-gray-400">
+            Contact
+          </h2>
+        </div>
+
+        <div className="border border-gray-200 bg-gray-50 p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="space-y-4">
+            <div className="text-2xl font-serif text-black">Ready to ship?</div>
+            <div className="text-sm text-gray-500">For product launches and long-term collaborations.</div>
+            <a 
+              href="mailto:yepifanova.lana@gmail.com"
+              className="flex items-center gap-3 text-xs sm:text-sm font-mono text-gray-700 hover:text-black transition-colors"
+            >
+              <span className="w-10 h-10 bg-white flex items-center justify-center">
+                <Mail size={18} />
+              </span>
+              <span className="whitespace-nowrap">yepifanova.lana@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {activeLightboxUrl &&
         createPortal(
