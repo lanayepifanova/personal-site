@@ -8,7 +8,7 @@ export default function Engineering() {
   usePageMeta({
     title: "Lana Yepifanova | Engineering Portfolio",
     description:
-      "I am an engineer, content creator, and community builder. In my free time, I enjoy playing piano, reading dystopian novels, and tinkering in makerspaces.",
+      "I’m a founder, operator, and content creator interested in finance, policy, startups, and institutional systems. My work spans real estate, media, entrepreneurship, and community-building, with a focus on ambitious people and the organizations that shape modern society.",
     canonicalPath: "/",
   });
 
