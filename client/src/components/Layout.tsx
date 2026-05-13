@@ -29,6 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="container flex h-20 items-center justify-between max-w-6xl mx-auto px-4">
           <div className="flex flex-col pl-4">
             <h1 className="font-sans text-2xl text-black font-semibold tracking-tight">Lana Yepifanova</h1>
+            <p className="font-sans text-xs text-gray-500 tracking-wide">Rice University 2023-2027</p>
           </div>
           <div className="flex items-center gap-8 pr-4">
             <nav className="hidden md:flex items-center gap-8">
