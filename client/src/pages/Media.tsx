@@ -329,14 +329,6 @@ export default function Media() {
       </header>
 
       <section className="space-y-12 border-b border-gray-100 pb-20">
-        <div className="space-y-4">
-          <div className="border-b border-gray-100 pb-2">
-            <h2 className="text-sm font-sans font-bold text-gray-400">
-              Content Creation
-            </h2>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <a
             href="https://www.instagram.com/lana_yaps/"
@@ -396,7 +388,7 @@ export default function Media() {
 
       <section className="space-y-12 border-b border-gray-100 pb-20 -mt-4">
         <div className="space-y-4">
-          <div className="border-b border-gray-100 pb-2">
+          <div className="pb-2">
             <h2 className="text-sm font-sans font-bold text-gray-400">
               Paid Partnerships
             </h2>

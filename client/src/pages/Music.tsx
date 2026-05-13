@@ -308,7 +308,6 @@ export default function Music() {
       </header>
 
       <section className="space-y-4 -mt-4">
-        <h3 className="text-xs font-mono text-gray-400">Music Gallery</h3>
         <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
           <div
             className="gallery-marquee"
@@ -342,7 +341,7 @@ export default function Music() {
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-mono text-gray-400">Piano Shorts</h3>
+        <h3 className="text-xs font-mono text-gray-400">Piano Channel Youtube Shorts</h3>
         {pianoShortRows.map((row, rowIndex) => (
           <div
             key={`piano-shorts-row-${rowIndex}`}
@@ -395,7 +394,7 @@ export default function Music() {
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-mono text-gray-400">Long-Form Performances</h3>
+        <h3 className="text-xs font-mono text-gray-400">Piano Channel Youtube Videos</h3>
         {pianoLongFormRows.map((row, rowIndex) => (
           <div
             key={`piano-longform-row-${rowIndex}`}
