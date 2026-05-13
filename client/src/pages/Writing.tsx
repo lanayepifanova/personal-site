@@ -17,6 +17,10 @@ export default function Writing() {
 
   return (
     <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-8 pb-24 px-4">
+      <header className="space-y-2">
+        <h1 className="text-3xl font-sans font-semibold tracking-tight text-black">Writing</h1>
+      </header>
+
       <section>
         <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-12">
           <div className="space-y-8">

@@ -109,7 +109,6 @@ export default function Communities() {
 
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 pt-8 pb-24 px-4">
-      
       {/* Rice Residency Section */}
       <section className="space-y-6">
         <div className="space-y-1">
