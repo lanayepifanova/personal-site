@@ -60,6 +60,10 @@ function formatYouTubeTitle(url: string, title: string) {
   const normalizedUrl = getNormalizedYoutubeWatchUrl(url);
   const cleanedTitle = title
     .replace(/\s*\((?:[^)]*piano cover[^)]*|piano cover \+ sheet music)\)\s*/gi, " ")
+    .replace(/^Love Theme from ["“]Cinema Paradiso["”]\s*-\s*Ennio Morricone$/i, 'Love Theme from “Cinema Paradiso”')
+    .replace(/^Tumblr Girls\s+by\s+G-Eazy\s+ft\.\s+Christoph Andersson$/i, "Tumblr Girls")
+    .replace(/^Sparkle Part 1\s*-\s*Your Name\s+by\s+RADWIMPS$/i, "Sparkle Part 1")
+    .replace(/^Sparkle Part 3\s*-\s*Your Name\s+by\s+RADWIMPS$/i, "Sparkle Part 3")
     .replace(/#[^\s#]+/g, "")
     .replace(/\s{2,}/g, " ")
     .trim();
@@ -98,7 +102,7 @@ function YouTubeTitle({ url, fallback }: { url: string; fallback?: string }) {
   }, [url]);
 
   return (
-    <div className="pt-2 whitespace-pre-line text-xs font-sans leading-snug text-black">
+    <div className="pt-2 whitespace-pre-line text-center text-balance text-xs font-serif italic leading-snug text-black">
       {title || formatYouTubeTitle(url, fallback || "YouTube video")}
     </div>
   );
