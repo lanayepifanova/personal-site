@@ -83,13 +83,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link 
             key={item.href} 
             href={item.href}
+            aria-label={item.label}
             className={cn(
-              "flex flex-col items-center gap-1 p-2 rounded-md transition-colors min-w-[60px]",
+              "flex items-center justify-center p-3 rounded-md transition-colors min-w-[60px]",
               isActive(item.href) ? "text-black bg-gray-50" : "text-gray-400"
             )}
           >
-            <item.icon className="h-4 w-4" />
-            <span className="text-sm font-semibold tracking-wide font-sans">{item.label}</span>
+            <item.icon className="h-5 w-5" />
           </Link>
         ))}
 
