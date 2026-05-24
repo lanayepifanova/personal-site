@@ -4,7 +4,7 @@ export default function Writing() {
   usePageMeta({
     title: "Lana Yepifanova | Writing",
     description:
-      "Essays, notes, and ongoing writing by Lana Yepifanova on technology, media, and culture.",
+      "Essays, notes, and a running list of media recommendations by Lana Yepifanova on technology, media, and culture.",
     canonicalPath: "/writing",
   });
 
@@ -13,7 +13,9 @@ export default function Writing() {
     { title: "AI Slop and Advertising Structures in a Technopoly", date: "03/15/2026", href: "/essays/ai-slop-advertising" },
   ] as { title: string; date: string; href?: string }[];
 
-  const notes = [] as { title: string; date: string; href?: string }[];
+  const movies = [
+    { title: "Kimi no Na wa. (Your Name)", href: "https://myanimelist.net/anime/32281/Kimi_no_Na_wa" },
+  ] as { title: string; href?: string }[];
 
   return (
     <div className="page-stagger space-y-12 animate-in fade-in duration-700 pt-8 pb-24 px-4">
@@ -25,29 +27,27 @@ export default function Writing() {
         <div className="grid grid-cols-1 md:grid-cols-[0.85fr_1.15fr] gap-12">
           <div className="space-y-8">
             <div className="space-y-2">
-              <h3 className="text-xs font-mono text-gray-400">Notes</h3>
-              {notes.length === 0 ? (
-                <div className="py-4 text-2xl text-black" style={{ fontFamily: "'Dancing Script', cursive" }}>
-                  notes coming soon.
+              <h3 className="text-xs font-mono text-gray-400">My Recommendations</h3>
+              {movies.length === 0 ? (
+                <div className="py-4 text-sm text-gray-400 font-mono">
+                  Movies coming soon.
                 </div>
               ) : (
                 <div className="divide-y divide-gray-100">
-                  {notes.map((note) => (
-                    note.href ? (
+                  {movies.map((movie) => (
+                    movie.href ? (
                       <a
-                        key={note.title}
-                        href={note.href}
+                        key={movie.title}
+                        href={movie.href}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group flex items-baseline justify-between gap-4 py-2.5 hover:text-black transition-colors"
                       >
-                        <span className="text-sm text-black group-hover:underline underline-offset-4 decoration-1">{note.title}</span>
-                        <span className="text-xs text-gray-400 font-mono shrink-0">{note.date}</span>
+                        <span className="text-sm text-black group-hover:underline underline-offset-4 decoration-1">{movie.title}</span>
                       </a>
                     ) : (
-                      <div key={note.title} className="flex items-baseline justify-between gap-4 py-2.5">
-                        <span className="text-sm text-black">{note.title}</span>
-                        <span className="text-xs text-gray-400 font-mono shrink-0">{note.date}</span>
+                      <div key={movie.title} className="flex items-baseline justify-between gap-4 py-2.5">
+                        <span className="text-sm text-black">{movie.title}</span>
                       </div>
                     )
                   ))}
@@ -58,7 +58,7 @@ export default function Writing() {
 
           <div className="space-y-8">
             <div className="space-y-2">
-              <h3 className="text-xs font-mono text-gray-400">Essays</h3>
+              <h3 className="text-xs font-mono text-gray-400">My Own Thoughts</h3>
               {essays.length === 0 ? (
                 <div className="py-4 text-sm text-gray-400 font-mono">
                   Essays coming soon.
