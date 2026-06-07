@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 type PageMetaOptions = {
   title: string;
-  description: string;
   canonicalPath?: string;
   ogType?: "website" | "article" | "profile";
 };
@@ -21,7 +20,6 @@ function setMetaTag(attribute: "name" | "property", value: string, content: stri
 
 export function usePageMeta({
   title,
-  description,
   canonicalPath,
   ogType = "website",
 }: PageMetaOptions) {
@@ -37,12 +35,6 @@ export function usePageMeta({
     setMetaTag("property", "og:title", pageTitle);
     setMetaTag("name", "twitter:title", pageTitle);
 
-    if (description) {
-      setMetaTag("name", "description", description);
-      setMetaTag("property", "og:description", description);
-      setMetaTag("name", "twitter:description", description);
-    }
-
     if (canonicalPath) {
       let canonicalTag = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
       if (!canonicalTag) {
@@ -57,5 +49,5 @@ export function usePageMeta({
     setMetaTag("property", "og:url", resolvedUrl);
     setMetaTag("name", "twitter:card", "summary");
     setMetaTag("name", "twitter:url", resolvedUrl);
-  }, [title, description, canonicalPath, ogType]);
+  }, [title, canonicalPath, ogType]);
 }

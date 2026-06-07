@@ -8,8 +8,6 @@ export default function Communities() {
 
   usePageMeta({
     title: "Lana Yepifanova | Communities at Rice University",
-    description:
-      "Clubs and communities Lana Yepifanova is part of at Rice University: Rice Residency founder, Harvard St Commons, The Residency, The Collective, plus campus life highlights across athletics, arts, and service.",
     canonicalPath: "/communities",
   });
   const campusGalleries = [

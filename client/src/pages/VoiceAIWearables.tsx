@@ -3,8 +3,6 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 export default function VoiceAIWearables() {
   usePageMeta({
     title: "How Voice AI Wearables Will Rewire Hyperconnectivity | Lana Yepifanova",
-    description:
-      "Every major leap in computing has been defined by shrinking the distance between human and machine. Over the next decade, voice AI wearables will dissolve one of the last remaining thresholds between digital and physical life.",
     canonicalPath: "/essays/voice-ai-wearables",
   });
 

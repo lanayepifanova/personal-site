@@ -7,8 +7,6 @@ export default function Music() {
 
   usePageMeta({
     title: "Lana Yepifanova | Music",
-    description:
-      "Piano performances, shorts, music gallery, and featured performances by Lana Yepifanova.",
     canonicalPath: "/music",
   });
 

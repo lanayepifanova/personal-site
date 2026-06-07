@@ -6,8 +6,6 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 export default function Engineering() {
   usePageMeta({
     title: "Lana Yepifanova | Work Experience",
-    description:
-      "I’m a founder, operator, and content creator interested in finance, policy, startups, and institutional systems. My work spans real estate, media, entrepreneurship, and community-building, with a focus on ambitious people and the organizations that shape modern society.",
     canonicalPath: "/",
   });
 

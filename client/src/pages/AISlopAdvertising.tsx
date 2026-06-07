@@ -3,8 +3,6 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 export default function AISlopAdvertising() {
   usePageMeta({
     title: "AI Slop and Advertising Structures in a Technopoly | Lana Yepifanova",
-    description:
-      "AI slop is not a temporary trend. It is the logical outcome of technopoly and advertising-driven media systems. As production of media becomes infinitely scalable, communication shifts from producing meaning to optimizing for attention.",
     canonicalPath: "/essays/ai-slop-advertising",
   });
 
