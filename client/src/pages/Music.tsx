@@ -112,17 +112,6 @@ export default function Music() {
     ],
   };
 
-  const pianoFourhandVideos = [
-    {
-      title: "Themes from Attack on Titan",
-      url: "https://www.youtube.com/watch?v=ij4a8EmkP3Y",
-    },
-    {
-      title: "Piano Duet - Demon Slayer",
-      url: "https://www.youtube.com/watch?v=-62X6l-FxLQ",
-    },
-  ];
-
   const getYoutubeId = (url: string) => {
     const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
     if (embedMatch) {
@@ -199,13 +188,7 @@ export default function Music() {
 
   return (
     <div className="page-stagger space-y-10 animate-in fade-in duration-700 pt-2 sm:pt-4 pb-24 px-4">
-      <header className="space-y-5">
-        <div className="space-y-2">
-          <h1 className="text-3xl font-sans font-semibold tracking-tight text-black">Music</h1>
-        </div>
-      </header>
-
-      <section className="space-y-4 -mt-4">
+      <section className="space-y-4">
         <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
           <div
             className="gallery-marquee"
@@ -236,57 +219,6 @@ export default function Music() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="space-y-4">
-        {pianoShortRows.map((row, rowIndex) => (
-          <div
-            key={`piano-shorts-row-${rowIndex}`}
-            className="gallery-track"
-            onWheel={handleGalleryWheel}
-            onScroll={handleGalleryScroll}
-          >
-            <div
-              className={`gallery-marquee${rowIndex === 1 ? " reverse" : ""}`}
-              style={{ ["--marquee-duration" as string]: "48s" } as CSSProperties}
-            >
-              {[0, 1].map((duplicate) => (
-                <div
-                  key={`piano-shorts-${rowIndex}-${duplicate}`}
-                  className="flex gap-4 pr-4"
-                  aria-hidden={duplicate === 1}
-                >
-                  {row.map((url, index) => (
-                    <div
-                      key={`short-${rowIndex}-${index}-${duplicate}`}
-                      className="w-28 sm:w-32 md:w-36 shrink-0"
-                    >
-                      <button
-                        type="button"
-                        onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
-                        className="group w-full text-left"
-                      >
-                        <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
-                          <img
-                            src={getYoutubeThumbnail(url)}
-                            alt={`Piano Short ${rowIndex * Math.ceil(pianoShorts.length / 2) + index + 1}`}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                            <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
-                              <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
-                            </div>
-                          </div>
-                        </div>
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
       </section>
 
       <section className="space-y-4">
@@ -341,34 +273,54 @@ export default function Music() {
       </section>
 
       <section className="space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {pianoFourhandVideos.map((video) => (
+        {pianoShortRows.map((row, rowIndex) => (
+          <div
+            key={`piano-shorts-row-${rowIndex}`}
+            className="gallery-track"
+            onWheel={handleGalleryWheel}
+            onScroll={handleGalleryScroll}
+          >
             <div
-              key={video.url}
-              className="text-left"
+              className={`gallery-marquee${rowIndex === 1 ? " reverse" : ""}`}
+              style={{ ["--marquee-duration" as string]: "48s" } as CSSProperties}
             >
-              <button
-                type="button"
-                onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(video.url))}
-                className="group w-full text-left"
-              >
-                <div className="aspect-[16/9] w-full bg-gray-100 overflow-hidden rounded-xl shadow-sm border border-gray-100 relative">
-                  <img
-                    src={getYoutubeThumbnail(video.url)}
-                    alt={video.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
-                    <div className="h-10 w-10 rounded-full bg-white/90 flex items-center justify-center">
-                      <div className="ml-0.5 h-0 w-0 border-y-[6px] border-y-transparent border-l-[10px] border-l-black"></div>
+              {[0, 1].map((duplicate) => (
+                <div
+                  key={`piano-shorts-${rowIndex}-${duplicate}`}
+                  className="flex gap-4 pr-4"
+                  aria-hidden={duplicate === 1}
+                >
+                  {row.map((url, index) => (
+                    <div
+                      key={`short-${rowIndex}-${index}-${duplicate}`}
+                      className="w-28 sm:w-32 md:w-36 shrink-0"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setActiveLightboxUrl(getYoutubeEmbedUrl(url))}
+                        className="group w-full text-left"
+                      >
+                        <div className="aspect-[9/16] w-full bg-gray-100 overflow-hidden border border-gray-200 rounded-sm relative">
+                          <img
+                            src={getYoutubeThumbnail(url)}
+                            alt={`Piano Short ${rowIndex * Math.ceil(pianoShorts.length / 2) + index + 1}`}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/35">
+                            <div className="h-9 w-9 rounded-full bg-white/90 flex items-center justify-center">
+                              <div className="ml-0.5 h-0 w-0 border-y-[5px] border-y-transparent border-l-[9px] border-l-black"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </button>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              </button>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </section>
 
       {activeLightboxUrl &&

@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/engineering", label: "Engineering", icon: Code },
+    { href: "/engineering", label: "Work Experience", icon: Code },
     { href: "/music", label: "Music", icon: Music },
     { href: "/communities", label: "Communities", icon: Users },
   ];
