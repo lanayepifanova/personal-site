@@ -1,112 +1,6 @@
 import { createPortal } from "react-dom";
-import { useEffect, useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
+import { useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
 import { usePageMeta } from "@/hooks/usePageMeta";
-
-const youtubeTitleCache = new Map<string, string>();
-const youtubeTitleRequests = new Map<string, Promise<string>>();
-
-function getNormalizedYoutubeWatchUrl(url: string) {
-  const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]+)/);
-  if (embedMatch) {
-    return `https://www.youtube.com/watch?v=${embedMatch[1]}`;
-  }
-
-  const shortsMatch = url.match(/\/shorts\/([a-zA-Z0-9_-]+)/);
-  if (shortsMatch) {
-    return `https://www.youtube.com/watch?v=${shortsMatch[1]}`;
-  }
-
-  const watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]+)/);
-  if (watchMatch) {
-    return `https://www.youtube.com/watch?v=${watchMatch[1]}`;
-  }
-
-  return url;
-}
-
-function getYoutubeTitle(url: string) {
-  const normalizedUrl = getNormalizedYoutubeWatchUrl(url);
-
-  if (youtubeTitleCache.has(normalizedUrl)) {
-    return Promise.resolve(youtubeTitleCache.get(normalizedUrl) ?? "");
-  }
-
-  if (youtubeTitleRequests.has(normalizedUrl)) {
-    return youtubeTitleRequests.get(normalizedUrl) ?? Promise.resolve("");
-  }
-
-  const request = fetch(`https://www.youtube.com/oembed?url=${encodeURIComponent(normalizedUrl)}&format=json`)
-    .then(async (response) => {
-      if (!response.ok) {
-        throw new Error("Failed to load YouTube title");
-      }
-
-      const data = (await response.json()) as { title?: string };
-      const title = data.title ?? "";
-      youtubeTitleCache.set(normalizedUrl, title);
-      youtubeTitleRequests.delete(normalizedUrl);
-      return title;
-    })
-    .catch(() => {
-      youtubeTitleRequests.delete(normalizedUrl);
-      return "";
-    });
-
-  youtubeTitleRequests.set(normalizedUrl, request);
-  return request;
-}
-
-function formatYouTubeTitle(url: string, title: string) {
-  const normalizedUrl = getNormalizedYoutubeWatchUrl(url);
-  const cleanedTitle = title
-    .replace(/\s*\((?:[^)]*piano cover[^)]*|piano cover \+ sheet music)\)\s*/gi, " ")
-    .replace(/^Love Theme from ["“]Cinema Paradiso["”]\s*-\s*Ennio Morricone$/i, 'Love Theme from “Cinema Paradiso”')
-    .replace(/^Tumblr Girls\s+by\s+G-Eazy\s+ft\.\s+Christoph Andersson$/i, "Tumblr Girls")
-    .replace(/^Sparkle Part 1\s*-\s*Your Name\s+by\s+RADWIMPS$/i, "Sparkle Part 1")
-    .replace(/^Sparkle Part 3\s*-\s*Your Name\s+by\s+RADWIMPS$/i, "Sparkle Part 3")
-    .replace(/#[^\s#]+/g, "")
-    .replace(/\s{2,}/g, " ")
-    .trim();
-
-  if (normalizedUrl.includes("v=ij4a8EmkP3Y")) {
-    return "Themes from Attack on Titan";
-  }
-
-  if (normalizedUrl.includes("v=-62X6l-FxLQ")) {
-    return "Themes from Demon Slayer";
-  }
-
-  return cleanedTitle;
-}
-
-function YouTubeTitle({ url, fallback }: { url: string; fallback?: string }) {
-  const normalizedUrl = getNormalizedYoutubeWatchUrl(url);
-  const [title, setTitle] = useState(() =>
-    formatYouTubeTitle(url, youtubeTitleCache.get(normalizedUrl) ?? fallback ?? "")
-  );
-
-  useEffect(() => {
-    let isMounted = true;
-
-    getYoutubeTitle(url).then((nextTitle) => {
-      if (!isMounted || !nextTitle) {
-        return;
-      }
-
-      setTitle(formatYouTubeTitle(url, nextTitle));
-    });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [url]);
-
-  return (
-    <div className="pt-2 whitespace-pre-line text-center text-balance text-xs font-serif italic leading-snug text-black">
-      {title || formatYouTubeTitle(url, fallback || "YouTube video")}
-    </div>
-  );
-}
 
 export default function Music() {
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
@@ -345,7 +239,6 @@ export default function Music() {
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-mono text-gray-400">Piano Channel Youtube Shorts</h3>
         {pianoShortRows.map((row, rowIndex) => (
           <div
             key={`piano-shorts-row-${rowIndex}`}
@@ -387,7 +280,6 @@ export default function Music() {
                           </div>
                         </div>
                       </button>
-                      <YouTubeTitle url={url} />
                     </div>
                   ))}
                 </div>
@@ -398,7 +290,6 @@ export default function Music() {
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-mono text-gray-400">Piano Channel Youtube Videos</h3>
         {pianoLongFormRows.map((row, rowIndex) => (
           <div
             key={`piano-longform-row-${rowIndex}`}
@@ -440,7 +331,6 @@ export default function Music() {
                           </div>
                         </div>
                       </button>
-                      <YouTubeTitle url={url} />
                     </div>
                   ))}
                 </div>
@@ -451,7 +341,6 @@ export default function Music() {
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-xs font-mono text-gray-400">Piano Fourhand</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {pianoFourhandVideos.map((video) => (
             <div
@@ -477,7 +366,6 @@ export default function Music() {
                   </div>
                 </div>
               </button>
-              <YouTubeTitle url={video.url} fallback={video.title} />
             </div>
           ))}
         </div>

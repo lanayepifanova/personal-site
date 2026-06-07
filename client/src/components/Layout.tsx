@@ -1,15 +1,13 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Code, FileText, Github, Instagram, Linkedin, Music, Users, Video } from "lucide-react";
+import { Code, Music, Users } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   const navItems = [
     { href: "/engineering", label: "Engineering", icon: Code },
-    { href: "/media", label: "Media", icon: Video },
     { href: "/music", label: "Music", icon: Music },
-    { href: "/writing", label: "Writing", icon: FileText },
     { href: "/communities", label: "Communities", icon: Users },
   ];
 
@@ -26,7 +24,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       
       {/* Top Bar (Minimal Header) */}
       <header className="z-40 border-b sticky top-0 transition-colors duration-300 border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-        <div className="container grid h-20 grid-cols-[1fr_auto] items-center max-w-6xl mx-auto px-4 md:grid-cols-[auto_1fr_auto]">
+        <div className="container grid h-20 grid-cols-[1fr_auto] items-center max-w-6xl mx-auto px-4 md:grid-cols-[auto_1fr]">
           <div className="flex flex-col pl-4">
             <h1 className="font-sans text-2xl text-black font-semibold tracking-tight">Lana Yepifanova</h1>
             <p className="font-sans text-xs text-gray-500 tracking-wide">Rice University 2023-2027</p>
@@ -45,35 +43,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             ))}
           </nav>
-          <div className="hidden md:flex items-center justify-end gap-4 pr-4">
-            <a
-              href="https://www.linkedin.com/in/lana-yepifanova/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-gray-400 transition-colors hover:text-black"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="https://github.com/lanayepifanova"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="text-gray-400 transition-colors hover:text-black"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://www.instagram.com/lana_yaps/?hl=en"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-              className="text-gray-400 transition-colors hover:text-black"
-            >
-              <Instagram className="h-5 w-5" />
-            </a>
-          </div>
         </div>
       </header>
 

@@ -5,9 +5,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Engineering from "./pages/Engineering";
 import Communities from "./pages/Communities";
-import Media from "./pages/Media";
 import Music from "./pages/Music";
-import Writing from "./pages/Writing";
 import VoiceAIWearables from "./pages/VoiceAIWearables";
 import AISlopAdvertising from "./pages/AISlopAdvertising";
 import Layout from "./components/Layout";
@@ -17,9 +15,7 @@ function Routes({ location }: { location?: string }) {
     <Switch location={location}>
       <Route path="/" component={Engineering} />
       <Route path="/engineering" component={Engineering} />
-      <Route path="/media" component={Media} />
       <Route path="/music" component={Music} />
-      <Route path="/writing" component={Writing} />
       <Route path="/communities" component={Communities} />
       <Route path="/essays/voice-ai-wearables" component={VoiceAIWearables} />
       <Route path="/essays/ai-slop-advertising" component={AISlopAdvertising} />
