@@ -8,6 +8,7 @@ import Communities from "./pages/Communities";
 import Music from "./pages/Music";
 import VoiceAIWearables from "./pages/VoiceAIWearables";
 import AISlopAdvertising from "./pages/AISlopAdvertising";
+import Media from "./pages/Media";
 import Layout from "./components/Layout";
 
 function Routes({ location }: { location?: string }) {
@@ -17,6 +18,7 @@ function Routes({ location }: { location?: string }) {
       <Route path="/engineering" component={Engineering} />
       <Route path="/music" component={Music} />
       <Route path="/communities" component={Communities} />
+      <Route path="/media" component={Media} />
       <Route path="/essays/voice-ai-wearables" component={VoiceAIWearables} />
       <Route path="/essays/ai-slop-advertising" component={AISlopAdvertising} />
       <Route component={NotFound} />

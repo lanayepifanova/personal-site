@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Code, Music, Users } from "lucide-react";
+import { Code, Megaphone, Music, Users } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
@@ -9,6 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     { href: "/engineering", label: "Work Experience", icon: Code },
     { href: "/music", label: "Music", icon: Music },
     { href: "/communities", label: "Communities", icon: Users },
+    { href: "/media", label: "Media", icon: Megaphone },
   ];
 
   const isActive = (href: string) => {
