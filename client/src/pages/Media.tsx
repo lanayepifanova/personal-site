@@ -17,6 +17,10 @@ const reels = [
     id: "DZpc0pdhI6-",
     url: "https://www.instagram.com/reel/DZpc0pdhI6-/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
+  {
+    id: "DZydoCkhFAB",
+    url: "https://www.instagram.com/reel/DZydoCkhFAB/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
 ];
 
 export default function Media() {
