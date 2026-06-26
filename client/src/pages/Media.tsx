@@ -2,10 +2,6 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 
 const reels = [
   {
-    id: "DaAoBpth0zw",
-    url: "https://www.instagram.com/reel/DaAoBpth0zw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-  },
-  {
     id: "DZXbULchiiD",
     url: "https://www.instagram.com/reel/DZXbULchiiD/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
   },
@@ -44,11 +40,14 @@ export default function Media() {
       </h2>
       <div className="grid gap-8 md:grid-cols-2">
         {reels.map((reel) => (
-          <div key={reel.id} className="mx-auto w-full max-w-[540px]">
+          <div
+            key={reel.id}
+            className="mx-auto h-[760px] w-full max-w-[540px] overflow-hidden rounded-xl border border-gray-200 bg-white"
+          >
             <iframe
               src={`https://www.instagram.com/reel/${reel.id}/embed/`}
               title={`Instagram reel ${reel.id}`}
-              className="h-[760px] w-full rounded-xl border border-gray-200 bg-white"
+              className="h-full w-full border-0 bg-white"
               allowFullScreen
               loading="lazy"
             >
