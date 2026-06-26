@@ -2,6 +2,10 @@ import { usePageMeta } from "@/hooks/usePageMeta";
 
 const reels = [
   {
+    id: "DaAoBpth0zw",
+    url: "https://www.instagram.com/reel/DaAoBpth0zw/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
+  {
     id: "DZXbULchiiD",
     url: "https://www.instagram.com/reel/DZXbULchiiD/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
   },
