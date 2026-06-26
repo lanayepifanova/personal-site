@@ -7,9 +7,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const navItems = [
     { href: "/engineering", label: "Work Experience", icon: Code },
-    { href: "/music", label: "Music", icon: Music },
-    { href: "/communities", label: "Communities", icon: Users },
     { href: "/media", label: "Media", icon: Megaphone },
+    { href: "/communities", label: "Communities", icon: Users },
+    { href: "/music", label: "Music", icon: Music },
   ];
 
   const isActive = (href: string) => {
