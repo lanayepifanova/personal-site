@@ -3,6 +3,19 @@ import { createPortal } from "react-dom";
 import { ExternalLink, Newspaper, Instagram } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
+type GalleryItem = {
+  title: string;
+  image: string;
+  objectPosition?: string;
+  scale?: string;
+};
+
+type CampusGallery = {
+  title: string;
+  duration: string;
+  items: GalleryItem[];
+};
+
 export default function Communities() {
   const [activeLightboxUrl, setActiveLightboxUrl] = useState<string | null>(null);
 
@@ -10,7 +23,7 @@ export default function Communities() {
     title: "Lana Yepifanova | Communities at Rice University",
     canonicalPath: "/communities",
   });
-  const campusGalleries = [
+  const campusGalleries: CampusGallery[] = [
     {
       title: "Sports",
       duration: "26s",

@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { createPortal } from "react-dom";
 import { ArrowUpRight } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
@@ -112,8 +110,6 @@ export default function Engineering() {
 
   const workshopLinks = [] as { title: string; href: string }[];
 
-  const [activeJob, setActiveJob] = useState<(typeof corporate)[number] | null>(null);
-
   return (
     <div className="page-stagger space-y-20 animate-in fade-in duration-700 pt-8 pb-24 px-4">
       
@@ -121,11 +117,9 @@ export default function Engineering() {
         <section className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {corporate.map((job) => (
-              <button
+              <article
                 key={`${job.company}-${job.period}`}
-                type="button"
-                className="group flex flex-col text-left cursor-pointer"
-                onClick={() => setActiveJob(job)}
+                className="group flex flex-col text-left"
               >
                 <div className="aspect-[16/9] overflow-hidden rounded-xl mb-4 bg-gray-100 shadow-sm border border-gray-100 relative">
                   <img
@@ -146,63 +140,11 @@ export default function Engineering() {
                 <div className="text-gray-500 font-sans text-sm leading-relaxed">
                   {job.description}
                 </div>
-              </button>
+              </article>
             ))}
           </div>
         </section>
       </section>
-
-      {activeJob &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center px-4"
-            onClick={() => setActiveJob(null)}
-            onMouseDown={() => setActiveJob(null)}
-          >
-            <div
-              className="relative w-full max-w-3xl bg-white border border-gray-200 shadow-lg"
-              onClick={(event) => event.stopPropagation()}
-              onMouseDown={(event) => event.stopPropagation()}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveJob(null)}
-                className="absolute -top-10 right-0 text-white text-sm tracking-widest uppercase"
-              >
-                close
-              </button>
-              <div className="p-6 space-y-5">
-                <div className="aspect-[16/9] overflow-hidden rounded-xl bg-gray-100 border border-gray-100">
-                  <img
-                    src={activeJob.image}
-                    alt={activeJob.company}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <div className="text-xl font-sans font-semibold text-black">{activeJob.company}</div>
-                  <div className="text-sm font-sans text-gray-400">{activeJob.period}</div>
-                </div>
-                <div className="text-sm font-sans text-gray-600">{activeJob.role}</div>
-                <div className="text-sm font-sans text-gray-500 leading-relaxed">
-                  {activeJob.description}
-                </div>
-                {activeJob.link && (
-                  <a
-                    href={activeJob.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black transition-colors border-b border-gray-200 hover:border-black pb-0.5"
-                  >
-                    Visit site
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>,
-          document.body
-        )}
 
       {workshopLinks.length > 0 && (
         <section className="-mt-12 pb-20">

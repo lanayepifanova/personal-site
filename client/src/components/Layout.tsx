@@ -1,14 +1,15 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { Code, Megaphone, Music, Users } from "lucide-react";
+import { BookOpenText, Code, Megaphone, Music, Users } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
 
   const navItems = [
     { href: "/engineering", label: "Work Experience", icon: Code },
-    { href: "/media", label: "Media", icon: Megaphone },
+    { href: "/writing", label: "Writing", icon: BookOpenText },
     { href: "/communities", label: "Communities", icon: Users },
+    { href: "/media", label: "Media", icon: Megaphone },
     { href: "/music", label: "Music", icon: Music },
   ];
 
@@ -30,13 +31,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="font-sans text-2xl text-black font-semibold tracking-tight">Lana Yepifanova</h1>
             <p className="font-sans text-xs text-gray-500 tracking-wide">Rice University 2023-2027</p>
           </div>
-          <nav className="hidden md:flex items-center justify-self-center gap-8">
+          <nav className="hidden md:flex items-center justify-self-center gap-4 lg:gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href} 
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-2 text-base font-semibold tracking-wide transition-colors font-sans",
+                  "flex items-center gap-2 text-sm font-semibold tracking-wide transition-colors font-sans lg:text-base",
                   isActive(item.href) ? "text-black underline decoration-1 underline-offset-4" : "text-gray-400 hover:text-black"
                 )}
               >
