@@ -351,7 +351,7 @@ export default function Writing() {
   }, []);
 
   return (
-    <div className="page-stagger animate-in fade-in duration-700 px-4 pb-24 pt-8 md:-mx-8">
+    <div className="page-stagger animate-in fade-in duration-700 px-4 pb-24 pt-8">
       <div className="grid gap-12 md:grid-cols-[minmax(220px,0.55fr)_minmax(0,1.85fr)] md:gap-12">
         <section>
           <h3 className="mb-5 font-mono text-xs uppercase tracking-wider text-gray-400">
