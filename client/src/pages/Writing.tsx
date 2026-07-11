@@ -13,14 +13,6 @@ const hasHref = (essay: Essay): essay is Essay & { href: string } =>
 
 const essays: Essay[] = [
   {
-    title: "Voice AI Wearables",
-    href: "/essays/voice-ai-wearables",
-  },
-  {
-    title: "AI Slop in a Technopoly",
-    href: "/essays/ai-slop-advertising",
-  },
-  {
     title: "Age of Enlightenment",
   },
   {
@@ -39,7 +31,7 @@ const essays: Essay[] = [
     title: "Welfare Programs",
   },
   {
-    title: "Lacrosse Segway Pipelin",
+    title: "Lacrosse Segway Pipeline",
   },
   {
     title: "Having Immigrant Parents",
