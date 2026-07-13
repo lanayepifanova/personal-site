@@ -157,7 +157,7 @@ export default function Writing() {
           </div>
 
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-[16rem]">
-            This is a digital garden of unfinished thoughts and unpolished collections. I am not a good writer, but I believe that in order to get good at something, you have to try.
+            This is a digital garden of unfinished thoughts and unpolished collections. I am not a good writer, in order to improve, I have to try.
           </p>
 
           <div className="space-y-2">
