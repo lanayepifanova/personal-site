@@ -93,69 +93,96 @@ export default function Media() {
   };
 
   return (
-    <div className="page-stagger px-4 pb-24 pt-2 sm:pt-8">
-      <h2 className="mb-8 font-sans text-2xl font-semibold tracking-tight text-black">
-        Ultimate Ivy League Guide
-      </h2>
-      <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
-        <div
-          className="gallery-marquee"
-          style={{ ["--marquee-duration" as string]: "42s" } as CSSProperties}
-        >
-          {[0, 1].map((duplicate) => (
-            <div
-              key={`ivy-guide-${duplicate}`}
-              className="flex gap-6 pr-6"
-              aria-hidden={duplicate === 1}
-            >
-              {reels.map((reel) => (
-                <div
-                  key={`${reel.id}-${duplicate}`}
-                  className="h-[680px] w-[320px] shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white sm:w-[380px]"
-                >
-                  <iframe
-                    src={`https://www.instagram.com/reel/${reel.id}/embed/`}
-                    title={`Instagram reel ${reel.id}`}
-                    className="h-full w-full border-0 bg-white"
-                    allowFullScreen
-                    loading="lazy"
-                  >
-                    <a href={reel.url} target="_blank" rel="noopener noreferrer">
-                      View this reel on Instagram
-                    </a>
-                  </iframe>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-      <noscript>
-        <div className="grid gap-8 md:grid-cols-2">
-          {reels.map((reel) => (
-          <div
-            key={reel.id}
-            className="mx-auto h-[760px] w-full max-w-[540px] overflow-hidden rounded-xl border border-gray-200 bg-white"
-          >
-            <iframe
-              src={`https://www.instagram.com/reel/${reel.id}/embed/`}
-              title={`Instagram reel ${reel.id}`}
-              className="h-full w-full border-0 bg-white"
-              allowFullScreen
-              loading="lazy"
-            >
-              <a href={reel.url} target="_blank" rel="noopener noreferrer">
-                View this reel on Instagram
-              </a>
-            </iframe>
+    <div className="page-stagger space-y-20 px-4 pb-24 pt-2 sm:pt-8">
+      <section className="space-y-6">
+        <div className="space-y-1">
+          <div className="flex justify-between items-end">
+            <h2 className="text-3xl font-sans font-medium text-black tracking-tight">
+              Ultimate Ivy League Guide
+            </h2>
           </div>
-          ))}
+          <div className="flex justify-between items-baseline">
+            <div className="text-lg font-serif text-black">Content Creator</div>
+          </div>
         </div>
-      </noscript>
-      <section className="mt-16">
-        <h2 className="mb-8 font-sans text-2xl font-semibold tracking-tight text-black">
-          Leading Owls Podcast
-        </h2>
+
+        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
+          Ultimate Ivy League Guide is one of the fastest-growing college admissions mentorship companies, featured in Forbes, Business Insider, Yahoo, and other leading publications for its innovative approach to college admissions. Through personalized coaching, strategic planning, and its signature Narrative Method, the company empowers students to build standout applications that showcase their unique strengths and long-term potential.
+        </p>
+
+        <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
+          <div
+            className="gallery-marquee"
+            style={{ ["--marquee-duration" as string]: "42s" } as CSSProperties}
+          >
+            {[0, 1].map((duplicate) => (
+              <div
+                key={`ivy-guide-${duplicate}`}
+                className="flex gap-6 pr-6"
+                aria-hidden={duplicate === 1}
+              >
+                {reels.map((reel) => (
+                  <div
+                    key={`${reel.id}-${duplicate}`}
+                    className="h-[680px] w-[320px] shrink-0 overflow-hidden rounded-xl border border-gray-200 bg-white sm:w-[380px]"
+                  >
+                    <iframe
+                      src={`https://www.instagram.com/reel/${reel.id}/embed/`}
+                      title={`Instagram reel ${reel.id}`}
+                      className="h-full w-full border-0 bg-white"
+                      allowFullScreen
+                      loading="lazy"
+                    >
+                      <a href={reel.url} target="_blank" rel="noopener noreferrer">
+                        View this reel on Instagram
+                      </a>
+                    </iframe>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+        <noscript>
+          <div className="grid gap-8 md:grid-cols-2">
+            {reels.map((reel) => (
+              <div
+                key={reel.id}
+                className="mx-auto h-[760px] w-full max-w-[540px] overflow-hidden rounded-xl border border-gray-200 bg-white"
+              >
+                <iframe
+                  src={`https://www.instagram.com/reel/${reel.id}/embed/`}
+                  title={`Instagram reel ${reel.id}`}
+                  className="h-full w-full border-0 bg-white"
+                  allowFullScreen
+                  loading="lazy"
+                >
+                  <a href={reel.url} target="_blank" rel="noopener noreferrer">
+                    View this reel on Instagram
+                  </a>
+                </iframe>
+              </div>
+            ))}
+          </div>
+        </noscript>
+      </section>
+
+      <section className="space-y-6 border-t border-gray-100 pt-12">
+        <div className="space-y-1">
+          <div className="flex justify-between items-end">
+            <h2 className="text-3xl font-sans font-medium text-black tracking-tight">
+              Leading Owls Podcast
+            </h2>
+          </div>
+          <div className="flex justify-between items-baseline">
+            <div className="text-lg font-serif text-black">Podcast Host</div>
+          </div>
+        </div>
+
+        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
+          The Leading Owls Podcast is the official leadership podcast of the Doerr Institute for New Leaders at Rice University, showcasing the students, faculty, alumni, and professionals who are shaping the future through leadership. Episodes are available on Spotify, Apple Podcasts, YouTube, Amazon Music, and other major podcast platforms.
+        </p>
+
         <iframe
           src="https://embed.podcasts.apple.com/us/podcast/leading-owls-podcast/id1775472900"
           title="Leading Owls Podcast"
@@ -173,10 +200,23 @@ export default function Media() {
           </a>
         </iframe>
       </section>
-      <div className="mt-16 w-full">
-        <h2 className="mb-8 font-sans text-2xl font-semibold tracking-tight text-black">
-          Lana Yepifanova (@lana_yaps)
-        </h2>
+
+      <section className="space-y-6 border-t border-gray-100 pt-12">
+        <div className="space-y-1">
+          <div className="flex justify-between items-end">
+            <h2 className="text-3xl font-sans font-medium text-black tracking-tight">
+              Lana Yepifanova (@lana_yaps)
+            </h2>
+          </div>
+          <div className="flex justify-between items-baseline">
+            <div className="text-lg font-serif text-black">Personal Branding</div>
+          </div>
+        </div>
+
+        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
+          I've taken down most of my content at this point, but I used to post videos relating to startups, tech, and academia. I also used to run a business in which I made a lot of sponsored UGC advertisements in partnership with certain AI companies and consumer brands. I hope to get back into posting on my personal brand and creating videos again soon.
+        </p>
+
         <iframe
           src="https://www.instagram.com/lana_yaps/embed/"
           title="Lana Yepifanova on Instagram"
@@ -192,7 +232,7 @@ export default function Media() {
             View @lana_yaps on Instagram
           </a>
         </iframe>
-      </div>
+      </section>
     </div>
   );
 }

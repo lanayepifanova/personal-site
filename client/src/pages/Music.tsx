@@ -1,5 +1,6 @@
 import { createPortal } from "react-dom";
 import { useState, type CSSProperties, type UIEvent, type WheelEvent } from "react";
+import { ExternalLink } from "lucide-react";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 export default function Music() {
@@ -186,6 +187,35 @@ export default function Music() {
 
   return (
     <div className="page-stagger space-y-10 animate-in fade-in duration-700 pt-2 sm:pt-4 pb-24 px-4">
+      <section className="space-y-6">
+        <div className="space-y-1">
+          <div className="flex justify-between items-end">
+            <h2 className="text-3xl font-sans font-medium text-black tracking-tight">
+              Piano YouTube Channel
+            </h2>
+          </div>
+          <div className="flex justify-between items-baseline">
+            <div className="text-lg font-serif text-black">Pianist and Creator</div>
+          </div>
+        </div>
+
+        <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
+          I started my piano YouTube channel to document my growth as a pianist, share performances beyond formal recitals, and make classical music feel more accessible online. It has grown to 498 subscribers, 130k+ views, and 66 videos.
+        </p>
+
+        <div className="flex gap-4 text-xs font-sans">
+          <a
+            href="https://www.youtube.com/@LanaYepifanova"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-black hover:text-gray-600 transition-colors border-b border-black/20 hover:border-black pb-0.5"
+          >
+            <ExternalLink className="h-3 w-3" />
+            Visit Piano YouTube Channel
+          </a>
+        </div>
+      </section>
+
       <section className="space-y-4">
         <div className="gallery-track" onWheel={handleGalleryWheel} onScroll={handleGalleryScroll}>
           <div

@@ -24,7 +24,7 @@ export function usePageMeta({
   ogType = "website",
 }: PageMetaOptions) {
   useEffect(() => {
-    const pageTitle = "Lana Yepifanova";
+    const pageTitle = title;
     const resolvedUrl = canonicalPath
       ? canonicalPath.startsWith("http")
         ? canonicalPath

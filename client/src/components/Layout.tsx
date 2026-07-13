@@ -7,8 +7,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const navItems = [
     { href: "/engineering", label: "Work Experience", icon: Code },
-    { href: "/media", label: "Media", icon: Megaphone },
     { href: "/communities", label: "Communities", icon: Users },
+    { href: "/media", label: "Media", icon: Megaphone },
     { href: "/music", label: "Music", icon: Music },
     { href: "/writing", label: "Writing", icon: BookOpenText },
   ];
@@ -31,7 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <h1 className="font-sans text-2xl text-black font-semibold tracking-tight">Lana Yepifanova</h1>
             <p className="font-sans text-xs text-gray-500 tracking-wide">Rice University 2023-2027</p>
           </div>
-          <nav className="hidden md:flex items-center justify-self-center gap-4 lg:gap-8">
+          <nav className="hidden md:flex items-center justify-self-end gap-4 pr-4 lg:gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href} 
@@ -67,7 +67,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* Main Content */}
-      <main className="flex-1 container relative z-10 py-8 pb-24 md:pb-12 px-4 max-w-6xl mx-auto">
+      <main className="flex-1 container relative z-10 py-8 pb-32 md:pb-12 px-4 max-w-6xl mx-auto">
         {children}
       </main>
 

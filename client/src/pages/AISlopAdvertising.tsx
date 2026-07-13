@@ -9,7 +9,6 @@ export default function AISlopAdvertising() {
   return (
     <div className="animate-in fade-in duration-700 pt-8 pb-32 px-4 max-w-2xl mx-auto">
       <header className="space-y-3 mb-12">
-        <div className="text-xs font-mono uppercase tracking-wider text-gray-400">Essay</div>
         <h1 className="text-2xl sm:text-3xl font-serif font-medium text-black leading-snug">
           AI Slop and Advertising Structures in a Technopoly
         </h1>

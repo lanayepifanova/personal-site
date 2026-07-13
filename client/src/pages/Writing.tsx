@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { usePageMeta } from "@/hooks/usePageMeta";
+import { atlasLocations, slugifyTravelCity } from "@/data/travelLocations";
 import "maplibre-gl/dist/maplibre-gl.css";
 
 type Essay = {
@@ -12,6 +13,10 @@ const hasHref = (essay: Essay): essay is Essay & { href: string } =>
   typeof essay.href === "string";
 
 const essays: Essay[] = [
+  {
+    title: "Great Responsibilities",
+    href: "/essays/great-responsibilities",
+  },
   {
     title: "Age of Enlightenment",
   },
@@ -41,185 +46,9 @@ const essays: Essay[] = [
   },
 ];
 
-const atlasLocations = [
-  {
-    city: "New York",
-    country: "United States",
-    lat: 40.7128,
-    lon: -74.006,
-    offsetX: "4px",
-    offsetY: "-5px",
-  },
-  {
-    city: "Boston",
-    country: "United States",
-    lat: 42.3601,
-    lon: -71.0589,
-    offsetX: "7px",
-    offsetY: "-10px",
-  },
-  {
-    city: "Los Angeles",
-    country: "United States",
-    lat: 34.0522,
-    lon: -118.2437,
-    offsetX: "-5px",
-    offsetY: "3px",
-  },
-  {
-    city: "San Francisco",
-    country: "United States",
-    lat: 37.7749,
-    lon: -122.4194,
-    offsetX: "-8px",
-    offsetY: "-4px",
-  },
-  {
-    city: "Houston",
-    country: "United States",
-    lat: 29.7604,
-    lon: -95.3698,
-    offsetX: "0px",
-    offsetY: "8px",
-  },
-  {
-    city: "Austin",
-    country: "United States",
-    lat: 30.2672,
-    lon: -97.7431,
-    offsetX: "-5px",
-    offsetY: "-3px",
-  },
-  {
-    city: "Miami",
-    country: "United States",
-    lat: 25.7617,
-    lon: -80.1918,
-    offsetX: "4px",
-    offsetY: "6px",
-  },
-  {
-    city: "Chicago",
-    country: "United States",
-    lat: 41.8781,
-    lon: -87.6298,
-  },
-  {
-    city: "New Orleans",
-    country: "United States",
-    lat: 29.9511,
-    lon: -90.0715,
-    offsetX: "5px",
-    offsetY: "2px",
-  },
-  {
-    city: "Atlanta",
-    country: "United States",
-    lat: 33.749,
-    lon: -84.388,
-    offsetX: "2px",
-    offsetY: "-5px",
-  },
-  {
-    city: "Portland",
-    country: "United States",
-    lat: 45.5152,
-    lon: -122.6784,
-    offsetX: "-10px",
-    offsetY: "-8px",
-  },
-  {
-    city: "Gifu",
-    country: "Japan",
-    lat: 35.4233,
-    lon: 136.7607,
-    offsetX: "-5px",
-    offsetY: "4px",
-  },
-  {
-    city: "Novosibirsk",
-    country: "Russia",
-    lat: 55.0084,
-    lon: 82.9357,
-  },
-  {
-    city: "Kyiv",
-    country: "Ukraine",
-    lat: 50.4501,
-    lon: 30.5234,
-    offsetX: "7px",
-    offsetY: "-4px",
-  },
-  {
-    city: "Reykjavik",
-    country: "Iceland",
-    lat: 64.1466,
-    lon: -21.9426,
-  },
-  {
-    city: "Mexico City",
-    country: "Mexico",
-    lat: 19.4326,
-    lon: -99.1332,
-  },
-  {
-    city: "Athens",
-    country: "Greece",
-    lat: 37.9838,
-    lon: 23.7275,
-    offsetX: "6px",
-    offsetY: "8px",
-  },
-  {
-    city: "Warsaw",
-    country: "Poland",
-    lat: 52.2297,
-    lon: 21.0122,
-    offsetX: "-3px",
-    offsetY: "-9px",
-  },
-  {
-    city: "Punta Cana",
-    country: "Dominican Republic",
-    lat: 18.5601,
-    lon: -68.3725,
-  },
-  {
-    city: "Rome",
-    country: "Italy",
-    lat: 41.9028,
-    lon: 12.4964,
-    offsetX: "-6px",
-    offsetY: "-8px",
-  },
-  {
-    city: "Bari",
-    country: "Italy",
-    lat: 41.1171,
-    lon: 16.8719,
-    offsetX: "4px",
-    offsetY: "2px",
-  },
-  {
-    city: "Venice",
-    country: "Italy",
-    lat: 45.4408,
-    lon: 12.3155,
-    offsetX: "5px",
-    offsetY: "-13px",
-  },
-  {
-    city: "Geneva",
-    country: "Switzerland",
-    lat: 46.2044,
-    lon: 6.1432,
-    offsetX: "-9px",
-    offsetY: "-4px",
-  },
-];
-
 export default function Writing() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const [, setLocation] = useLocation();
 
   usePageMeta({
     title: "Lana Yepifanova | Writing",
@@ -268,46 +97,17 @@ export default function Writing() {
       const markers = atlasLocations.map((location) => {
         const markerElement = document.createElement("button");
         markerElement.type = "button";
-        markerElement.title = `${location.city}, ${location.country}`;
         markerElement.setAttribute("aria-label", `${location.city}, ${location.country}`);
         markerElement.className =
-          "group relative block h-7 w-7 border-0 bg-transparent p-0 outline-none";
+          "group relative block h-7 w-7 cursor-pointer border-0 bg-transparent p-0 outline-none focus-visible:ring-2 focus-visible:ring-red-300 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
         markerElement.innerHTML = `
-          <span class="absolute left-1/2 top-0 block h-5 w-5 -translate-x-1/2 rounded-full border border-red-900 bg-red-600 shadow-[0_1px_4px_rgba(0,0,0,0.35)] transition-transform group-hover:scale-125"></span>
-          <span class="absolute left-1/2 top-3.5 block h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-b border-r border-red-900 bg-red-600 transition-transform group-hover:scale-125"></span>
-          <span class="absolute left-1/2 top-1.5 block h-2 w-2 -translate-x-1/2 rounded-full bg-white"></span>
+          <span class="absolute left-1/2 top-0 block h-5 w-5 -translate-x-1/2 rounded-full border border-red-900 bg-red-600 shadow-[0_1px_4px_rgba(0,0,0,0.35)] transition-all duration-200 ease-out group-hover:scale-110 group-hover:shadow-[0_0_0_6px_rgba(220,38,38,0.14),0_8px_18px_rgba(0,0,0,0.28)] group-hover:bg-red-500 group-focus-visible:scale-110 group-focus-visible:shadow-[0_0_0_6px_rgba(220,38,38,0.14),0_8px_18px_rgba(0,0,0,0.28)] group-focus-visible:bg-red-500"></span>
+          <span class="absolute left-1/2 top-3.5 block h-3.5 w-3.5 -translate-x-1/2 rotate-45 border-b border-r border-red-900 bg-red-600 transition-all duration-200 ease-out group-hover:scale-110 group-hover:bg-red-500 group-focus-visible:scale-110 group-focus-visible:bg-red-500"></span>
+          <span class="absolute left-1/2 top-1.5 block h-2 w-2 -translate-x-1/2 rounded-full bg-white transition-all duration-200 ease-out group-hover:scale-125 group-focus-visible:scale-125"></span>
         `;
-
-        const popup = new maplibregl.Popup({
-          closeButton: false,
-          closeOnClick: false,
-          offset: 18,
-        }).setHTML(`
-          <div style="font-family: Inter, sans-serif; font-size: 12px; line-height: 1.25;">
-            <div style="font-family: Space Mono, monospace; font-size: 10px; color: #6b7280; letter-spacing: 0.08em; text-transform: uppercase;">${location.country}</div>
-            <div style="font-family: Crimson Pro, serif; font-size: 18px; color: #000;">${location.city}</div>
-          </div>
-        `);
-
-        const showPopup = () => {
-          popup.setLngLat([location.lon, location.lat]).addTo(map);
-        };
-
-        markerElement.addEventListener("mouseenter", showPopup);
-        markerElement.addEventListener("mouseenter", () => {
-          markerElement.style.zIndex = "20";
-        });
-        markerElement.addEventListener("mouseleave", () => popup.remove());
-        markerElement.addEventListener("mouseleave", () => {
-          markerElement.style.zIndex = "";
-        });
-        markerElement.addEventListener("focus", showPopup);
-        markerElement.addEventListener("focus", () => {
-          markerElement.style.zIndex = "20";
-        });
-        markerElement.addEventListener("blur", () => popup.remove());
-        markerElement.addEventListener("blur", () => {
-          markerElement.style.zIndex = "";
+        const citySlug = slugifyTravelCity(location.city);
+        markerElement.addEventListener("click", () => {
+          setLocation(`/writing/travel/${citySlug}`);
         });
 
         const marker = new maplibregl.Marker({
@@ -315,7 +115,6 @@ export default function Writing() {
           anchor: "center",
         })
           .setLngLat([location.lon, location.lat])
-          .setPopup(popup)
           .addTo(map);
 
         bounds.extend([location.lon, location.lat]);
@@ -343,12 +142,24 @@ export default function Writing() {
   }, []);
 
   return (
-    <div className="page-stagger animate-in fade-in duration-700 px-4 pb-24 pt-8">
-      <div className="grid gap-12 md:grid-cols-[minmax(220px,0.55fr)_minmax(0,1.85fr)] md:gap-12">
-        <section>
-          <h3 className="mb-5 font-mono text-xs uppercase tracking-wider text-gray-400">
-            Essay Writing
-          </h3>
+    <div className="page-stagger animate-in fade-in duration-700 px-4 pb-32 pt-8 sm:pb-24">
+      <div className="grid gap-12 lg:grid-cols-[minmax(230px,0.46fr)_minmax(0,1.14fr)] lg:gap-10 lg:items-start">
+        <section className="space-y-6 lg:max-w-md lg:justify-self-start min-w-0">
+          <div className="space-y-1">
+            <div className="flex justify-between items-end">
+              <h2 className="text-2xl sm:text-3xl font-sans font-medium text-black tracking-tight">
+                My Notebook
+              </h2>
+            </div>
+            <div className="flex justify-between items-baseline">
+              <div className="text-base sm:text-lg font-serif text-black">Amateur Writer</div>
+            </div>
+          </div>
+
+          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-[16rem]">
+            This is a digital garden of unfinished thoughts and unpolished collections. I am not a good writer, but I believe that in order to get good at something, you have to try.
+          </p>
+
           <div className="space-y-2">
             {essays.map((essay) => (
               <article key={essay.title}>
@@ -369,13 +180,25 @@ export default function Writing() {
           </div>
         </section>
 
-        <section>
-          <h3 className="mb-5 font-mono text-xs uppercase tracking-wider text-gray-400">
-            Travel Documentation
-          </h3>
+        <section className="space-y-6 min-w-0 lg:ml-auto lg:w-full lg:max-w-[760px]">
+          <div className="space-y-1">
+            <div className="flex justify-between items-end">
+              <h2 className="text-2xl sm:text-3xl font-sans font-medium text-black tracking-tight">
+                Travel Documentation
+              </h2>
+            </div>
+            <div className="flex justify-between items-baseline">
+              <div className="text-base sm:text-lg font-serif text-black">Solo Traveling Adventures</div>
+            </div>
+          </div>
+
+          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
+            This map tracks the places I&apos;ve lived in, studied in, and passed through, turning travel into a visual record of where different parts of my life have happened. Each pin marks a city that shaped my perspective in some way, whether through school, work, family, or time spent exploring. Hover over the pins and click them to see my thoughts.
+          </p>
+
           <div
             ref={mapContainerRef}
-            className="relative aspect-[16/10] min-h-[420px] overflow-hidden border border-gray-200 bg-gray-50"
+            className="relative aspect-[16/10] min-h-[300px] w-full min-w-0 overflow-hidden border border-gray-200 bg-gray-50 sm:min-h-[360px] lg:min-h-0"
           />
         </section>
       </div>

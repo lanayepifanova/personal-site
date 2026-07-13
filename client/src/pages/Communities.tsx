@@ -132,7 +132,7 @@ export default function Communities() {
         </div>
 
         <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
-          Rice Residency is a selective, founder-led hacker house near Rice University in Houston for students and early-stage founders building software, hardware, and deep-tech startups. Residents are chosen for technical ability and execution, and operate in a high-density environment with shared housing, accountability, and access to Houston’s energy, climate, medical, and industrial startup ecosystem. The program ends with a Demo Day where teams present shipped products to investors and operators. We have partnerships with Greentown Labs, Rice Nexus, Lilie Lab, and TiE Houston.
+          Rice Residency is a selective, founder-led hacker house near Rice University in Houston for students and early-stage founders building software, hardware, and deep-tech startups. We've raised 2.5M+ in funding, had 3 residents get into a16z speedrun, 1 resident get into the YC S26 batch, and 7 residents in the Rice Summer Venture Studio.
         </p>
 
         <div className="flex gap-4 text-xs font-sans">
