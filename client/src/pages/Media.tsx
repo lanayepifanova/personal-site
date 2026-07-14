@@ -50,6 +50,10 @@ const reels = [
     id: "DanP36-BMzC",
     url: "https://www.instagram.com/reel/DanP36-BMzC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
   },
+  {
+    id: "Dau-RKNB_9s",
+    url: "https://www.instagram.com/reel/Dau-RKNB_9s/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+  },
 ];
 
 export default function Media() {

@@ -152,13 +152,9 @@ export default function Writing() {
               </h2>
             </div>
             <div className="flex justify-between items-baseline">
-              <div className="text-base sm:text-lg font-serif text-black">Amateur Writer</div>
+              <div className="text-base sm:text-lg font-serif text-black">Unfinished Thoughts</div>
             </div>
           </div>
-
-          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-[16rem]">
-            Unfinished thoughts and unpolished collections.
-          </p>
 
           <div className="space-y-2">
             {essays.map((essay) => (
@@ -188,13 +184,9 @@ export default function Writing() {
               </h2>
             </div>
             <div className="flex justify-between items-baseline">
-              <div className="text-base sm:text-lg font-serif text-black">Solo Traveling Adventures</div>
+              <div className="text-base sm:text-lg font-serif text-black">Hover and Click on the Pins!</div>
             </div>
           </div>
-
-          <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
-            This map tracks the places I&apos;ve lived in, studied in, and passed through. Hover over the pins and click them to see my thoughts.
-          </p>
 
           <div
             ref={mapContainerRef}
