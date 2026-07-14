@@ -193,7 +193,7 @@ export default function Writing() {
           </div>
 
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-2xl">
-            This map tracks the places I&apos;ve lived in, studied in, and passed through, turning travel into a visual record of where different parts of my life have happened. Each pin marks a city that shaped my perspective in some way, whether through school, work, family, or time spent exploring. Hover over the pins and click them to see my thoughts.
+            This map tracks the places I&apos;ve lived in, studied in, and passed through. Hover over the pins and click them to see my thoughts.
           </p>
 
           <div
