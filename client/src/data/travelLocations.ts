@@ -5,12 +5,13 @@ export type TravelLocation = {
   lon: number;
   offsetX?: string;
   offsetY?: string;
+  photos?: string[];
 };
 
 export const atlasLocations: TravelLocation[] = [
   {
     city: "New York",
-    country: "United States",
+    country: "New York",
     lat: 40.7128,
     lon: -74.006,
     offsetX: "4px",
@@ -18,7 +19,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Boston",
-    country: "United States",
+    country: "Massachusetts",
     lat: 42.3601,
     lon: -71.0589,
     offsetX: "7px",
@@ -26,7 +27,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Los Angeles",
-    country: "United States",
+    country: "California",
     lat: 34.0522,
     lon: -118.2437,
     offsetX: "-5px",
@@ -34,7 +35,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "San Francisco",
-    country: "United States",
+    country: "California",
     lat: 37.7749,
     lon: -122.4194,
     offsetX: "-8px",
@@ -42,7 +43,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Houston",
-    country: "United States",
+    country: "Texas",
     lat: 29.7604,
     lon: -95.3698,
     offsetX: "0px",
@@ -50,7 +51,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Austin",
-    country: "United States",
+    country: "Texas",
     lat: 30.2672,
     lon: -97.7431,
     offsetX: "-5px",
@@ -58,7 +59,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Miami",
-    country: "United States",
+    country: "Florida",
     lat: 25.7617,
     lon: -80.1918,
     offsetX: "4px",
@@ -66,13 +67,13 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Chicago",
-    country: "United States",
+    country: "Illinois",
     lat: 41.8781,
     lon: -87.6298,
   },
   {
     city: "New Orleans",
-    country: "United States",
+    country: "Louisiana",
     lat: 29.9511,
     lon: -90.0715,
     offsetX: "5px",
@@ -80,7 +81,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Atlanta",
-    country: "United States",
+    country: "Georgia",
     lat: 33.749,
     lon: -84.388,
     offsetX: "2px",
@@ -88,7 +89,7 @@ export const atlasLocations: TravelLocation[] = [
   },
   {
     city: "Portland",
-    country: "United States",
+    country: "Oregon",
     lat: 45.5152,
     lon: -122.6784,
     offsetX: "-10px",
@@ -121,6 +122,26 @@ export const atlasLocations: TravelLocation[] = [
     country: "Iceland",
     lat: 64.1466,
     lon: -21.9426,
+    photos: [
+      "/images/travel/reykjavik/01-aurora-portrait.jpg",
+      "/images/travel/reykjavik/02-roommate-souvenir.jpg",
+      "/images/travel/reykjavik/03-aurora-wide.jpg",
+      "/images/travel/reykjavik/04-icelandair-snow.jpg",
+      "/images/travel/reykjavik/05-cafe-wrap.jpg",
+      "/images/travel/reykjavik/06-cafe-yogurt.jpg",
+      "/images/travel/reykjavik/07-snowy-street-sunset.jpg",
+      "/images/travel/reykjavik/08-lit-church-night.jpg",
+      "/images/travel/reykjavik/09-aurora-snowbank.jpg",
+      "/images/travel/reykjavik/10-snowy-river.jpg",
+      "/images/travel/reykjavik/11-snowy-forest.jpg",
+      "/images/travel/reykjavik/12-sun-over-snow.jpg",
+      "/images/travel/reykjavik/13-snowy-field-sun.jpg",
+      "/images/travel/reykjavik/14-cafe-french-toast.jpg",
+      "/images/travel/reykjavik/15-mountain-snow.jpg",
+      "/images/travel/reykjavik/16-pink-mountain-sky.jpg",
+      "/images/travel/reykjavik/17-croissants.jpg",
+      "/images/travel/reykjavik/18-breakfast-table.jpg",
+    ],
   },
   {
     city: "Mexico City",
