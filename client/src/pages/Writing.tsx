@@ -157,7 +157,7 @@ export default function Writing() {
           </div>
 
           <p className="text-gray-600 font-serif text-sm leading-relaxed max-w-[16rem]">
-            This is a digital garden of unfinished thoughts and unpolished collections.
+            Unfinished thoughts and unpolished collections.
           </p>
 
           <div className="space-y-2">
